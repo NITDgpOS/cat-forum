@@ -6,7 +6,7 @@
       <span class="reply-user"> <%= reply.user.username %></span><br>
       <% @reply = reply %>
       <span class="time">replied <%= time_ago_in_words(reply.created_at) %> ago</span><br><br><br>
-      <span class="description"><%=best_in_place_if user_signed_in? && current_user.id == reply.user.id,  @reply, :content, :activator => ".activator-reply", type: :textarea, :html_attrs => {:id => 'new_thread_description'} %></span><br><br><br><br>
+      <span class="description"><%=best_in_place_if user_signed_in? && current_user.id == reply.user.id,  @reply, :content, :activator => ".activator-reply", type: :textarea, :html_attrs => {:id => 'reply_content'} %></span><br><br><br><br>
       
       <div class="info">
 
@@ -46,7 +46,7 @@
           <td>
             <% if user_signed_in? %>
             <% if reply.user.id == current_user.id %>
-            <a href="#" class="activator-reply reply-link des">Content</a>
+            <!-- <a href="#" class="activator-reply reply-link des">Content</a> -->
             <%= link_to "Delete", {:action => 'destroy', :controller => "replies", :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link'%>
           <% end %>
           <%end%>
