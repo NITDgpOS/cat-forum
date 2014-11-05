@@ -203,20 +203,20 @@ var ready = function(){
 
 /* fading js */
 
-var fade_reply = function(){
-  tilers = $(".fade_speechr").fadeTo(0,0);
+// var fade_reply = function(){
+//   tilers = $(".fade_speechr").fadeTo(0,0);
 
-$(window).scroll(function(d,h) {
-    tilers.each(function(i) {
-        a = $(this).offset().top + $(this).height();
-        b = $(window).scrollTop() + $(window).height() + 50 ;
-        if (a < b) $(this).fadeTo(500,1);
-    });
-});
+// $(window).scroll(function(d,h) {
+//     tilers.each(function(i) {
+//         a = $(this).offset().top + $(this).height();
+//         b = $(window).scrollTop() + $(window).height() + 50 ;
+//         if (a < b) $(this).fadeTo(500,1);
+//     });
+// });
 
-};
- $(document).ready(fade_reply);
- $(document).on('page:load', fade_reply);
+// };
+//  $(document).ready(fade_reply);
+//  $(document).on('page:load', fade_reply);
 
 
 var fade_thread = function(){

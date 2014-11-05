@@ -50318,3 +50318,147 @@ Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2014-11-05 17:16:23 
 
 
 Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2014-11-05 17:16:23 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NewThreadsController#index as HTML
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 401 Unauthorized in 61ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (6.1ms)
+  Rendered users/registrations/_new.html.erb (6.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (36.4ms)
+  Rendered new_threads/_search.html.erb (2.5ms)
+Completed 200 OK in 218ms (Views: 211.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/activities.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/blockeds.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/curtain.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/dislike_counts.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/dislike_count_replies.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/like_count_replies.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/like_counts.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/new_thread_flags.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/new_threads.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/replies.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/reply_flags.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:47 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/activities.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/blockeds.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/dislike_count_replies.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/dislike_counts.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/jquery.purr.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/like_count_replies.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/like_counts.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/new_thread_flags.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/new_threads.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/replies.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/reply_flags.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/rlsmooth.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/best_in_place.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/search.png" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
+
+
+Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2014-11-05 18:00:48 +0530
