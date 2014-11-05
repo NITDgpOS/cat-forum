@@ -1,0 +1,40 @@
+<div class="blocked-wrapper">
+
+  <%= form_for(:user, :url => {:action => 'update', :id => @user.id}, :method => "patch") do |f| %>
+   <%= image_tag @user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
+  <table class="userswords">
+      <tr>
+      <td>Username:</td><td><%= @user.username %></td>
+      </tr>
+      <tr>
+       <td>Email:</td><td><%= @user.email %> </td>
+      </tr>
+      <tr>
+       <td>Member for:</td><td><%= time_ago_in_words(@user.created_at) %></td>
+      </tr>
+      <tr>
+       <td> Points:</td><td><%= @user.points %></td>
+      </tr>
+      <tr>
+       <td> Badge:</td><td> <%= @user.badge %></td>
+     </tr>
+     <tr>
+       <td> Last Blocked:</td><td><% if @user.created_at != @user.updated_at %> 
+       <%=time_ago_in_words(@user.updated_at)%> ago
+       <%end%>
+       </td>
+     </tr>
+     <tr>
+    <td><%= f.label(:blocked_status) %></td>
+    <td><%= f.check_box(:blocked) %></td>
+    </tr>
+  
+</table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Update") %>
+    </div>
+    
+  <% end %>
+</div>
+</div>

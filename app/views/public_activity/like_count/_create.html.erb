@@ -1,0 +1,6 @@
+likes
+<% if activity.trackable %>
+<%= link_to activity.trackable.new_thread.title, activity.trackable.new_thread %>&nbsp;&nbsp;<span class="count-cell"> +15 </span>
+<% else %>
+  which has since been removed 
+<% end %>

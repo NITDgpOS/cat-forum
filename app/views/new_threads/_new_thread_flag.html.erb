@@ -1,0 +1,4 @@
+<% new_thread = NewThread.find(new_thread_id) %>
+<%= div_for new_thread, class: "flag" do %>
+&nbsp; <%= new_thread.new_thread_flags.size %>
+<% end %>

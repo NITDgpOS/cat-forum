@@ -1,0 +1,5 @@
+<% reply_dislike = Reply.find(reply_id) %>
+<%= div_for(@reply, class: "boo") do %>
+ &nbsp;<%= reply_dislike.dislike_count_replies.size %>
+<% end %>
+

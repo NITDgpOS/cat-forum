@@ -1,0 +1,17 @@
+
+  <table class="listing" summary="Replies list">
+    <tr class="header">
+      
+    </tr>
+    <% @replies.each do |reply| %>
+    <tr >
+      <td><b><%= reply.content %></b></td>
+    </tr>
+    <tr>
+      <td ><%= reply.like %> likes &nbsp; &nbsp; <%= reply.dislike %> dislikes </td>
+    </tr>
+    <tr>
+      <td> &nbsp; </td>
+    </tr>
+    <% end %>
+  </table>

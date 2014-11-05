@@ -1,0 +1,4 @@
+<% reply_like = Reply.find(reply_id) %>
+<%= div_for(@reply, class: "foo") do %>
+&nbsp;&nbsp;<%= reply_like.like_count_replies.size %>
+<% end %>

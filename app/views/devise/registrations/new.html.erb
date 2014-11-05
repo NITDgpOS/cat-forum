@@ -1,0 +1,41 @@
+<div class="s-wrapper">
+
+ <div class="welcome-cat">
+  <%= image_tag("cat.jpg", class: "cat") %>
+ </div>
+
+<section class="container">
+  <div class="login">
+  <h1>Sign up</h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <p><%= f.email_field :email, autofocus: true %></p>
+
+  <%= f.label :password %>
+  <p><%= f.password_field :password, autocomplete: "off" %></p>
+
+  <%= f.label :password_confirmation %>
+  <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+
+  
+  
+  <%= f.label(:username) %>
+   <p><%= f.text_field(:username, class: "username-text") %></p>
+   
+     <%= f.label :photo, "Photo" %>
+      <p><%= f.file_field :photo %></p>
+  
+
+   <p class="submit">
+    <%= f.submit "Sign up", :class => 'sign-up' %>
+   </p>
+<% end %>
+<p class="links">
+<%= render "devise/shared/links" %>
+</p>
+</div>
+</section>
+</div>

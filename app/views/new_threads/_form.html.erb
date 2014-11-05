@@ -1,0 +1,30 @@
+
+
+<%= form_for(@new_thread) do |f| %>
+  <% if @new_thread.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_thread.errors.count, "error") %> prohibited this new_thread from being saved:</h2>
+
+      <ul>
+      <% @new_thread.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <div class="n-thread">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="n-thread">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+  	<%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Post', :class => 'sign-up post' %>
+  </div>
+<% end %>

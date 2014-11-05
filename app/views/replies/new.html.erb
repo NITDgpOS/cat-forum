@@ -1,0 +1,13 @@
+<div class="subject new">
+  <h2>Create Thread</h2>
+
+  <%= form_for(:reply, :url => {:action => 'create'}) do |f| %>
+  
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Post Reply") %>
+    </div>
+    
+  <% end %>
+</div>

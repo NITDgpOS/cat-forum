@@ -1,0 +1,16 @@
+
+    <% @new_threads.each do |new_thread| %>
+    <tr class="destroy_flag" id="new_thread_<%=new_thread.id%>">
+      <%if @flag = new_thread.new_thread_flags.first %>
+      <td class="destroy_flag"><%= @flag.new_thread.description.split[0..10].join(" ") %></td>
+      <td><%=link_to new_thread.title.split[0..3].join(" "), new_thread %></td>
+        <td><%= new_thread.new_thread_flags.size %></td>
+        <td><%= link_to "Delete", :action => "destroy", :controller => "new_thread_flags", :id => new_thread.id, :remote => true %></td>
+      <% end %>
+     
+    <% end %>
+   </tr>
+ <table>
+
+
+

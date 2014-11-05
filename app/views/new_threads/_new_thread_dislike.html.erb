@@ -1,0 +1,5 @@
+<% new_thread_dislike = NewThread.find(new_thread_id) %>
+<%= div_for(@new_thread, class: "foo") do %>
+ &nbsp;<%= new_thread_dislike.dislike_counts.size %>
+<% end %>
+

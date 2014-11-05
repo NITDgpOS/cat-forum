@@ -1,0 +1,70 @@
+<div class="user-info">
+      <%= image_tag current_user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
+     <table class="userswords">
+      <tr>
+      <td>Username:</td><td><%= current_user.username %></td>
+      </tr>
+      <tr>
+       <td>Email:</td><td><%= current_user.email %> </td>
+      </tr>
+      <tr>
+       <td>Member for:</td><td><%= time_ago_in_words(current_user.created_at) %></td>
+      </tr>
+      <tr>
+       <td> Points:</td><td><%= current_user.points %></td>
+      </tr>
+      <tr>
+       <td> Badge:</td><td> <%= current_user.badge %></td>
+     </tr>
+    </table>
+    <ul class="qanda">
+       <bold>Answers:</bold><br><br>
+       <% replies = current_user.replies %>
+       <% replies.each do |reply| %>
+       <li><span class="count-cell"><%= reply.like_count_replies.size %></span>&nbsp;&nbsp;<%= link_to reply.new_thread.title, reply.new_thread %><br><br></li>
+       <% end %>
+       <bold>Questions:</bold><br><br>
+       <% threads = current_user.new_threads %>
+       <% threads.each do |thread| %>
+       <li><span class="count-cell"><%=thread.like_counts.size%></span>&nbsp;&nbsp;<%= link_to thread.title, thread %><br><br></li>
+       <% end %>
+     </ul>
+</div>
+
+<div class="login">
+<h1>Edit <%= resource_name.to_s.humanize %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <p><%= f.email_field :email, autofocus: true %></p>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+  <% end %>
+
+  <% if current_user.provider != "facebook" %>
+
+  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+    <p><%= f.password_field :password, autocomplete: "off" %></p>
+
+  <%= f.label :password_confirmation %>
+    <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+
+  <%= f.label :current_password %> <i>(we will need your current password if you want to change your email or password)</i>
+    <p><%= f.password_field :current_password, autocomplete: "off" %></p>
+
+    <% end %>
+     <%= f.label :image, "Image" %>
+      <p> <%= f.hidden_field(:image_cache) %>
+  <%= f.file_field(:image) %></p>
+ 
+ <p class="submit">
+  <%= f.submit "Update", :class => 'sign-up'%>
+</p>
+<% end %>
+
+<%= link_to "Cancel", :back, :class => 'navbar-link new cancel' %>
+
+</div>

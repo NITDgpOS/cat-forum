@@ -1,0 +1,5 @@
+$(".no-reply").html('');
+var new_reply = $("<%= escape_javascript(render(:partial => @reply))%>").hide();
+$('#replies').append(new_reply);
+$('.reply#reply_<%= @reply.id %>').fadeIn('slow');
+$('#new_reply')[0].reset();

@@ -1,0 +1,1 @@
+$(".new_thread.flag#new_thread_<%= @new_thread.id %>").html('<%= escape_javascript(render :partial => "new_thread_flag", :locals => {:new_thread_id => @new_thread.id}) %>');

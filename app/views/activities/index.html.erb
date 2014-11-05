@@ -1,0 +1,10 @@
+<%= image_tag current_user.image.url(:thumb), size: "100x100", :class=> "user-image act-img" %><span class = "user-name"><%= current_user.username%></span><br>
+<div class="activity-wrapper">
+<% @activities.each do |activity| %>
+  <div class="activity">
+  
+    <span class="circle1"></span><%= activity.owner.username %>
+    <%= render_activity activity %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,31 @@
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <p><%= f.email_field :email, autofocus: true %></p>
+
+  <%= f.label :password %>
+  <p><%= f.password_field :password, autocomplete: "off" %></p>
+
+  <%= f.label :password_confirmation %>
+  <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+
+  
+  
+  <%= f.label(:username) %>
+   <p><%= f.text_field(:username, class: "username-text") %></p>
+   
+     <%= f.label :image, "Image" %>
+      <p>
+
+       <%= f.hidden_field(:image_cache) %>
+  <%= f.file_field(:image) %></p>
+  
+
+   <p class="submit">
+    <%= f.submit "Sign up", :class => 'sign-up' %>
+   </p>
+<% end %>
+</div>
+</div>

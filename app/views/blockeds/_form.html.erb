@@ -1,0 +1,13 @@
+
+<%= form_for(:blocked, :url => {:action => 'update', :id => @blocked.id}, :method => "patch") do |f| %>
+  
+   
+
+  <div class="field">
+    <%= f.label :status %><br>
+   <%= f.check_box :status %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

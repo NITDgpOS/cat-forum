@@ -1,0 +1,1 @@
+$(".new_thread.foo#new_thread_<%= @new_thread.id %>").html('<%= escape_javascript(render :partial => "new_thread_dislike", :locals => {:new_thread_id => @new_thread.id}) %>');

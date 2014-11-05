@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= best_in_place @blocked, :status, type: :checkbox, collection: %w[No Yes] %>
+</p>
+
+
+<%= link_to 'Back', blockeds_path %>

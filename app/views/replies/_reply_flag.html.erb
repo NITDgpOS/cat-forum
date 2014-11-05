@@ -1,0 +1,4 @@
+<% reply_flag = Reply.find(reply_id) %>
+<%= div_for(@reply, class: "flag") do %>
+ &nbsp;<%= reply_flag.reply_flags.size %>
+<% end %>

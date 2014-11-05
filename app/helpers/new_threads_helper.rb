@@ -1,0 +1,2 @@
+module NewThreadsHelper
+end

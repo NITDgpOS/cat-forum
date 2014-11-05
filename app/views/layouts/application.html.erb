@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <title> CAT Forum</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta charset="UTF-8">
+  <meta name="keywords" content>  
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Aditya Prakash">
+  <meta property="og:image" content="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png"/>
+   <meta property="og:image:secure_url" content="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png" />
+  <meta name="description" content="CAT 2014-2015, Common Admission Test - Prepare with 198,312 users, follow 11,823 discussions and  stay updated about applications, new questions &amp; deadlines " />
+<meta property="og:description" content="CAT 2014-2015, Common Admission Test - Prepare with 198,312 users, follow 11,823 discussions and  stay updated about applications, new questions &amp; deadlines " />
+
+    <link rel="icon" type="image/jpg" href="assets/ank-logo.png"/>
+    <link rel="image_src" 
+      type="image/jpeg" 
+      href="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png" />
+
+</head>
+<body>
+
+
+<div class="big-wrapper">
+	
+  <div id='cssmenu' class="top-header">
+<ul>
+   
+    <% if user_signed_in? %>
+   <li class='last'><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+   <li> <%= link_to 'Profile', edit_user_registration_path%></li>
+   <li><%= link_to "Activities", activities_path %></li>
+   <% else %>
+   <li> <%= link_to "Login", new_user_session_path %></li>
+   <% end %>
+   <li><%= link_to "Threads", new_threads_list_path, :class => 'navbar-bar'  %></li>
+
+   <li class="nav-text">C</li><li class="nav-text at">AT</li> <li class="nav-text forum">FORUM</li>
+    <li class="search"> <%= render :partial => 'new_threads/search' %></li>
+</div>
+ </ul> 
+  
+   <div class="notice-alert">
+    <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  </div>
+ <%= yield %>
+ <div class="logged_in">
+ <% if admin_signed_in? %>
+    Logged in as Admin:
+    <%= current_admin.email %>
+ <%end%>
+</div>
+
+   <div id='cssmenu' class="all-foot">
+   <ul class="u-list"> 
+    
+   
+   
+    <% if admin_signed_in? %>
+    <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %><li>
+    <li><%= link_to "Flags", flags_path%><li>
+    <% else %>
+    <li><%= link_to "Admin Login", new_admin_session_path%></li>
+    <% end %> 
+     <% if user_signed_in? %>
+     <li class="footer-links">
+      <%= link_to "How to ask question", pages_question_path %>
+    </li>
+     <li class="footer-links">
+      <%= link_to "Learn more about Badges", pages_badge_path %>
+    </li>
+    <% end %>
+    <li class="footer-links">
+      <%= link_to("Back to MNTC", "http://www.mntc.in")%>
+    </li>
+   </ul>
+  </div>
+
+</div>
+   
+    
+</body>
+</html>

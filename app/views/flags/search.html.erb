@@ -1,0 +1,25 @@
+<div class="search-wrapper">
+<% @users.each do |user| %>
+ <%= image_tag user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
+     <table class="userswords">
+      <tr>
+      <td>Username:</td><td><%= user.username %></td>
+      </tr>
+      <tr>
+       <td>Email:</td><td><%= user.email %> </td>
+      </tr>
+      <tr>
+       <td>Member for:</td><td><%= time_ago_in_words(user.created_at) %></td>
+      </tr>
+      <tr>
+       <td> Points:</td><td><%= user.points %></td>
+      </tr>
+      <tr>
+       <td> Badge:</td><td> <%= user.badge %></td>
+     </tr>
+     <tr>
+      <td><%= link_to("Block", {:action => 'edit', :controller => 'flags', :id => user.id}, :class => 'action edit') %></td>
+      </td>
+    </table>
+ <% end %>
+</div>

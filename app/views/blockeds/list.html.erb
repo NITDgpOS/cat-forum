@@ -1,0 +1,26 @@
+<h1>Listing blockeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Blocked at </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blockeds.each do |blocked| %>
+      <tr>
+        <% @blocked_user = blocked.users.first %>
+        <td><%= @blocked_user.username %></td>
+        <td><%= blocked.updated_at%><td>
+        <td><%= link_to 'Show', blocked %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blocked', new_blocked_path %>

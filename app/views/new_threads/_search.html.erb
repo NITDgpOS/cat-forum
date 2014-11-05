@@ -1,0 +1,4 @@
+ <%= form_tag({:controller => '/new_threads', :action => 'search'}, {:id => 'search'}) do %>
+     <%= text_field_tag :query, params[:query], :id => 'search_field', :placeholder => "Search threads..." %>
+     <%= submit_tag "Search", :name => nil, :id => 'search_button', :style => "display: none;" %> 
+ <% end %> 

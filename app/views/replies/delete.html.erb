@@ -1,0 +1,15 @@
+<div class="section delete">
+  <h2>Delete Reply</h2>
+  
+   <%= form_for(:reply, :url => {:action => 'destroy', :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete") do |f| -%>
+
+    <p>Are you sure you want to permanently delete this page?</p>
+  
+    <p class="reference-name"><%= @reply.content %></p>
+  
+    <div class="form-buttons">
+      <%= submit_tag("Delete Page") %>
+    </div>
+    
+  <% end %>
+</div>

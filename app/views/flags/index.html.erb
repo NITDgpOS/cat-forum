@@ -1,0 +1,58 @@
+<div class="flags-wrapper">
+<h1 class="how-to">Listing Reply Flags</h1>
+
+   <table class="table-flags">
+     <tr class="flag-header">
+      <td>Content</td>
+      <td>Thread</td>
+      <td>Flags</td>
+      <td></td>
+    </tr>
+  <div class="reply_flag">
+   <%= render :partial => "reply_flags/reply_flags"%>
+  
+
+<br>
+
+<h1 class="how-to">Listing Thread Flags</h1>
+  <table class="table-flags">
+     <tr class="flag-header">
+      <td>Description</td>
+      <td>Thread</td>
+      <td>Flags</td>
+      <td></td>
+    </tr>
+
+   
+  <div class="new_thread_flag">
+    <%= render :partial => "new_thread_flags/new_thread_flags"%>
+  </div>
+ 
+<br>
+<h1 class="how-to">Listing Blocked Users</h1>
+
+<table>
+   <tr class="flag-header">
+      <td>User</td>
+      <td>Blocked</td>
+      <td> action </td>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.blocked %></td>
+        <td><%= link_to("Edit", {:action => 'edit', :controller => 'flags', :id => user.id}, :class => 'action edit') %></td>
+      </tr>
+    <% end %>
+</table>
+<br>
+<h1 class="how-to">Block a new user<h1>
+<br>
+<%= form_tag("flags/search", method: "get") do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
+</div>

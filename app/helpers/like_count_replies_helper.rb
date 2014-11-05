@@ -1,0 +1,2 @@
+module LikeCountRepliesHelper
+end

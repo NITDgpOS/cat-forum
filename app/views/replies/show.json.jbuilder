@@ -1,0 +1,1 @@
+json.extract! @reply, :id, :new_thread_id, :content, :created_at, :updated_at
