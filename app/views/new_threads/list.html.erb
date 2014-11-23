@@ -22,7 +22,7 @@
     <%= image_tag new_thread.user.image_url(:thumb).to_s, :class => "user-image" %>
      <%= image_tag("arrow.png", class: "triangle fade_speech") %>
      <div class="speech-bubble fade_speech">
-       <%= link_to new_thread.title, new_thread, :class => "show-thread"%><br>
+       <h1><%= link_to new_thread.title, new_thread, :class => "show-thread"%></h1><br>
         <span class="time">asked <%= time_ago_in_words(new_thread.created_at) %> ago</span><br><br><br>
         <span class="description pt-page-moveToLeft"><%= new_thread.description %>
 
