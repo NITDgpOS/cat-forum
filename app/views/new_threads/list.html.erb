@@ -63,12 +63,14 @@
         <td>
           <%= new_thread.replies.size %> &nbsp; Replies 
         </td>
-      <tr>
+      </tr>
       </table>
       <span class="user-thread">
        <table class="table-tag">
+        <tr>
         <td class="td-tag"><div class="tag"><%= new_thread.user.badge %></div></td>
         <td class="td-tag2"><%= image_tag "tag.png", :class => "user-tag" %></td>
+        </tr>
       </table>
           <%= new_thread.user.username %></span>
        
