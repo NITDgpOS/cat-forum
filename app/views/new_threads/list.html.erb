@@ -32,7 +32,7 @@
       <tr>
         <td>
          <% @new_thread = new_thread %>
-         <%= render :partial => "like_counts/new_thread", :locals => {:new_thread => @new_thread} %>
+         <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
         </td>
         <td>
           <div class="like">
