@@ -1,0 +1,8 @@
+!!! XML
+%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  - for new_thread in @new_threads
+    %url
+      %loc #{new_thread_url(new_thread)}/
+      %lastmod=new_thread.updated_at.strftime('%Y-%m-%d')
+      %changefreq monthly
+      %priority 0.5

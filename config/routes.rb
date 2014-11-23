@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'flags/search' => 'flags#search'
   get 'blockeds/list' => 'blockeds#list'
   get 'google351310b5ada0562f.html' => 'pages#google351310b5ada0562f'
+
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => { :format => 'xml' }
  
 
 

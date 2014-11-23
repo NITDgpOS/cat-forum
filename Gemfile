@@ -29,6 +29,8 @@ gem 'omniauth-facebook'
 
 gem 'sitemap_generator'
 
+gem "haml"
+
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
