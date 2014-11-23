@@ -18,6 +18,9 @@ class PagesController < ApplicationController
   def question
   end
 
+  def google351310b5ada0562f
+  end
+
   # GET /pages/new
   def new
     @page = Page.new
