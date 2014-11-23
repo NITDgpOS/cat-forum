@@ -56009,3 +56009,325 @@ Started POST "/like_counts?new_thread_id=5" for 127.0.0.1 at 2014-11-23 18:45:39
 Processing by LikeCountsController#create as JS
   Parameters: {"authenticity_token"=>"9zm0kAZumaCVcHN25vvBmoJgKyVjOkYlpMAL7Y7Xan4=", "new_thread_id"=>"5"}
 Completed 401 Unauthorized in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-23 18:48:04 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NewThreadsController#index as HTML
+  [1m[35mNewThread Load (1.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 5]]
+  Rendered like_counts/_new_thread.html.erb (86.0ms)
+  [1m[36mNewThread Load (0.3ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1  [["new_thread_id", 5]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (18.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1  [["new_thread_id", 5]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (13.6ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 5]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0
+  Rendered new_threads/list.html.erb within layouts/application (247.0ms)
+  Rendered new_threads/_search.html.erb (1.3ms)
+Completed 200 OK in 454ms (Views: 399.1ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-23 18:48:04 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[36mNewThread Load (0.7ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 5]]
+  Rendered like_counts/_new_thread.html.erb (1.5ms)
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 5]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (4.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 5]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (3.6ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 5]]
+  [1m[36mNewThread Load (0.7ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (23.3ms)
+  Rendered new_threads/_search.html.erb (0.8ms)
+Completed 200 OK in 47ms (Views: 40.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/activities.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/blockeds.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/dislike_counts.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/like_count_replies.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/dislike_count_replies.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/curtain.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/like_counts.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/new_thread_flags.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/new_threads.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/replies.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/reply_flags.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/activities.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/blockeds.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/dislike_count_replies.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/dislike_counts.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/jquery.purr.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/like_count_replies.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/like_counts.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/new_thread_flags.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/new_threads.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/replies.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/reply_flags.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/rlsmooth.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/best_in_place.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/tag.png" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/search.png" for 127.0.0.1 at 2014-11-23 18:48:05 +0530
+
+
+Started GET "/assets/images/color.png" for 127.0.0.1 at 2014-11-23 18:48:33 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-23 18:50:36 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 5]]
+  Rendered like_counts/_new_thread.html.erb (1.5ms)
+  [1m[36mNewThread Load (0.8ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1  [["new_thread_id", 5]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (6.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1  [["new_thread_id", 5]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (3.6ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 5]]
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0
+  Rendered new_threads/list.html.erb within layouts/application (27.1ms)
+  Rendered new_threads/_search.html.erb (1.0ms)
+Completed 200 OK in 48ms (Views: 41.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/blockeds.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/activities.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/curtain.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/dislike_count_replies.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/dislike_counts.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/like_count_replies.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/new_thread_flags.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/like_counts.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/new_threads.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/replies.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/reply_flags.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/activities.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/blockeds.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/dislike_count_replies.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/dislike_counts.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/jquery.purr.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/like_count_replies.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/like_counts.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/new_thread_flags.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/new_threads.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/replies.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/reply_flags.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/rlsmooth.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/best_in_place.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/tag.png" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2014-11-23 18:50:37 +0530
+
+
+Started GET "/assets/ank-logo.png" for 127.0.0.1 at 2014-11-23 18:50:38 +0530
+
+
+Started GET "/assets/images/color.png" for 127.0.0.1 at 2014-11-23 18:50:43 +0530
