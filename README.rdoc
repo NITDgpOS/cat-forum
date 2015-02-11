@@ -1,4 +1,4 @@
-<b>CAT Forum:</b>
+##CAT Forum:
 
 A quesion and answer based website. 
 
@@ -9,7 +9,7 @@ A quesion and answer based website.
 I have removed some sensitive info the project like account used for sending mails and facebook app secret keys.
 You will need to edit those files one by one. Details provided below:
 
-<b>Running in development mode:</b>
+##Running in development mode:
 1. Clone the repository - 
     git clone https://github.com/sonalkr132/CAT-Forum.git
     
@@ -32,10 +32,10 @@ You will need to edit those files one by one. Details provided below:
 5. start rails server - 
     rails s
         
-<b>Future Goals:</b>
+##Future Goals:
 1. Work on SEO
 2. Migrating front end to bootstarp
 
-<b>COMMUNICATION</b>
+##COMMUNICATION
 
 You can contact me at aditya.prakash132@gmail.com
