@@ -1,28 +1,41 @@
-== README
+<h1>CAT Forum:</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A quesion and answer based website. 
 
-Things you may want to cover:
+<h3>Ruby version</h3>: 2.1.1p76
 
-* Ruby version
+<h3>Rails version</h3>: 4.1.1
 
-* System dependencies
+I have removed some sensitive info the project like account used for sending mails and facebook app secret keys.
+You will need to edit those files one by one. Details provided below:
 
-* Configuration
+<b>Running in development mode:</b>
+1. Clone the repository - 
+    git clone https://github.com/sonalkr132/CAT-Forum.git
+    
+2. a) in config/environments/development.rb add in config.action_mailer.smtp_settings -
+        :user_name => "YOUR_EMAIL", #gitignore
+        :password => "YOUR_PASSWORD" #gitignore
+   b) in config/environments/production.rb add in config.action_mailer.smtp_settings -
+        :user_name => "YOUR_EMAIL", #gitignore
+        :password => "YOUR_PASSWORD" #gitignore
+   c) in config/initializers/devise.rb add -
+        config.mailer_sender = 'YOUR_EMAIL' #gitignore
+        config.omniauth :facebook, "YOUR_APP_ID", "YOUR_APP_SECRET", :image_size => 'large' #gitignore
+        
+3. Install all the ruby gems -
+    bundle install
+    
+4. Mirgate database - 
+    rake db:migrate
+    
+5. start rails server - 
+    rails s
+        
+<b>Future Goals:</b>
+1. Work on SEO
+2. Migrating front end to bootstarp
 
-* Database creation
+<b>COMMUNICATION</b>
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+You can contact me at aditya.prakash132@gmail.com
