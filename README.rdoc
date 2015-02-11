@@ -13,7 +13,8 @@ You will need to edit those files one by one. Details provided below:
 1. Clone the repository - 
     git clone https://github.com/sonalkr132/CAT-Forum.git
     
-2. a) in config/environments/development.rb add in config.action_mailer.smtp_settings -
+2. Adding your own account details:
+   a) in config/environments/development.rb add in config.action_mailer.smtp_settings -
         :user_name => "YOUR_EMAIL", #gitignore
         :password => "YOUR_PASSWORD" #gitignore
    b) in config/environments/production.rb add in config.action_mailer.smtp_settings -
