@@ -1,10 +1,10 @@
-<h1>CAT Forum:</h1>
+<b>CAT Forum:</b>
 
 A quesion and answer based website. 
 
-<h3>Ruby version</h3>: 2.1.1p76
+<b>Ruby version</b>: 2.1.1p76
 
-<h3>Rails version</h3>: 4.1.1
+<b>Rails version</b>: 4.1.1
 
 I have removed some sensitive info the project like account used for sending mails and facebook app secret keys.
 You will need to edit those files one by one. Details provided below:
