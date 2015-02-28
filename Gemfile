@@ -14,6 +14,9 @@ gem 'capistrano', '~> 3.2.0'
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
+gem "letter_opener", :group => :development
+
+
 
 gem 'will_paginate', '~> 3.0.5'
 
