@@ -28,10 +28,8 @@ class NewThreadFlagsController < ApplicationController
     @user = User.find(current_user.id)
     @new_thread = NewThread.find(params[:new_thread_id])
     @new_thread_flag = @user.add_new_thread_flag(@new_thread.id)
-
     respond_to do |format|
       if @new_thread_flag.save
-        format.html { redirect_to @new_thread_flag, :only_path => true, notice: 'New thread flag was successfully created.' }
         format.json { render :show, status: :created, location: @new_thread_flag }
         format.js
       else

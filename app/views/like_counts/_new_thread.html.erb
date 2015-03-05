@@ -1,5 +1,5 @@
 <% new_thread = NewThread.find(new_thread_id) %>
-<div class="new_thread">
+<%= div_for(@new_thread, class: "new_thread") do %>
 &nbsp;&nbsp;<%= new_thread.like_counts.size %>
-</div>
+<% end %>
 
