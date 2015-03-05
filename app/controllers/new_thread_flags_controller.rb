@@ -31,7 +31,7 @@ class NewThreadFlagsController < ApplicationController
 
     respond_to do |format|
       if @new_thread_flag.save
-        format.html { redirect_to @new_thread_flag, notice: 'New thread flag was successfully created.' }
+        format.html { redirect_to @new_thread_flag, :only_path => true, notice: 'New thread flag was successfully created.' }
         format.json { render :show, status: :created, location: @new_thread_flag }
         format.js
       else

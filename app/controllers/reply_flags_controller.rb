@@ -29,7 +29,7 @@ class ReplyFlagsController < ApplicationController
     @reply_flag = @user.add_reply_flag(@reply.id)
     respond_to do |format|
       if @reply_flag.save
-        format.html { redirect_to @reply_flag, notice: 'Reply flag was successfully created.' }
+        format.html { redirect_to @reply_flag, :only_path => true, notice: 'Reply flag was successfully created.' }
         format.json { render :show, status: :created, location: @reply_flag }
         format.js
       else
