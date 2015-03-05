@@ -1,0 +1,9 @@
+tmp/
+public/uploads/tmp
+public/system/users/images
+public/sysem/users/photos
+public/assets
+!public/assets/images/
+!public/assets/small/
+log/
+
