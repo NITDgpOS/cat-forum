@@ -4,7 +4,7 @@ gem 'jdbc-mysql',      '5.1.28',   :platform => :jruby
 # gem 'thinking-sphinx', '~> 3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.8'
 
 gem 'devise'
 

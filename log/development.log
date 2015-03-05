@@ -59856,3 +59856,1180 @@ Started GET "/assets/images/color.png" for 127.0.0.1 at 2015-03-01 00:29:13 +053
 
 
 Started GET "/assets/images/color.png" for 127.0.0.1 at 2015-03-01 00:31:05 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:47:42 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (12.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NewThreadsController#index as HTML
+  [1m[35mNewThread Load (89.8ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (39.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (114.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (17.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (10.9ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.9ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (635.6ms)
+  Rendered new_threads/_search.html.erb (3.0ms)
+Completed 200 OK in 1094ms (Views: 882.2ms | ActiveRecord: 170.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (3.2ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.6ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (21.1ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 33.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/activities.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/blockeds.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/curtain.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/dislike_count_replies.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/dislike_counts.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/like_count_replies.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/like_counts.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/new_thread_flags.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/new_threads.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/replies.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/reply_flags.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:44 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/activities.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/blockeds.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/dislike_count_replies.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/dislike_counts.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/jquery.purr.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/like_counts.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/like_count_replies.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/new_threads.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/new_thread_flags.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/replies.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/reply_flags.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/rlsmooth.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/best_in_place.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/tag.png" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/search.png" for 127.0.0.1 at 2015-03-05 19:47:45 +0530
+
+
+Started GET "/assets/ank-logo.png" for 127.0.0.1 at 2015-03-05 19:47:46 +0530
+
+
+Started GET "/assets/images/color.png" for 127.0.0.1 at 2015-03-05 19:47:47 +0530
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-03-05 19:47:52 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.7ms)
+  Rendered users/registrations/_new.html.erb (12.8ms)
+  Rendered users/sessions/new.html.erb within layouts/application (153.8ms)
+  Rendered new_threads/_search.html.erb (0.8ms)
+Completed 200 OK in 185ms (Views: 182.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/assets/ank-logo.png" for 127.0.0.1 at 2015-03-05 19:47:52 +0530
+
+ActionController::RoutingError (No route matches [GET] "/users/assets/ank-logo.png"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.0ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (86.4ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2015-03-05 19:47:53 +0530
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-03-05 19:47:54 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aOX8HsBlpbMC7fkyU7/uDzs7sA75Qnhc9smacgFonmM=", "user"=>{"email"=>"aditya.prakash132@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (55.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'aditya.prakash132@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 245ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aOX8HsBlpbMC7fkyU7/uDzs7sA75Qnhc9smacgFonmM=", "user"=>{"email"=>"aditya.prakash132@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered users/registrations/_new.html.erb (3.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (9.3ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 113ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-03-05 19:48:02 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aOX8HsBlpbMC7fkyU7/uDzs7sA75Qnhc9smacgFonmM=", "user"=>{"email"=>"aditya.prakash132@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'aditya.prakash132@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (35.1ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-03-05 14:18:02.263150"], ["sign_in_count", 2], ["updated_at", "2015-03-05 14:18:02.265071"]]
+  [1m[35m (38.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/new_threads
+Completed 302 Found in 192ms (ActiveRecord: 74.6ms)
+
+
+Started GET "/new_threads" for 127.0.0.1 at 2015-03-05 19:48:02 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.4ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.6ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (20.7ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2015-03-05 19:48:05 +0530
+Processing by ActivitiesController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPublicActivity::Activity Load (20.7ms)[0m  [1mSELECT "activities".* FROM "activities"  WHERE "activities"."recipient_id" = 1 AND (owner_id not in (1))  ORDER BY created_at desc[0m
+  Rendered activities/index.html.erb within layouts/application (23.1ms)
+  Rendered new_threads/_search.html.erb (1.3ms)
+Completed 200 OK in 877ms (Views: 71.4ms | ActiveRecord: 71.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-03-05 19:48:07 +0530
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mReply Load (9.4ms)[0m  [1mSELECT "replies".* FROM "replies"  WHERE "replies"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mNewThread Load (14.7ms)[0m  SELECT "new_threads".* FROM "new_threads"  WHERE "new_threads"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered users/registrations/edit.html.erb within layouts/application (41.9ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 73ms (Views: 44.1ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/pages/badge" for 127.0.0.1 at 2015-03-05 19:48:13 +0530
+Processing by PagesController#badge as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered pages/badge.html.erb within layouts/application (0.5ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages/assets/ank-logo.png" for 127.0.0.1 at 2015-03-05 19:48:13 +0530
+
+ActionController::RoutingError (No route matches [GET] "/pages/assets/ank-logo.png"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.1ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (58.3ms)
+
+
+Started GET "/pages/question" for 127.0.0.1 at 2015-03-05 19:48:14 +0530
+Processing by PagesController#question as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered pages/question.html.erb within layouts/application (0.5ms)
+  Rendered new_threads/_search.html.erb (0.8ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at 2015-03-05 19:48:16 +0530
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.4ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 66ms (Views: 50.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/admins/assets/ank-logo.png" for 127.0.0.1 at 2015-03-05 19:48:16 +0530
+
+ActionController::RoutingError (No route matches [GET] "/admins/assets/ank-logo.png"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (10.1ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (69.0ms)
+
+
+Started GET "/assets/cat.jpg" for 127.0.0.1 at 2015-03-05 19:48:16 +0530
+
+
+Started GET "/new_threads/list" for 127.0.0.1 at 2015-03-05 19:48:18 +0530
+Processing by NewThreadsController#list as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mNewThread Load (2.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.5ms)
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.7ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (29.0ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 49ms (Views: 38.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/new_threads/assets/ank-logo.png" for 127.0.0.1 at 2015-03-05 19:48:19 +0530
+
+ActionController::RoutingError (No route matches [GET] "/new_threads/assets/ank-logo.png"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/addie/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.3ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/addie/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (65.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-03-05 19:48:24 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2vRsDKV1qJaThlth2TuIQKUJWjqndutvHgFhtAzEjtE="}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 69ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:48:24 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[36mNewThread Load (0.7ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNewThread Load (0.6ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (3.5ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0
+  Rendered new_threads/list.html.erb within layouts/application (28.4ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 48ms (Views: 41.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 22:06:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by NewThreadsController#index as HTML
+  [1m[35mNewThread Load (40.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (169.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (16.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (15.8ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.9ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (531.0ms)
+  Rendered new_threads/_search.html.erb (1.4ms)
+Completed 200 OK in 3708ms (Views: 3602.2ms | ActiveRecord: 82.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 22:06:34 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[35mNewThread Load (0.6ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.1ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.7ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (23.8ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 326ms (Views: 318.5ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/activities.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/blockeds.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/curtain.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/dislike_count_replies.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/like_count_replies.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/dislike_counts.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/like_counts.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/new_thread_flags.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/new_threads.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/replies.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/reply_flags.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/activities.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/blockeds.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/dislike_count_replies.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/dislike_counts.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/jquery.purr.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/like_count_replies.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/like_counts.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/new_threads.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/replies.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/reply_flags.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/rlsmooth.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/new_thread_flags.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/best_in_place.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/tag.png" for 127.0.0.1 at 2015-03-05 22:06:35 +0530
+
+
+Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2015-03-05 22:06:36 +0530
+
+
+Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2015-03-05 22:06:36 +0530
+
+
+Started GET "/assets/search.png" for 127.0.0.1 at 2015-03-05 22:06:36 +0530
+
+
+Started GET "/assets/images/color.png" for 127.0.0.1 at 2015-03-05 22:06:37 +0530
+
+
+Started GET "/new_threads/list" for 127.0.0.1 at 2015-03-05 22:06:37 +0530
+Processing by NewThreadsController#list as HTML
+  [1m[35mNewThread Load (1.1ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (3.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.5ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.6ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (27.2ms)
+  Rendered new_threads/_search.html.erb (1.2ms)
+Completed 200 OK in 285ms (Views: 278.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-03-05 22:06:40 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (20.5ms)
+  Rendered users/registrations/_new.html.erb (20.0ms)
+  Rendered users/sessions/new.html.erb within layouts/application (85.0ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 363ms (Views: 355.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2015-03-05 22:06:41 +0530
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-03-05 22:06:47 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/oVsFbcRTCAKV1MuYTJyrumYFSyceifoPBZD/wUAXyY=", "user"=>{"email"=>"aditya.prakash132@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (8.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'aditya.prakash132@gmail.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.7ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 1  [["current_sign_in_at", "2015-03-05 16:36:47.447865"], ["last_sign_in_at", "2015-03-05 14:18:02.263150"], ["sign_in_count", 3], ["updated_at", "2015-03-05 16:36:47.449924"]]
+  [1m[36m (26.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/new_threads
+Completed 302 Found in 175ms (ActiveRecord: 56.3ms)
+
+
+Started GET "/new_threads" for 127.0.0.1 at 2015-03-05 22:06:47 +0530
+Processing by NewThreadsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mNewThread Load (0.7ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNewThread Load (0.5ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.1ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  [1m[35mNewThread Load (0.6ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0
+  Rendered new_threads/list.html.erb within layouts/application (23.7ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 290ms (Views: 281.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2015-03-05 22:06:49 +0530
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPublicActivity::Activity Load (1.8ms)[0m  SELECT "activities".* FROM "activities"  WHERE "activities"."recipient_id" = 1 AND (owner_id not in (1))  ORDER BY created_at desc
+  Rendered activities/index.html.erb within layouts/application (4.3ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 977ms (Views: 259.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2015-03-05 22:06:51 +0530
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPublicActivity::Activity Load (1.3ms)[0m  SELECT "activities".* FROM "activities"  WHERE "activities"."recipient_id" = 1 AND (owner_id not in (1))  ORDER BY created_at desc
+  Rendered activities/index.html.erb within layouts/application (3.9ms)
+  Rendered new_threads/_search.html.erb (0.8ms)
+Completed 200 OK in 982ms (Views: 276.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-03-05 22:06:52 +0530
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mReply Load (0.5ms)[0m  SELECT "replies".* FROM "replies"  WHERE "replies"."user_id" = $1  [["user_id", 1]]
+  [1m[36mNewThread Load (0.6ms)[0m  [1mSELECT "new_threads".* FROM "new_threads"  WHERE "new_threads"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered users/registrations/edit.html.erb within layouts/application (14.1ms)
+  Rendered new_threads/_search.html.erb (1.4ms)
+Completed 200 OK in 275ms (Views: 268.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/new_threads/list" for 127.0.0.1 at 2015-03-05 22:06:54 +0530
+Processing by NewThreadsController#list as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mNewThread Load (1.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (6.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (0.5ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (30.8ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 297ms (Views: 288.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/new_threads/1" for 127.0.0.1 at 2015-03-05 22:06:56 +0530
+Processing by NewThreadsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mNewThread Load (0.4ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNewThread Load (0.5ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.4ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered new_threads/show.html.erb within layouts/application (30.0ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 308ms (Views: 297.0ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/new_threads/1/replies" for 127.0.0.1 at 2015-03-05 22:07:03 +0530
+Processing by RepliesController#create as JS
+  Parameters: {"utf8"=>"✓", "reply"=>{"content"=>"like a boss!", "user_id"=>"1"}, "commit"=>"Add Reply", "new_thread_id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mNewThread Load (0.9ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = 1 LIMIT 1[0m
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (37.6ms)[0m  INSERT INTO "replies" ("content", "created_at", "new_thread_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "like a boss!"], ["created_at", "2015-03-05 16:37:03.570028"], ["new_thread_id", 1], ["updated_at", "2015-03-05 16:37:03.570028"], ["user_id", 1]]
+  [1m[36m (16.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (24.8ms)[0m  INSERT INTO "activities" ("created_at", "key", "owner_id", "owner_type", "parameters", "recipient_id", "recipient_type", "trackable_id", "trackable_type", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2015-03-05 16:37:03.663317"], ["key", "reply.create"], ["owner_id", 1], ["owner_type", "User"], ["parameters", "--- {}\n"], ["recipient_id", 1], ["recipient_type", "User"], ["trackable_id", 1], ["trackable_type", "Reply"], ["updated_at", "2015-03-05 16:37:03.663317"]]
+  [1m[36m (12.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReply Load (0.4ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "like_count_replies"  WHERE "like_count_replies"."reply_id" = $1  [["reply_id", 1]]
+  Rendered like_count_replies/_reply_like.html.erb (14.0ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "dislike_count_replies"  WHERE "dislike_count_replies"."reply_id" = $1  [["reply_id", 1]]
+  Rendered dislike_count_replies/_reply_dislike.html.erb (21.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reply_flags"  WHERE "reply_flags"."reply_id" = $1  [["reply_id", 1]]
+  Rendered reply_flags/_reply_flag.html.erb (13.8ms)
+  Rendered replies/_reply.html.erb (82.8ms)
+  Rendered replies/create.js.erb (91.8ms)
+Completed 200 OK in 250ms (Views: 91.3ms | ActiveRecord: 107.0ms)
+
+
+Started POST "/like_count_replies?reply_id=1" for 127.0.0.1 at 2015-03-05 22:07:05 +0530
+Processing by LikeCountRepliesController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "reply_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReply Load (0.6ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLikeCountReply Load (0.7ms)[0m  SELECT  "like_count_replies".* FROM "like_count_replies"  WHERE "like_count_replies"."user_id" = $1 AND "like_count_replies"."reply_id" = 1  ORDER BY "like_count_replies"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.4ms)[0m  INSERT INTO "like_count_replies" ("created_at", "reply_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2015-03-05 16:37:05.874451"], ["reply_id", 1], ["updated_at", "2015-03-05 16:37:05.874451"], ["user_id", 1]]
+  [1m[36m (12.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "activities" ("created_at", "key", "owner_id", "owner_type", "parameters", "recipient_id", "recipient_type", "trackable_id", "trackable_type", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2015-03-05 16:37:05.915076"], ["key", "like_count_reply.create"], ["owner_id", 1], ["owner_type", "User"], ["parameters", "--- {}\n"], ["recipient_id", 1], ["recipient_type", "User"], ["trackable_id", 1], ["trackable_type", "LikeCountReply"], ["updated_at", "2015-03-05 16:37:05.915076"]]
+  [1m[36m (9.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mReply Load (0.7ms)[0m  SELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_count_replies"  WHERE "like_count_replies"."reply_id" = $1[0m  [["reply_id", 1]]
+  Rendered like_count_replies/_reply_like.html.erb (4.9ms)
+  Rendered like_count_replies/create.js.erb (7.5ms)
+Completed 200 OK in 96ms (Views: 17.7ms | ActiveRecord: 46.1ms)
+
+
+Started POST "/dislike_count_replies?reply_id=1" for 127.0.0.1 at 2015-03-05 22:07:06 +0530
+Processing by DislikeCountRepliesController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "reply_id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReply Load (0.5ms)[0m  SELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDislikeCountReply Load (0.9ms)[0m  [1mSELECT  "dislike_count_replies".* FROM "dislike_count_replies"  WHERE "dislike_count_replies"."user_id" = $1 AND "dislike_count_replies"."reply_id" = 1  ORDER BY "dislike_count_replies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (21.8ms)[0m  [1mINSERT INTO "dislike_count_replies" ("created_at", "reply_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-03-05 16:37:06.422029"], ["reply_id", 1], ["updated_at", "2015-03-05 16:37:06.422029"], ["user_id", 1]]
+  [1m[35m (13.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mReply Load (0.5ms)[0m  SELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "dislike_count_replies"  WHERE "dislike_count_replies"."reply_id" = $1[0m  [["reply_id", 1]]
+  Rendered dislike_count_replies/_reply_dislike.html.erb (3.2ms)
+  Rendered dislike_count_replies/create.js.erb (4.6ms)
+Completed 200 OK in 84ms (Views: 21.8ms | ActiveRecord: 40.1ms)
+
+
+Started POST "/reply_flags?reply_id=1" for 127.0.0.1 at 2015-03-05 22:07:07 +0530
+Processing by ReplyFlagsController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "reply_id"=>"1"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReply Load (0.4ms)[0m  SELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReplyFlag Load (0.6ms)[0m  [1mSELECT  "reply_flags".* FROM "reply_flags"  WHERE "reply_flags"."user_id" = $1 AND "reply_flags"."reply_id" = 1  ORDER BY "reply_flags"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (27.4ms)[0m  [1mINSERT INTO "reply_flags" ("created_at", "reply_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-03-05 16:37:07.078349"], ["reply_id", 1], ["updated_at", "2015-03-05 16:37:07.078349"], ["user_id", 1]]
+  [1m[35m (15.9ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mReply Load (0.8ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "reply_flags"  WHERE "reply_flags"."reply_id" = $1  [["reply_id", 1]]
+  Rendered reply_flags/_reply_flag.html.erb (4.5ms)
+  Rendered reply_flags/create.js.erb (6.7ms)
+Completed 200 OK in 86ms (Views: 15.3ms | ActiveRecord: 49.8ms)
+
+
+Started POST "/new_thread_flags?new_thread_id=1" for 127.0.0.1 at 2015-03-05 22:07:09 +0530
+Processing by NewThreadFlagsController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "new_thread_id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNewThread Load (0.5ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThreadFlag Load (0.4ms)[0m  SELECT  "new_thread_flags".* FROM "new_thread_flags"  WHERE "new_thread_flags"."user_id" = $1 AND "new_thread_flags"."new_thread_id" = 1  ORDER BY "new_thread_flags"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (27.5ms)[0m  INSERT INTO "new_thread_flags" ("created_at", "new_thread_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2015-03-05 16:37:09.146358"], ["new_thread_id", 1], ["updated_at", "2015-03-05 16:37:09.146358"], ["user_id", 1]]
+  [1m[36m (6.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mNewThread Load (0.7ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (4.7ms)
+  Rendered new_thread_flags/create.js.erb (8.0ms)
+Completed 200 OK in 71ms (Views: 12.9ms | ActiveRecord: 39.2ms)
+
+
+Started POST "/dislike_counts?new_thread_id=1" for 127.0.0.1 at 2015-03-05 22:07:09 +0530
+Processing by DislikeCountsController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "new_thread_id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDislikeCount Load (0.5ms)[0m  [1mSELECT  "dislike_counts".* FROM "dislike_counts"  WHERE "dislike_counts"."user_id" = $1 AND "dislike_counts"."new_thread_id" = 1  ORDER BY "dislike_counts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (15.6ms)[0m  [1mINSERT INTO "dislike_counts" ("created_at", "new_thread_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-03-05 16:37:09.618433"], ["new_thread_id", 1], ["updated_at", "2015-03-05 16:37:09.618433"], ["user_id", 1]]
+  [1m[35m (10.5ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mNewThread Load (0.6ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (4.6ms)
+  Rendered dislike_counts/create.js.erb (6.9ms)
+Completed 200 OK in 64ms (Views: 11.3ms | ActiveRecord: 32.1ms)
+
+
+Started POST "/like_counts?new_thread_id=1" for 127.0.0.1 at 2015-03-05 22:07:10 +0530
+Processing by LikeCountsController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "new_thread_id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLikeCount Load (0.4ms)[0m  [1mSELECT  "like_counts".* FROM "like_counts"  WHERE "like_counts"."user_id" = $1 AND "like_counts"."new_thread_id" = 1  ORDER BY "like_counts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (13.3ms)[0m  [1mINSERT INTO "like_counts" ("created_at", "new_thread_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-03-05 16:37:10.590190"], ["new_thread_id", 1], ["updated_at", "2015-03-05 16:37:10.590190"], ["user_id", 1]]
+  [1m[35m (16.1ms)[0m  COMMIT
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "activities" ("created_at", "key", "owner_id", "owner_type", "parameters", "recipient_id", "recipient_type", "trackable_id", "trackable_type", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2015-03-05 16:37:10.632457"], ["key", "like_count.create"], ["owner_id", 1], ["owner_type", "User"], ["parameters", "--- {}\n"], ["recipient_id", 1], ["recipient_type", "User"], ["trackable_id", 1], ["trackable_type", "LikeCount"], ["updated_at", "2015-03-05 16:37:10.632457"]]
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36mNewThread Load (0.6ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (7.0ms)
+  Rendered like_counts/create.js.erb (9.4ms)
+Completed 200 OK in 84ms (Views: 14.1ms | ActiveRecord: 45.7ms)
+
+
+Started POST "/dislike_counts?new_thread_id=1" for 127.0.0.1 at 2015-03-05 22:07:11 +0530
+Processing by DislikeCountsController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "new_thread_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNewThread Load (0.5ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mDislikeCount Load (1.2ms)[0m  SELECT  "dislike_counts".* FROM "dislike_counts"  WHERE "dislike_counts"."user_id" = $1 AND "dislike_counts"."new_thread_id" = 1  ORDER BY "dislike_counts"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (3.4ms)
+  Rendered dislike_counts/create.js.erb (4.8ms)
+Completed 200 OK in 24ms (Views: 8.7ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/like_counts?new_thread_id=1" for 127.0.0.1 at 2015-03-05 22:07:14 +0530
+Processing by LikeCountsController#create as JS
+  Parameters: {"authenticity_token"=>"Xe88nGmuTaqkZzORgdDhNNqYDNOarDFlyPBoA25NdRo=", "new_thread_id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.6ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLikeCount Load (0.6ms)[0m  [1mSELECT  "like_counts".* FROM "like_counts"  WHERE "like_counts"."user_id" = $1 AND "like_counts"."new_thread_id" = 1  ORDER BY "like_counts"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "activities" ("created_at", "key", "owner_id", "owner_type", "parameters", "recipient_id", "recipient_type", "trackable_id", "trackable_type", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2015-03-05 16:37:14.562925"], ["key", "like_count.create"], ["owner_id", 1], ["owner_type", "User"], ["parameters", "--- {}\n"], ["recipient_id", 1], ["recipient_type", "User"], ["trackable_id", 1], ["trackable_type", "LikeCount"], ["updated_at", "2015-03-05 16:37:14.562925"]]
+  [1m[36m (9.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mNewThread Load (0.6ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (4.4ms)
+  Rendered like_counts/create.js.erb (5.7ms)
+Completed 200 OK in 39ms (Views: 9.1ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/new_threads/1" for 127.0.0.1 at 2015-03-05 22:07:22 +0530
+Processing by NewThreadsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mNewThread Load (0.4ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mNewThread Load (1.1ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.9ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mReply Load (0.4ms)[0m  [1mSELECT "replies".* FROM "replies"  WHERE "replies"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReply Load (0.5ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "like_count_replies"  WHERE "like_count_replies"."reply_id" = $1  [["reply_id", 1]]
+  Rendered like_count_replies/_reply_like.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "dislike_count_replies"  WHERE "dislike_count_replies"."reply_id" = $1  [["reply_id", 1]]
+  Rendered dislike_count_replies/_reply_dislike.html.erb (3.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "replies".* FROM "replies"  WHERE "replies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "reply_flags"  WHERE "reply_flags"."reply_id" = $1  [["reply_id", 1]]
+  Rendered reply_flags/_reply_flag.html.erb (4.1ms)
+  Rendered replies/_reply.html.erb (21.9ms)
+  Rendered new_threads/show.html.erb within layouts/application (47.5ms)
+  Rendered new_threads/_search.html.erb (1.6ms)
+Completed 200 OK in 327ms (Views: 314.6ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/assets/activities.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/blockeds.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/dislike_count_replies.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/dislike_counts.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/like_count_replies.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/curtain.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/like_counts.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/new_threads.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/new_thread_flags.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/replies.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/reply_flags.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/activities.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/blockeds.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/dislike_count_replies.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/dislike_counts.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/jquery.purr.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/like_count_replies.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/like_counts.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/new_thread_flags.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/new_threads.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/replies.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/reply_flags.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/rlsmooth.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/scripts.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/best_in_place.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/images/nav-bg.png" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/assets/images/bottom-bg.png" for 127.0.0.1 at 2015-03-05 22:07:23 +0530
+
+
+Started GET "/new_threads/list" for 127.0.0.1 at 2015-03-05 22:07:27 +0530
+Processing by NewThreadsController#list as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.4ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered like_counts/_new_thread.html.erb (3.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "dislike_counts"  WHERE "dislike_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered dislike_counts/_new_thread_dislike.html.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "new_thread_flags"  WHERE "new_thread_flags"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered new_thread_flags/_new_thread_flag.html.erb (2.1ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "replies"  WHERE "replies"."new_thread_id" = $1  [["new_thread_id", 1]]
+  [1m[36mNewThread Load (2.0ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"   ORDER BY id DESC LIMIT 1 OFFSET 0[0m
+  Rendered new_threads/list.html.erb within layouts/application (25.8ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 277ms (Views: 267.5ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2015-03-05 22:07:30 +0530
+Processing by ActivitiesController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPublicActivity::Activity Load (1.0ms)[0m  [1mSELECT "activities".* FROM "activities"  WHERE "activities"."recipient_id" = 1 AND (owner_id not in (1))  ORDER BY created_at desc[0m
+  Rendered activities/index.html.erb within layouts/application (3.5ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 969ms (Views: 261.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-03-05 22:07:33 +0530
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mReply Load (0.5ms)[0m  [1mSELECT "replies".* FROM "replies"  WHERE "replies"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "like_count_replies"  WHERE "like_count_replies"."reply_id" = $1  [["reply_id", 1]]
+  [1m[36mNewThread Load (0.5ms)[0m  [1mSELECT  "new_threads".* FROM "new_threads"  WHERE "new_threads"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mNewThread Load (0.5ms)[0m  SELECT "new_threads".* FROM "new_threads"  WHERE "new_threads"."user_id" = $1  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "like_counts"  WHERE "like_counts"."new_thread_id" = $1[0m  [["new_thread_id", 1]]
+  Rendered users/registrations/edit.html.erb within layouts/application (16.8ms)
+  Rendered new_threads/_search.html.erb (0.6ms)
+Completed 200 OK in 265ms (Views: 258.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/pages/question" for 127.0.0.1 at 2015-03-05 22:07:40 +0530
+Processing by PagesController#question as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered pages/question.html.erb within layouts/application (0.6ms)
+  Rendered new_threads/_search.html.erb (0.7ms)
+Completed 200 OK in 267ms (Views: 262.2ms | ActiveRecord: 0.9ms)
