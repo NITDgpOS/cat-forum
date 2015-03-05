@@ -1,8 +1,4 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+[![security](https://hakiri.io/github/sonalkr132/CAT-Forum/master.svg)](https://hakiri.io/github/sonalkr132/CAT-Forum/master)
 Things you may want to cover:
 
 * Ruby version
@@ -24,5 +20,3 @@ Things you may want to cover:
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
