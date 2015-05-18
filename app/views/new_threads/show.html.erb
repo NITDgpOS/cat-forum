@@ -1,3 +1,4 @@
+<%= @pageTitle = @new_thread.title %>
 <% if user_signed_in? %>
      <span class="user"> <%= current_user.username %></span>
       <%= image_tag current_user.image.url(:thumb), size: "50x50", :class => 'user-img'%>
