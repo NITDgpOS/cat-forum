@@ -1,3 +1,5 @@
+<% @pageTitle =current_user.username + "'s Profile | CAT Forum" %>
+<% @PageDescription= "Edit your Profile in CAT Forum" %>
 <div class="user-info">
       <%= image_tag current_user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
      <table class="userswords">

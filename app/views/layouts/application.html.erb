@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <meta name="google-site-verification" content="qpW_IUs4mTBLcCo-rYSGLbOK29IWUR4WQ9Uf70bETqg" />
-  <title>CAT Forum: <%= @pageTitle || "Ask all your doubts related to CAT Exam"%></title>
+  <title><%= @pageTitle || "CAT Forum: Ask all your doubts related to CAT Exam"%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script>
@@ -22,10 +22,9 @@
   <meta name="author" content="Aditya Prakash">
   <meta property="og:image" content="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png"/>
    <meta property="og:image:secure_url" content="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png" />
-  <meta name="description" content="Are you confused and scared for the coming CAT Exam? You have come to right place, CAT Forum. Let the internet work its magic and find answers to all your CAT exam related questions." />
+  <meta name="description" content=<%= @PageDescription|| "Are you confused and scared for the coming CAT Exam? You have come to right place, CAT Forum. Let the internet work its magic and find answers to all your CAT exam related questions." %> />
   <meta name="keywords" content="CAT Forum, CAT exam, CAT 2015, CAT Doubts. CAT FAQ">
 <meta property="og:description" content="CAT 2014-2015, Common Admission Test - Prepare with other users, follow discussions and  stay updated about applications, new questions &amp; deadlines " />
-
     <link rel="icon" type="image/jpg" href="assets/ank-logo.png"/>
     <link rel="image_src" 
       type="image/jpeg" 
