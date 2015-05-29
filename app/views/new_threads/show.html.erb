@@ -1,72 +1,67 @@
 <% @pageTitle = @new_thread.title + " | CAT Forum" %>
 <% @PageDescription = @new_thread.description %>
 <% if user_signed_in? %>
-     <span class="user"> <%= current_user.username %></span>
-      <%= image_tag current_user.image.url(:thumb), size: "50x50", :class => 'user-img'%>
-  <% end %>                                            
-<div class="thread-replies">
-   
-    <%= image_tag(@new_thread.user.image.url(:thumb), :class => "user-image") %>
-     <%= image_tag("arrow.png", class: "triangle") %>
-     <div class="speech-bubble">
+  <span class="user"> <%= current_user.username %></span>
+  <%= image_tag current_user.image.url(:thumb), size: "50x50", :class => 'user-img'%>
+<% end %>                                            
+<div class="thread-replies" itemscope itemtype="http://schema.org/Question">
+  <%= image_tag(@new_thread.user.image.url(:thumb), :class => "user-image") %>
+  <%= image_tag("arrow.png", class: "triangle") %>
+  <div class="speech-bubble">
 
-       <span class="show-thread"> <%=best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title"%></span><br>
-        <span class="time">asked <%= time_ago_in_words(@new_thread.created_at) %> ago</span><br><br><br>
-        <span class="description"><%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %></span><br><br><br><br>
+        <span class="show-thread" itemprop="name"> <%=best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title"%></span><br>
+        <span class="time">asked <time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago</span><br><br><br>
+        <span class="description" itemprop="text"><%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %></span><br><br><br><br>
 
         <% if user_signed_in? %>
-        <% if @new_thread.user.id == current_user.id %>
-        <%= link_to 'Delete', @new_thread, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'thread-link'%>
-         <a href="#" class="activator thread-link">Description</a>
-          <a href="#" class="activator-title thread-link">Title</a>
+          <% if @new_thread.user.id == current_user.id %>
+            <%= link_to 'Delete', @new_thread, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'thread-link'%>
+            <a href="#" class="activator thread-link">Description</a>
+            <a href="#" class="activator-title thread-link">Title</a>
         
-        <%end%>
+          <%end%>
         <% end %>
-        <div class="info">
-     <table>
-      <tr>
-        <td>
-         <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
-        </td>
-        <td>
-          <div class="like">
-          <%= button_to 'Like', like_counts_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu"%>
+    <div class="info">
+      <table>
+        <tr>
+          <td>
+            <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
+          </td>
+          <td>
+            <div class="like">
+              <%= button_to 'Like', like_counts_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu"%>
          
-          </div>
-        </td>
-        <td>
-         <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
-        </td>
-        <td>
-          <div class="like">
-          <%= button_to 'Dislike', dislike_counts_path(:new_thread_id => @new_thread), remote: true, :class=> "like-bu dis"%>
-          </div>
-        </td>
-        <td>
+            </div>
+          </td>
+          <td>
+            <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
+          </td>
+          <td>
+            <div class="like">
+              <%= button_to 'Dislike', dislike_counts_path(:new_thread_id => @new_thread), remote: true, :class=> "like-bu dis"%>
+            </div>
+          </td>
+          <td>
           
-         <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
+            <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
        
-        </td>
-        <td>
-          <div class="like">
-          <%= button_to 'Flag', new_thread_flags_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu flag-icon"%>
-          </div>
-        </td>
-       
-
-
-        <td>
-          <%= @new_thread.replies.size %> &nbsp; Replies 
-        </td>
-      <tr>
+          </td>
+          <td>
+            <div class="like">
+              <%= button_to 'Flag', new_thread_flags_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu flag-icon"%>
+            </div>
+          </td>
+          <td>
+            <span itemprop="answerCount"><%= @new_thread.replies.size %></span> &nbsp; Replies 
+          </td>
+        <tr>
       </table>
      
 
-      <span class="user-thread"><%= @new_thread.user.username %></span>
-       
-      </div>
-     </div>
-     <br><br><br><br><br>
+      <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= @new_thread.user.username %></span></span>
+    </div>
+  </div>
+  <br><br><br><br><br>
 </div>
 
 
@@ -85,10 +80,10 @@
   
 </div>
 <%= form_for([@new_thread, Reply.new], remote: true ) do |f| %>
- <p>  <%= f.text_area :content %>
-  <% if user_signed_in? %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%end%>
- </p>
- <p><%= f.submit "Add Reply", :class => "reply-but"%></p>
+  <p>  <%= f.text_area :content %>
+    <% if user_signed_in? %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%end%>
+  </p>
+  <p><%= f.submit "Add Reply", :class => "reply-but"%></p>
 <% end %>
