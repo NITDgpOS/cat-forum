@@ -1,34 +1,42 @@
+<% @pageTitle =current_user.username + "'s Profile | CAT Forum" %>
+<% @PageDescription= "Edit your Profile in CAT Forum" %>
 <div class="user-info">
-      <%= image_tag current_user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
+  <div itemscope itemtype="http://schema.org/Person">
+    <%= image_tag current_user.image.url(:thumb), size: "100x100", :class=> "user-image", :itemprop=>"image"%><br>
      <table class="userswords">
       <tr>
-      <td>Username:</td><td><%= current_user.username %></td>
+        <td>Username:</td><td><span itemprop="name"><%= current_user.username %></span></td>
       </tr>
       <tr>
-       <td>Email:</td><td><%= current_user.email %> </td>
+       <td>Email:</td><td><span itemprop="email"><%= current_user.email %></span> </td>
       </tr>
       <tr>
-       <td>Member for:</td><td><%= time_ago_in_words(current_user.created_at) %></td>
+       <td>Member for:</td><td itemscope itemtype="http://schema.org/Role"><time itemprop="startDate" datetime=<%= current_user.created_at%>><%= time_ago_in_words(current_user.created_at) %></time></td>
       </tr>
       <tr>
        <td> Points:</td><td><%= current_user.points %></td>
       </tr>
       <tr>
        <td> Badge:</td><td> <%= current_user.badge %></td>
-     </tr>
+      </tr>
     </table>
     <ul class="qanda">
-       <bold>Answers:</bold><br><br>
-       <% replies = current_user.replies %>
-       <% replies.each do |reply| %>
-       <li><span class="count-cell"><%= reply.like_count_replies.size %></span>&nbsp;&nbsp;<%= link_to reply.new_thread.title, reply.new_thread %><br><br></li>
-       <% end %>
-       <bold>Questions:</bold><br><br>
-       <% threads = current_user.new_threads %>
-       <% threads.each do |thread| %>
-       <li><span class="count-cell"><%=thread.like_counts.size%></span>&nbsp;&nbsp;<%= link_to thread.title, thread %><br><br></li>
-       <% end %>
-     </ul>
+      <bold>Answers:</bold><br><br>
+      <div itemscope itemtype="http://schema.org/Answer">
+        <% replies = current_user.replies %>
+        <% replies.each do |reply| %>
+          <li><span class="count-cell" itemprop="upvoteCount"><%= reply.like_count_replies.size %></span>&nbsp;&nbsp;<%= link_to reply.new_thread.title, reply.new_thread , :itemprop=>"url"%><br><br></li>
+        <% end %>
+      </div>
+      <bold>Questions:</bold><br><br>
+      <div itemscope itemtype="http://schema.org/Question">
+        <% threads = current_user.new_threads %>
+        <% threads.each do |thread| %>
+          <li><span class="count-cell" itemprop="upvoteCount"><%=thread.like_counts.size%></span>&nbsp;&nbsp;<%= link_to thread.title, thread, :itemprop=>"url" %><br><br></li>
+        <% end %>
+      </div>
+    </ul>
+  </div>
 </div>
 
 <div class="login">
