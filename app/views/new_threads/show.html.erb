@@ -9,9 +9,9 @@
   <%= image_tag("arrow.png", class: "triangle") %>
   <div class="speech-bubble">
 
-        <span class="show-thread" itemprop="name"> <%=best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title"%></span><br>
+        <h1><span class="show-thread" itemprop="name"> <%=best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title"%></span></h1><br>
         <span class="time">asked <time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago</span><br><br><br>
-        <span class="description" itemprop="text"><%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %></span><br><br><br><br>
+        <h2><span class="description" itemprop="text"><%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %></span></h2><br><br><br><br>
 
         <% if user_signed_in? %>
           <% if @new_thread.user.id == current_user.id %>
