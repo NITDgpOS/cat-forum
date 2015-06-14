@@ -4,17 +4,15 @@ class BlockedsController < ApplicationController
   # GET /blockeds
   # GET /blockeds.json
   def index
-    
   end
-
 
   def list
     @blockeds = Blocked.all
   end
+
   # GET /blockeds/1
   # GET /blockeds/1.json
   def show
-
   end
 
   # GET /blockeds/new
@@ -67,13 +65,14 @@ class BlockedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blocked
-      @blocked = Blocked.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blocked_params
-      params.require(:blocked).permit(:status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blocked
+    @blocked = Blocked.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blocked_params
+    params.require(:blocked).permit(:status)
+  end
 end

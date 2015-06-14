@@ -23,8 +23,7 @@
       <div class="speech-bubble fade_speech">
         <h1><%= link_to new_thread.title, new_thread, :class => "show-thread",:itemprop=>"url"%></h1><br>
         <span class="time">asked <time itemprop="dateCreated" datetime=<%= new_thread.created_at %>><%= time_ago_in_words(new_thread.created_at) %></time> ago</span><br><br><br>
-        <span class="description pt-page-moveToLeft" itemprop="text"><%= new_thread.description %>
-        </span><br><br><br><br>
+        <h2><span class="description pt-page-moveToLeft" itemprop="text"><%= new_thread.description %></span></h2><br><br><br><br>
         
         <div class="info">
           <table>

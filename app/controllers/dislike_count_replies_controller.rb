@@ -27,16 +27,16 @@ class DislikeCountRepliesController < ApplicationController
     @user = User.find(current_user.id)
     @reply = Reply.find(params[:reply_id])
     @dislike_count_reply = @user.add_reply_dislike(@reply.id)
-    @reply_user = @reply.user 
-      respond_to do |format|
+    @reply_user = @reply.user
+    respond_to do |format|
       if @dislike_count_reply.save
         if current_user != @reply_user
-        @reply_user.update_attributes(points: @reply_user.points-=15)
-        @badge = @reply_user.update_badge(@reply_user.id)
-        @reply_user.update_attributes(badge: @badge)
+          @reply_user.update_attributes(points: @reply_user.points -= 15)
+          @badge = @reply_user.update_badge(@reply_user.id)
+          @reply_user.update_attributes(badge: @badge)
         end
         # format.html { redirect_to(@like_count.user, :notice => 'Line item was successfully created.' ) }
-        format.html { redirect_to(:action => 'index', :controller => 'reply')}
+        format.html { redirect_to(action: 'index', controller: 'reply') }
         format.js
         format.json { render :show, status: :created, location: @dislike_count_reply }
         # redirect_to(:action => 'show', :controller => 'user', :user_id => @user.user_id)
@@ -45,7 +45,6 @@ class DislikeCountRepliesController < ApplicationController
         format.json { render json: @dislike_count_reply.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   # PATCH/PUT /dislike_count_replies/1
@@ -73,13 +72,14 @@ class DislikeCountRepliesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dislike_count_reply
-      @dislike_count_reply = DislikeCountReply.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dislike_count_reply_params
-      params.require(:dislike_count_reply).permit(:reply_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dislike_count_reply
+    @dislike_count_reply = DislikeCountReply.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def dislike_count_reply_params
+    params.require(:dislike_count_reply).permit(:reply_id, :user_id)
+  end
 end

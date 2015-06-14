@@ -8,6 +8,6 @@ class CreateBlockeds < ActiveRecord::Migration
   end
 
   def self.down
-  	drop_table :blockeds
+    drop_table :blockeds
   end
 end

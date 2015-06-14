@@ -1,7 +1,7 @@
 class FlagsController < ApplicationController
   # before_action :set_flag, only: [:show, :edit, :update, :destroy]
-  # before_filter :authenticate_admin!
-  
+  before_filter :authenticate_admin!
+
   # GET /flags
   # GET /flags.json
   def index
@@ -9,7 +9,6 @@ class FlagsController < ApplicationController
     @new_threads = NewThread.all
     @replies = Reply.all
     @users = User.all.where(blocked: true)
-    
   end
 
   def list
@@ -17,7 +16,6 @@ class FlagsController < ApplicationController
 
   # GET /flags/1
   # GET /flags/1.json
-
 
   def search
     @users = User.look(params[:search])
@@ -53,8 +51,8 @@ class FlagsController < ApplicationController
   # PATCH/PUT /flags/1.json
   def update
     @user = User.find(params[:id])
-     @user.update_attributes(user_params)
-     redirect_to(:action => 'index')
+    @user.update_attributes(user_params)
+    redirect_to(action: 'index')
     # respond_to do |format|
     #   if @flag.update(flag_params)
     #     format.html { redirect_to @flag, notice: 'Flag was successfully updated.' }
@@ -77,17 +75,18 @@ class FlagsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flag
-      @flag = Flag.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def flag_params
-      params[:flag]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flag
+    @flag = Flag.find(params[:id])
+  end
 
-    def user_params
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def flag_params
+    params[:flag]
+  end
+
+  def user_params
     params.require(:user).permit(:blocked)
   end
 end

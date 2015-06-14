@@ -4,7 +4,7 @@
 <%= link_to("<< Back to New Threads", {:controller => "new_threads", :action => 'index'}, :class => 'back-link') %>
 <ul class="thumb-nails">
     <% @new_threads.each do |new_thread| %>
-  <li><%= link_to new_thread.title, new_thread %></li>
+  <li><h1><%= link_to new_thread.title, new_thread %></h1></li>
    <% end %>
  </ul>
  <%= will_paginate @new_threads %>

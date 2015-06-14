@@ -25,18 +25,18 @@ class DislikeCountsController < ApplicationController
   # POST /dislike_counts.json
   def create
     @user = User.find(current_user.id)
-    @new_thread = NewThread.find(params[:new_thread_id])
+    @new_thread = NewThread.friendly.find(params[:new_thread_id])
     @dislike_count = @user.add_new_thread_dislike(@new_thread.id)
     @thread_user = @new_thread.user
-      respond_to do |format|
+    respond_to do |format|
       if @dislike_count.save
         if current_user != @thread_user
-        @thread_user.update_attributes(points: @thread_user.points-=10)
-        @badge = @thread_user.update_badge(@user.id)
-        @thread_user.update_attributes(badge: @badge)
+          @thread_user.update_attributes(points: @thread_user.points -= 10)
+          @badge = @thread_user.update_badge(@user.id)
+          @thread_user.update_attributes(badge: @badge)
         end
         # format.html { redirect_to(@like_count.user, :notice => 'Line item was successfully created.' ) }
-        format.html { redirect_to(:action => 'index', :controller => 'new_threads')}
+        format.html { redirect_to(action: 'index', controller: 'new_threads') }
         format.js
         format.json { render :show, status: :created, location: @dislike_count }
         # redirect_to(:action => 'show', :controller => 'user', :user_id => @user.user_id)
@@ -45,7 +45,6 @@ class DislikeCountsController < ApplicationController
         format.json { render json: @dislike_count.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   # PATCH/PUT /dislike_counts/1
@@ -73,13 +72,14 @@ class DislikeCountsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dislike_count
-      @dislike_count = DislikeCount.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dislike_count_params
-      params.require(:dislike_count).permit(:new_thread_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dislike_count
+    @dislike_count = DislikeCount.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def dislike_count_params
+    params.require(:dislike_count).permit(:new_thread_id, :user_id)
+  end
 end

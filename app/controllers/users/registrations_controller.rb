@@ -1,9 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   def update
     @user = User.find(current_user.id)
 
-    successfully_updated = if needs_password?(@user, params)
+    successfully_updated =
+    if needs_password?(@user, params)
       @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
     else
       # remove the virtual current_password attribute
@@ -15,14 +15,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if successfully_updated
       set_flash_message :notice, :updated
       # Sign in the user bypassing validation in case his password changed
-      sign_in @user, :bypass => true
+      sign_in @user, bypass: true
       redirect_to after_update_path_for(@user)
     else
-      render "edit"
+      render 'edit'
     end
   end
-
- 
 
   private
 
@@ -34,22 +32,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password].present?
   end
 
-
- protected
+  protected
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(User) && resource.blocked?
       sign_out resource
-      flash[:notice] = "This account has been suspended for violation of...."
+      flash[:notice] = 'This account has been suspended for violation of....'
       root_path
     else
       super
     end
-   end
-
-   def account_update_params
-    params.require(:user).permit(:password, :password_confirmation, :current_password, :blocked)
   end
 
-
+  def account_update_params
+    params.require(:user).permit(:password, :password_confirmation, :current_password, :blocked)
+  end
 end

@@ -21,18 +21,18 @@
       </tr>
     </table>
     <ul class="qanda">
-      <bold>Answers:</bold><br><br>
+      <h1><bold>Answers:</bold></h1><br><br>
       <div itemscope itemtype="http://schema.org/Answer">
         <% replies = current_user.replies %>
         <% replies.each do |reply| %>
-          <li><span class="count-cell" itemprop="upvoteCount"><%= reply.like_count_replies.size %></span>&nbsp;&nbsp;<%= link_to reply.new_thread.title, reply.new_thread , :itemprop=>"url"%><br><br></li>
+          <li><h2><span class="count-cell" itemprop="upvoteCount"><%= reply.like_count_replies.size %></span>&nbsp;&nbsp;<%= link_to reply.new_thread.title, reply.new_thread , :itemprop=>"url"%></h2><br><br></li>
         <% end %>
       </div>
-      <bold>Questions:</bold><br><br>
+      <h1><bold>Questions:</bold></h1><br><br>
       <div itemscope itemtype="http://schema.org/Question">
         <% threads = current_user.new_threads %>
         <% threads.each do |thread| %>
-          <li><span class="count-cell" itemprop="upvoteCount"><%=thread.like_counts.size%></span>&nbsp;&nbsp;<%= link_to thread.title, thread, :itemprop=>"url" %><br><br></li>
+          <li><h2><span class="count-cell" itemprop="upvoteCount"><%=thread.like_counts.size%></span>&nbsp;&nbsp;<%= link_to thread.title, thread, :itemprop=>"url" %></h2><br><br></li>
         <% end %>
       </div>
     </ul>

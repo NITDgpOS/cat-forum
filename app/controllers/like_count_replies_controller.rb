@@ -28,16 +28,16 @@ class LikeCountRepliesController < ApplicationController
     @reply = Reply.find(params[:reply_id])
     @like_count_reply = @user.add_reply(@reply.id)
     @reply_user = @reply.user
-      respond_to do |format|
+    respond_to do |format|
       if @like_count_reply.save
-         @like_count_reply.create_activity :create, owner: current_user, recipient: @reply.user
-         if current_user != @reply_user
-         @reply_user.update_attributes(points: @reply_user.points+=25)
-         @badge = @reply_user.update_badge(@reply_user.id)
-         @reply_user.update_attributes(badge: @badge)
-         end
+        @like_count_reply.create_activity :create, owner: current_user, recipient: @reply.user
+        if current_user != @reply_user
+          @reply_user.update_attributes(points: @reply_user.points += 25)
+          @badge = @reply_user.update_badge(@reply_user.id)
+          @reply_user.update_attributes(badge: @badge)
+        end
         # format.html { redirect_to(@like_count.user, :notice => 'Line item was successfully created.' ) }
-        format.html { redirect_to(:action => 'index', :controller => 'reply')}
+        format.html { redirect_to(action: 'index', controller: 'reply') }
         format.js
         format.json { render :show, status: :created, location: @like_count_reply }
         # redirect_to(:action => 'show', :controller => 'user', :user_id => @user.user_id)
@@ -46,9 +46,7 @@ class LikeCountRepliesController < ApplicationController
         format.json { render json: @like_count_reply.errors, status: :unprocessable_entity }
       end
     end
-
   end
-
 
   # PATCH/PUT /like_count_replies/1
   # PATCH/PUT /like_count_replies/1.json
@@ -75,13 +73,14 @@ class LikeCountRepliesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_like_count_reply
-      @like_count_reply = LikeCountReply.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def like_count_reply_params
-      params.require(:like_count_reply).permit(:reply_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_like_count_reply
+    @like_count_reply = LikeCountReply.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def like_count_reply_params
+    params.require(:like_count_reply).permit(:reply_id, :user_id)
+  end
 end

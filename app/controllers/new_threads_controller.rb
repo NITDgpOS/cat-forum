@@ -1,25 +1,31 @@
 class NewThreadsController < ApplicationController
+  authorize_resource
   before_action :authenticate_user!, except: [:index, :list, :search, :show]
 
   def index
     list
     render('list')
   end
-  
-  def list
-    @new_threads = NewThread.paginate(:page => params[:page], :per_page => 10).order('id DESC')
 
+  def list
+    @new_threads = NewThread.paginate(page: params[:page], per_page: 10).order('id DESC')
   end
 
   def search
-    #@new_threads = NewThread.search ThinkingSphinx::Query.escape(params[:search])
-    @new_threads = NewThread.text_search(params[:query]).paginate(:page => params[:page], :per_page => 10).order('id DESC')
+    # @new_threads = NewThread.search ThinkingSphinx::Query.escape(params[:search])
+    @new_threads = NewThread.text_search(params[:query]).paginate(page: params[:page], per_page: 10).order('id DESC')
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @new_thread = NewThread.find(params[:id]) 
+    @new_thread = NewThread.friendly.find(params[:id])
+    # If an old id or a numeric id was used to find the record, then
+    # the request path will not match the new_thread_path, and we should do
+    # a 301 redirect that uses the current friendly id.
+    if request.path != new_thread_path(@new_thread)
+      return redirect_to @new_thread, status: :moved_permanently
+    end
   end
 
   # GET /posts/new
@@ -33,7 +39,6 @@ class NewThreadsController < ApplicationController
   # POST /posts.json
   def create
     @new_thread = NewThread.new(new_thread_params)
-
     respond_to do |format|
       if @new_thread.save
         format.html { redirect_to @new_thread, notice: 'New thread was successfully created.' }
@@ -46,11 +51,13 @@ class NewThreadsController < ApplicationController
   end
 
   def edit
-    @new_thread = NewThread.find(params[:id])
+    @new_thread = NewThread.friendly.find(params[:id])
+    authorize! :edit, @new_thread
   end
 
   def update
-    @new_thread = NewThread.find(params[:id])
+    @new_thread = NewThread.friendly.find(params[:id])
+    authorize! :update, @new_thread
     respond_to do |format|
       if @new_thread.update(new_thread_params)
         format.html { redirect_to @new_thread, notice: 'New thread was successfully updated.' }
@@ -63,10 +70,11 @@ class NewThreadsController < ApplicationController
   end
 
   def destroy
-    @new_thread = NewThread.find(params[:id])
+    @new_thread = NewThread.friendly.find(params[:id])
+    authorize! :destroy, @new_thread
     @thread_user = @new_thread.user
     @new_thread.destroy
-    @thread_user.update_attributes(points: @thread_user.points-=20)
+    @thread_user.update_attributes(points: @thread_user.points -= 20)
     @badge = @thread_user.update_badge(@thread_user.id)
     @thread_user.update_attributes(badge: @badge)
     respond_to do |format|
@@ -77,12 +85,12 @@ class NewThreadsController < ApplicationController
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
- 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def new_thread_params
-      params.require(:new_thread).permit(:title, :description, :user_id)
-    end
 
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def new_thread_params
+    params.require(:new_thread).permit(:title, :description, :user_id)
+  end
 end

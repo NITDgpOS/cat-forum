@@ -1,3 +1,5 @@
+[![security](https://hakiri.io/github/sonalkr132/cat-forum/github_master.svg)](https://hakiri.io/github/sonalkr132/cat-forum/github_master)
+
 ## CAT FORUM
 CAT forum tries to use the magic of internet to find all your answers. We are using heroku for deployment for now.
 
@@ -20,4 +22,3 @@ We have all our secrets in secret.yml.example. You only need to rename it to sec
 * Migrate the database with `rake db:migrate`
 * Start the server with `rails s`
 * Go to `localhost:3000` in your broswer.
-

@@ -6,3 +6,13 @@
       %lastmod=new_thread.updated_at.strftime('%Y-%m-%d')
       %changefreq monthly
       %priority 0.5
+
+  %url
+    %loc= url_for controller: 'pages', action: 'badge', host: 'localhost', trailing_slash: true
+    %changefreq monthly
+    %priority 0.5
+
+  %url
+    %loc= url_for controller: 'pages', action: 'question', host: 'localhost', trailing_slash: true
+    %changefreq monthly
+    %priority 0.5
