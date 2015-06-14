@@ -19,7 +19,7 @@ class RepliesController < ApplicationController
 
   def edit
     @reply = Reply.find(params[:id])
-    @new_thread = NewThread.find(params[:new_thread_id])
+    @new_thread = NewThread.friendly.find(params[:new_thread_id])
   end
   
   def new
@@ -27,7 +27,7 @@ class RepliesController < ApplicationController
   end
   
   def create
-    @new_thread = NewThread.find(params[:new_thread_id])
+    @new_thread = NewThread.friendly.find(params[:new_thread_id])
     @reply = @new_thread.replies.create(reply_params)
     @user = @new_thread.user
 
@@ -94,7 +94,7 @@ class RepliesController < ApplicationController
    
   def find_new_thread
     if params[:new_thread_id]
-      @new_thread = NewThread.find_by_id(params[:new_thread_id])
+      @new_thread = NewThread.friendly.find_by_id(params[:new_thread_id])
     end
   end
 end

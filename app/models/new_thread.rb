@@ -1,4 +1,6 @@
 class NewThread < ActiveRecord::Base
+    extend FriendlyId
+    friendly_id :title, use: [:slugged, :history]
 	
 	has_many :replies, :dependent => :destroy
 	belongs_to :user
