@@ -1,6 +1,4 @@
-<b><%= link_to("New Thread", {:action => 'new'}, :class => 'navbar-link new') %></b>
-<br>
-<br>
+<b><%= link_to("New Thread", {:action => 'new'}, :class => 'navbar-link new') %></b><br><br>
 
 <% if user_signed_in? %>
   <span class="user other-user"> <%= current_user.username %></span>
@@ -21,57 +19,59 @@
 
 <div class="thread-whole">
   <% @new_threads.each do |new_thread| %>
-    <%= image_tag new_thread.user.image_url(:thumb).to_s, :class => "user-image" %>
-    <%= image_tag("arrow.png", class: "triangle fade_speech") %>
-    <div class="speech-bubble fade_speech">
-      <h1><%= link_to new_thread.title, new_thread, :class => "show-thread"%></h1><br>
-      <span class="time">asked <%= time_ago_in_words(new_thread.created_at) %> ago</span><br><br><br>
-      <h2><span class="description pt-page-moveToLeft"><%= new_thread.description %></span></h2><br><br><br><br>
-      <div class="info">
-        <table>
-          <tr>
-            <td>
-              <% @new_thread = new_thread %>
-              <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
-            </td>
-            <td>
-              <div class="like">
-                <%= button_to 'Like', like_counts_path(:new_thread_id => new_thread), remote: true, :class => "like-bu"%>
-              </div>
-            </td>
-            <td>
-              <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
-            </td>
-            <td>
-              <div class="like">
-                <%= button_to 'Dislike', dislike_counts_path(:new_thread_id => new_thread), remote: true, :class=> "like-bu dis"%>
-              </div>
-            </td>
-            <td>
-              <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
-            </td>
-            <td>
-              <div class="like">
-                <%= button_to 'Flag', new_thread_flags_path(:new_thread_id => new_thread), remote: true, :class => "like-bu flag-icon"%>
-              </div>
-            </td>
-            <td>
-              <%= new_thread.replies.size %> &nbsp; Replies 
-            </td>
-          </tr>
-        </table>
-        <span class="user-thread">
-          <table class="table-tag">
+    <div itemscope itemtype="http://schema.org/Question">
+      <%= image_tag new_thread.user.image_url(:thumb).to_s, :class => "user-image" %>
+      <%= image_tag("arrow.png", class: "triangle fade_speech") %>
+      <div class="speech-bubble fade_speech">
+        <h1><%= link_to new_thread.title, new_thread, :class => "show-thread", :itemprop=>"url"%></h1><br>
+        <span class="time">asked <time itemprop="dateCreated" datetime=<%= new_thread.created_at %>><%= time_ago_in_words(new_thread.created_at) %></time> ago</span><br><br><br>
+        <h2><span class="description pt-page-moveToLeft" itemprop="text"><%= new_thread.description %></span></h2><br><br><br><br>
+        <div class="info">
+          <table>
             <tr>
-              <td class="td-tag"><div class="tag"><%= new_thread.user.badge %></div></td>
-              <td class="td-tag2"><%= image_tag "tag.png", :class => "user-tag" %></td>
+              <td>
+                <% @new_thread = new_thread %>
+                <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
+              </td>
+              <td>
+                <div class="like">
+                  <%= button_to 'Like', like_counts_path(:new_thread_id => new_thread), remote: true, :class => "like-bu"%>
+                </div>
+              </td>
+              <td>
+                <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
+              </td>
+              <td>
+                <div class="like">
+                  <%= button_to 'Dislike', dislike_counts_path(:new_thread_id => new_thread), remote: true, :class=> "like-bu dis"%>
+                </div>
+              </td>
+              <td>
+                <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
+              </td>
+              <td>
+                <div class="like">
+                  <%= button_to 'Flag', new_thread_flags_path(:new_thread_id => new_thread), remote: true, :class => "like-bu flag-icon"%>
+                </div>
+              </td>
+              <td>
+                <span itemprop="answerCount"><%= new_thread.replies.size %></span> &nbsp; Replies 
+              </td>
             </tr>
           </table>
-          <%= new_thread.user.username %>
-        </span>
+          <span class="user-thread">
+            <table class="table-tag">
+              <tr>
+                <td class="td-tag"><div class="tag"><%= new_thread.user.badge %></div></td>
+                <td class="td-tag2"><%= image_tag "tag.png", :class => "user-tag" %></td>
+              </tr>
+            </table>
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= new_thread.user.username %></span></span>
+          </span>
+        </div>
       </div>
+      <br><br><br><br><br>
     </div>
-    <br><br><br><br><br>
   <% end %>
 
 
