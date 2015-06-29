@@ -26,7 +26,7 @@ class NewThreadFlagsController < ApplicationController
   # POST /new_thread_flags.json
   def create
     @user = User.find(current_user.id)
-    @new_thread = NewThread.find(params[:new_thread_id])
+    @new_thread = NewThread.friendly.find(params[:new_thread_id])
     @new_thread_flag = @user.add_new_thread_flag(@new_thread.id)
     respond_to do |format|
       if @new_thread_flag.save
@@ -40,8 +40,8 @@ class NewThreadFlagsController < ApplicationController
   end
 
    def destroy
-    @new_thread = NewThread.find(params[:id])
-     NewThread.find(params[:id]).destroy
+    @new_thread = NewThread.friendly.find(params[:id])
+     NewThread.friendly.find(params[:id]).destroy
      respond_to do |format|
      format.html {redirect_to(:action => 'index', :controller => 'flags')}
       format.json { render action: 'index', status: :created, location: @new_thread_flag }

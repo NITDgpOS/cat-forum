@@ -26,7 +26,7 @@ class LikeCountsController < ApplicationController
   # POST /like_counts.json
   def create
     @user = User.find(current_user.id)
-    @new_thread = NewThread.find(params[:new_thread_id])
+    @new_thread = NewThread.friendly.find(params[:new_thread_id])
     @like_count = @user.add_new_thread(@new_thread.id)
     @thread_user = @new_thread.user 
       respond_to do |format|
