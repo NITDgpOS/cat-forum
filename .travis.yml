@@ -1,0 +1,11 @@
+language: ruby
+cache: bundler
+sudo: false
+rvm:
+  - 2.2.0
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - cp config/secrets.yml.example config/secrets.yml
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+script:
+  - RAILS_ENV=test xvfb-run bundle exec rspec
