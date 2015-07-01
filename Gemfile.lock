@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: 17cae0e7956e4c78891875ede83f1c4f173bc9ce
-  specs:
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
-
-GIT
   remote: https://github.com/aaronchi/best_in_place.git
   revision: 1152e2256afd485e66602833fd99d09d60994841
   specs:
@@ -61,13 +51,9 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     chronic (0.10.2)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
     cloudinary (1.0.77)
       aws_cf_signer
       rest-client
-    cocaine (0.5.4)
-      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -115,7 +101,6 @@ GEM
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.3.16)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -252,9 +237,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   merit
-  mysql2
   omniauth-facebook
-  paperclip!
   pg
   pg_search
   public_activity
