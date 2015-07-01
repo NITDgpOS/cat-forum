@@ -1,4 +1,5 @@
 [![security](https://hakiri.io/github/sonalkr132/cat-forum/github_master.svg)](https://hakiri.io/github/sonalkr132/cat-forum/github_master)
+[![Build Status](https://travis-ci.org/sonalkr132/cat-forum.svg?branch=github_master)](https://travis-ci.org/sonalkr132/cat-forum)
 
 ## CAT FORUM
 CAT forum tries to use the magic of internet to find all your answers. We are using heroku for deployment for now.
