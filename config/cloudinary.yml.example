@@ -1,19 +1,20 @@
 ---
+default: &default
+  cloud_name:
+  api_key:
+  api_secret:
+
 development:
-  cloud_name: Rails.application.secrets.cloud_api_key
-  api_key: Rails.application.secrets.cloud_name
-  api_secret: Rails.application.secrets.cloud_secret
+  <<: *default
   enhance_image_tag: true
   static_image_support: false
+
 production:
-  #cloud_name:
-  #api_key:
-  #api_secret:
+  <<: *default
   enhance_image_tag: true
   static_image_support: true
+
 test:
-  #cloud_name:
-  #api_key:
-  #api_secret:
+  <<: *default
   enhance_image_tag: true
   static_image_support: false

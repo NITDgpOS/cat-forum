@@ -12,11 +12,6 @@ gem 'whenever', :require => false
 
 gem 'capistrano', '~> 3.2.0'
 
-gem 'paperclip', github: 'thoughtbot/paperclip'
-
-gem "letter_opener", :group => :development
-
-
 
 gem 'will_paginate', '~> 3.0.5'
 
@@ -33,9 +28,6 @@ gem 'omniauth-facebook'
 gem 'sitemap_generator'
 
 gem "haml"
-
-# Use mysql as the database for Active Record
-gem 'mysql2'
 
 gem 'pg'
 # Use SCSS for stylesheets
@@ -71,6 +63,8 @@ gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'letter_opener'
+  gem 'factory_girl_rails'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
