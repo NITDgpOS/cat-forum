@@ -6,6 +6,7 @@ rvm:
 before_script:
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
+  - RAILS_ENV=test bundle exec rake --trace db:create
   - RAILS_ENV=test bundle exec rake --trace db:migrate
 script:
   - RAILS_ENV=test xvfb-run bundle exec rspec
