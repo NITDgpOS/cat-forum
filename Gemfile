@@ -64,6 +64,7 @@ gem 'friendly_id', '~> 5.1.0'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'letter_opener'
+  gem 'factory_girl_rails'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
