@@ -12,6 +12,7 @@ class Ability
 
   def guest
     can [:index, :list, :search, :show], NewThread
+    can [:index, :list, :show], Reply
   end
 
   def permitted(user)
@@ -19,6 +20,10 @@ class Ability
     can [:new, :create], NewThread
     can [:edit, :update, :destroy], NewThread do |new_thread|
       new_thread.try(:user_id) == user.id
+    end
+    can [:new, :create], Reply
+    can [:edit, :update, :delete, :destroy], Reply do |reply|
+      reply.try(:user_id) == user.id
     end
   end
 end
