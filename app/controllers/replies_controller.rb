@@ -3,6 +3,7 @@ class RepliesController < ApplicationController
   # before_filter :confirm_logged_in
   before_filter :find_new_thread
   before_action :authenticate_user!, except: [:index, :list, :show]
+  load_and_authorize_resource :reply, through: :new_thread
 
   def index
     list
@@ -18,17 +19,12 @@ class RepliesController < ApplicationController
 
 
   def edit
-    @reply = Reply.find(params[:id])
-    @new_thread = NewThread.friendly.find(params[:new_thread_id])
   end
   
   def new
-    @reply = Reply.new
   end
   
   def create
-    @new_thread = NewThread.friendly.find(params[:new_thread_id])
-    @reply = @new_thread.replies.create(reply_params)
     @user = @new_thread.user
 
     respond_to do |format|
@@ -50,8 +46,6 @@ class RepliesController < ApplicationController
   end
 
   def update
-    @reply = Reply.find(params[:id])
-    # @new_thread = NewThread.find(:new_thread_id)
     respond_to do |format|
       if @reply.update(reply_params)
         # @reply.create_activity :update, owner: current_user, recipient: @new_thread.user
@@ -65,11 +59,9 @@ class RepliesController < ApplicationController
   end
   
   def delete
-    @reply = Reply.find(params[:id])
   end
   
   def destroy
-    @reply = Reply.find(params[:id])
     @reply_user = @reply.user
     if @reply.user.id = current_user.id
      Reply.find(params[:id]).destroy
@@ -94,7 +86,7 @@ class RepliesController < ApplicationController
    
   def find_new_thread
     if params[:new_thread_id]
-      @new_thread = NewThread.friendly.find_by_id(params[:new_thread_id])
+      @new_thread = NewThread.friendly.find(params[:new_thread_id])
     end
   end
 end

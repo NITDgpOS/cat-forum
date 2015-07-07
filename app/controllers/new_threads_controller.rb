@@ -1,5 +1,7 @@
 class NewThreadsController < ApplicationController
+  before_action :friendly_url, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :list, :search, :show]
+  authorize_resource
 
   def index
     list
@@ -18,8 +20,7 @@ class NewThreadsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show
-    @new_thread = NewThread.friendly.find(params[:id]) 
+  def show 
     # If an old id or a numeric id was used to find the record, then
     # the request path will not match the new_thread_path, and we should do
     # a 301 redirect that uses the current friendly id.
@@ -52,11 +53,9 @@ class NewThreadsController < ApplicationController
   end
 
   def edit
-    @new_thread = NewThread.friendly.find(params[:id])
   end
 
   def update
-    @new_thread = NewThread.friendly.find(params[:id])
     respond_to do |format|
       if @new_thread.update(new_thread_params)
         format.html { redirect_to @new_thread, notice: 'New thread was successfully updated.' }
@@ -69,7 +68,6 @@ class NewThreadsController < ApplicationController
   end
 
   def destroy
-    @new_thread = NewThread.friendly.find(params[:id])
     @thread_user = @new_thread.user
     @new_thread.destroy
     @thread_user.update_attributes(points: @thread_user.points-=20)
@@ -89,6 +87,10 @@ class NewThreadsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def new_thread_params
       params.require(:new_thread).permit(:title, :description, :user_id)
+    end
+
+    def friendly_url
+      @new_thread = NewThread.friendly.find(params[:id])
     end
 
 end
