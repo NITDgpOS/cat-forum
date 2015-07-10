@@ -25,8 +25,6 @@ gem 'merit'
 
 gem 'omniauth-facebook'
 
-gem 'sitemap_generator'
-
 gem "haml"
 
 gem 'pg'
