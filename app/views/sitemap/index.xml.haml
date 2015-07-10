@@ -1,5 +1,10 @@
 !!! XML
 %urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  %url
+    %loc #{root_url}
+    %changefreq monthly
+    %priority 0.5
+
   - for new_thread in @new_threads
     %url
       %loc #{new_thread_url(new_thread)}/
@@ -7,12 +12,17 @@
       %changefreq monthly
       %priority 0.5
 
-    %url
-      %loc= url_for controller: 'pages', action: 'badge', host: 'localhost', trailing_slash: true
-      %changefreq monthly
-      %priority 0.5
+  %url
+    %loc #{pages_question_url}/
+    %changefreq monthly
+    %priority 0.5
 
-    %url
-      %loc= url_for controller: 'pages', action: 'question', host: 'localhost', trailing_slash: true
-      %changefreq monthly
-      %priority 0.5
+  %url
+    %loc #{pages_badge_url}/
+    %changefreq monthly
+    %priority 0.5
+  
+  %url
+    %loc #{new_user_session_url}/
+    %changefreq monthly
+    %priority 0.5
