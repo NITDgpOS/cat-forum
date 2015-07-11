@@ -1,4 +1,5 @@
 class BlockedsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_blocked, only: [:show, :edit, :update, :destroy]
 
   # GET /blockeds

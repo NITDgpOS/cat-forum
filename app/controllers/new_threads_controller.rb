@@ -74,7 +74,7 @@ class NewThreadsController < ApplicationController
     @badge = @thread_user.update_badge(@thread_user.id)
     @thread_user.update_attributes(badge: @badge)
     respond_to do |format|
-      format.html { redirect_to new_threads_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end

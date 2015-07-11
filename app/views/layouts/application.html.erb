@@ -22,7 +22,7 @@
   <meta name="author" content="Aditya Prakash">
   <meta property="og:image" content="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png"/>
    <meta property="og:image:secure_url" content="https://glacial-cove-5235.herokuapp.com/assets/ank-logo.png" />
-  <meta name="description" content=<%= @PageDescription|| "Are you confused and scared for the coming CAT Exam? You have come to right place, CAT Forum.Find answers to all your CAT exam related questions.Get replies to doubts you asked." %> />
+  <meta name="description" content="<%= @PageDescription|| "Are you confused and scared for the coming CAT Exam? You have come to right place, CAT Forum.Find answers to all your CAT exam related questions.Get replies to doubts you asked." %>" />
   <meta name="keywords" content="CAT Forum, CAT exam, CAT 2015, CAT Doubts. CAT FAQ">
 <meta property="og:description" content="CAT 2014-2015, Common Admission Test - Prepare with other users, follow discussions and  stay updated about applications, new questions &amp; deadlines " />
     <link rel="icon" type="image/jpg" href="assets/ank-logo.png"/>
@@ -46,7 +46,7 @@
    <% else %>
    <li> <%= link_to "Login", new_user_session_path %></li>
    <% end %>
-   <li><%= link_to "Threads", new_threads_list_path, :class => 'navbar-bar'  %></li>
+   <li><%= link_to "Threads", root_path, :class => 'navbar-bar'  %></li>
 
    <li class="nav-text">C</li><li class="nav-text at">AT</li> <li class="nav-text forum">FORUM</li>
     <li class="search"> <%= render :partial => 'new_threads/search' %></li>

@@ -20,8 +20,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_fit(100, 100)
   end
 
-
-
+  def default_url
+    "small/user.jpg"
+  end
 
   # Choose what kind of storage to use for this uploader:
   #storage :file

@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get 'replies/:id/delete' => 'replies#delete'
   resources :replies
 
-  resources :new_threads do
+  resources :new_threads, path: 'new-threads' do
     resources :replies
   end
 
