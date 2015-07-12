@@ -1,0 +1,78 @@
+body{
+	background: #fff;
+}
+.navbar {
+	background: #009688;
+	border-radius: 0;
+	border-color: #00796B;
+	border: 0;
+	margin-bottom: 1em;
+	border-bottom: .2em solid #00796B;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 6px 6px rgba(0, 0, 0, 0.23)
+}
+
+.navbar-default .navbar-nav {
+	color: #fff;
+	li {
+		transition: background-color 0.5s ease;
+		a{
+			color: #fff;
+		}
+		&:hover{
+			background: #00796B;
+			a{
+				color: #fff;
+			}
+			color: #fff;
+		}
+	}
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+	&:hover{
+			color: #fff;
+			background: #00796B;
+			a{
+				color: #fff;
+			}
+	}
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+
+.navbar-form {
+	margin-top: 15px;
+	border-left: 1px solid #e7e7e7;
+	input {
+	background: transparent;
+	border: none;
+	color: #fff;
+}
+}
+
+.big-wrapper{
+	margin-top: 4.8em;
+}
+
+#infscr-loading{
+	* {
+		display: none;
+	}
+	display: none;
+}
+
+.thread-card{
+	background: #fff;
+	overflow: auto;
+	//border: 2px solid black;
+	padding: 2em;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	margin-bottom: 1.2em;
+	transition: all 0.5s ease;
+	&:hover{
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 12px rgba(0,0,0,0.40);
+	}
+}

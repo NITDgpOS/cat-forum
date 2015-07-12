@@ -33,25 +33,41 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">CAT Forum</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="collapsable">
+      <%= render :partial => 'new_threads/search' %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Threads", new_threads_list_path %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to 'Profile', edit_user_registration_path%></li>
+        <li><%= link_to "Activities", activities_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+        <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- NAVBAR END -->
+
 
 <div class="big-wrapper">
-	
-  <div id='cssmenu' class="top-header">
-<ul>
-   
-    <% if user_signed_in? %>
-   <li class='last'><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
-   <li> <%= link_to 'Profile', edit_user_registration_path%></li>
-   <li><%= link_to "Activities", activities_path %></li>
-   <% else %>
-   <li> <%= link_to "Login", new_user_session_path %></li>
-   <% end %>
-   <li><%= link_to "Threads", root_path, :class => 'navbar-bar'  %></li>
-
-   <li class="nav-text">C</li><li class="nav-text at">AT</li> <li class="nav-text forum">FORUM</li>
-    <li class="search"> <%= render :partial => 'new_threads/search' %></li>
- </ul> 
-</div>
   
    <div class="notice-alert">
     <% if notice %>

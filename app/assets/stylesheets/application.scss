@@ -11,3 +11,14 @@
  * file per style scope.
  *
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "layout";
+
+
+$nprogress-color: #00796B;
+$nprogress-height: 4px;
+$nprogress-zindex: 10100;
+@import 'nprogress';
+@import 'nprogress-bootstrap';

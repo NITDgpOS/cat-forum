@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require best_in_place
-
+//= require bootstrap-sprockets
+//= require nprogress
+//= require nprogress-turbolinks
 
 
 /* fading js */
@@ -36,20 +38,6 @@
 //  $(document).on('page:load', fade_reply);
 
 
-var fade_thread = function(){
-  tiles = $(".fade_speech").fadeTo(0,0);
-
-$(window).scroll(function(d,h) {
-    tiles.each(function(i) {
-        a = $(this).offset().top + $(this).height();
-        b = $(window).scrollTop() + $(window).height() + 200;
-        if (a < b) $(this).fadeTo(500,1);
-    });
-});
-
-};
- $(document).ready(fade_thread);
- $(document).on('page:load', fade_thread);
 
 
 /*page transiton */
