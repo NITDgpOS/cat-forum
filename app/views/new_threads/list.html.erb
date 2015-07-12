@@ -1,87 +1,61 @@
-<b><%= link_to("New Thread", {:action => 'new'}, :class => 'navbar-link new') %></b><br><br>
-
-<% if user_signed_in? %>
-  <span class="user other-user"> <%= current_user.username %></span>
-  <%= image_tag current_user.image.url(:thumb), size: "50x50", :class => 'user-img other-img'%>
+<div id="new-thread-button" class="btn btn-primary">
+<%= link_to({:action => 'new'}, :class => 'navbar-link new') do %>
+<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<span>New Thread</span>
 <% end %>
+</div>
 
-<% if !user_signed_in? %>
-  <p class=" welcome thread-welcome">
-    Welcome to our CAT Forum!
-    Not a member yet? Why don't you click on sign up, it will only take a few minutes. You can log in with Facebook too. 
-    Browse through the our list of recent threads, We are sure you will find something interesting.
-  </p>
-<% end %>
-
-<p class="recent">
-  Recent Threads:
-</p>
-
-<div class="thread-whole">
-  <% @new_threads.each do |new_thread| %>
-    <div itemscope itemtype="http://schema.org/Question">
-      <%= image_tag new_thread.user.image_url(:thumb).to_s, :class => "user-image" %>
-      <%= image_tag("arrow.png", class: "triangle fade_speech") %>
-      <div class="speech-bubble fade_speech">
-        <h1><%= link_to new_thread.title, new_thread, :class => "show-thread", :itemprop=>"url"%></h1><br>
-        <span class="time">asked <time itemprop="dateCreated" datetime=<%= new_thread.created_at %>><%= time_ago_in_words(new_thread.created_at) %></time> ago</span><br><br><br>
-        <h2><span class="description pt-page-moveToLeft" itemprop="text"><%= new_thread.description %></span></h2><br><br><br><br>
-        <div class="info">
-          <table>
-            <tr>
-              <td>
-                <% @new_thread = new_thread %>
-                <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
-              </td>
-              <td>
-                <div class="like">
-                  <%= button_to 'Like', like_counts_path(:new_thread_id => new_thread), remote: true, :class => "like-bu"%>
-                </div>
-              </td>
-              <td>
+<div class="thread-list-wrapper">
+  <div class="container thread-list">
+    <div class="row thread-row">
+      <% @new_threads.each do |new_thread| %>
+        <% @new_thread = new_thread %>
+        <div class="col-xs-12 col-md-6 col-lg-4 thread-col">
+          <div class="thread-card hvr-underline-from-center" itemscope itemtype="http://schema.org/Question">
+            <div class="thread-head">
+              <div class="thread-title">
+                <%= link_to new_thread.title, new_thread, :class => "thread-link", :itemprop=>"url"%>
+              </div>
+            </div>
+            <div class="thread-body" itemprop="text">
+              <%= new_thread.description %>
+            </div>
+            <div class="thread-foot">
+              <%= image_tag new_thread.user.image_url(:thumb).to_s, :class => "img-circle thread-user-image" %>
+              <div>
+                <span>posted by, <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= new_thread.user.username %></span></span></span>
+              </div>
+              <div class="thread-icons">
+                  <%= button_to(like_counts_path(:new_thread_id => new_thread), remote: true, :class => "like-bu") do %>
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
+                  <% end %>
+              </div>
+              <div class="thread-icons">
+                <%= button_to(dislike_counts_path(:new_thread_id => new_thread), remote: true, :class=> "like-bu dis") do %>
+                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                 <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
-              </td>
-              <td>
-                <div class="like">
-                  <%= button_to 'Dislike', dislike_counts_path(:new_thread_id => new_thread), remote: true, :class=> "like-bu dis"%>
-                </div>
-              </td>
-              <td>
-                <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
-              </td>
-              <td>
-                <div class="like">
-                  <%= button_to 'Flag', new_thread_flags_path(:new_thread_id => new_thread), remote: true, :class => "like-bu flag-icon"%>
-                </div>
-              </td>
-              <td>
-                <span itemprop="answerCount"><%= new_thread.replies.size %></span> &nbsp; Replies 
-              </td>
-            </tr>
-          </table>
-          <span class="user-thread">
-            <table class="table-tag">
-              <tr>
-                <td class="td-tag"><div class="tag"><%= new_thread.user.badge %></div></td>
-                <td class="td-tag2"><%= image_tag "tag.png", :class => "user-tag" %></td>
-              </tr>
-            </table>
-            <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= new_thread.user.username %></span></span>
-          </span>
+                <% end %>
+              </div>
+              <%= link_to(new_thread) do%>
+              <div class="thread-icons">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                <div class="like-count" itemprop="answerCount"><%= new_thread.replies.size %></div>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-      <br><br><br><br><br>
+      <% end %>
     </div>
-  <% end %>
-
-
-
-
-
-  <div class="pagination">
-    <div class="page_info">
-      &nbsp;<%= page_entries_info @new_threads %>
-    </div>
-    <%= will_paginate @new_threads, :container => false %>
   </div>
+</div>
+
+<div class="pagination">
+      <div class="page_info">
+        <%= page_entries_info @new_threads %>
+      </div>
+      <div id="page-links">
+      <%= will_paginate @new_threads, :container => false %>
+      </div>
 </div>
