@@ -1,0 +1,35 @@
+.show-thread-title{
+	transition: all 0.5s ease;
+	font-size: 2em;
+	text-decoration: none;
+	}
+.time{
+ 	float: right;
+ }
+ #post-username{
+ 	font-size: 1.2em;
+ }
+
+.description{
+	clear: both;
+	display: block;
+	padding-top: .4em;
+}
+
+.show-thread-foot{
+    display: block;
+    overflow: auto;
+}
+
+#reply-btn{
+	margin-top: .6em;
+	float: right;
+}
+
+.edit-post{
+	margin: .2em;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+}

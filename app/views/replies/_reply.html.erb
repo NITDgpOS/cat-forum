@@ -1,61 +1,45 @@
+<%= div_for(reply, class: "reply-whole col-xs-12 col-md-12 col-lg-12 thread-col", :itemprop=>"suggestedAnswer",:itemscope=>true, :itemtype=>"http://schema.org/Answer") do %>
+  <% @reply = reply %>
+  <div class="thread-card">
+    <%= image_tag reply.user.image.url(:thumb), :class => "img-circle thread-user-image"%>
+    <div class="thread-title">
+      <span class="reply-user" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <span itemprop="name">
+        <%= reply.user.username %>
+      </span>
+      </span>
+    </div>
+    <div class="time">
+      replied <time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago
+    </div>
+    <div class="description" itemprop="text">
+      <%=best_in_place_if user_signed_in? && current_user.id == reply.user.id,  @reply, :content, :activator => ".activator-reply", type: :textarea, :html_attrs => {:id => 'reply_content'} %>
+    </div>
 
-<%= div_for(reply, class: "reply-whole", :itemprop=>"suggestedAnswer",:itemscope=>true, :itemtype=>"http://schema.org/Answer") do %>
-        <%= image_tag reply.user.image.url(:thumb), :class => "user-image"%>
-        <%= image_tag("arrow.png", class: "triangle fade_speechr") %>
-        <div class="speech-bubble speech-reply fade_speechr">
-          <span class="reply-user" itemprop="author" itemscope itemtype="http://schema.org/Person"> <span itemprop="name"><%= reply.user.username %></span></span><br>
-          <% @reply = reply %>
-          <span class="time">replied <time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago</span><br><br><br>
-          <span class="description" itemprop="text"><%=best_in_place_if user_signed_in? && current_user.id == reply.user.id,  @reply, :content, :activator => ".activator-reply", type: :textarea, :html_attrs => {:id => 'reply_content'} %></span><br><br><br><br>
-      
-          <div class="info">
+    <div class="show-thread-foot">
+                  <div class="thread-icons">
+                      <%= button_to(like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu") do %>
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                        <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => @reply.id} %>
+                      <% end %>
+                  </div>
+                  <div class="thread-icons">
+                    <%= button_to(dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis") do %>
+                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => @reply.id} %>
+                    <% end %>
+                  </div>
 
-            <table class="reply-info">
-              <tr>
-                <col width="10">
-                <td>
-                  <% @reply = reply %>
-                  <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => @reply.id} %>
-                </td>
 
-                <td>
-                  <div class="like">
-                    <%= button_to 'Like', like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu"%>
-                  </div>
-                </td>
-                <td>
-                  <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => @reply.id} %>
-                </td>
-                <td>
-                  <div class="like">
-                    <%= button_to 'Dislike', dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis" %>
-                  </div>
-                </td>
-                <td>
-                  <%= render :partial => "reply_flags/reply_flag", :locals => {:reply_id => @reply.id} %>
-                </td>
-                <td>
-                  <div class="like">
-                    <%= button_to 'Flag', reply_flags_path(:reply_id => reply), remote: true, :class => "like-bu flag-icon" %>
-                  </div>
-                </td >
-              </tr>
-            </table>
-            <table class="reply-edit">
-              <tr>
-                <td>
                   <% if user_signed_in? %>
-                  <% if reply.user.id == current_user.id %>
-                  <!-- <a href="#" class="activator-reply reply-link des">Content</a> -->
-                  <%= link_to "Delete", {:action => 'destroy', :controller => "replies", :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link'%>
-                  <% end %>
-                  <%end%>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <br><br><br><br><br>
-<% end %>
+            <% if reply.user.id == current_user.id %>
+            <!-- <a href="#" class="activator-reply reply-link des">Content</a> -->
+            <%= link_to "Delete", {:action => 'destroy', :controller => "replies", :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link edit-post'%>
+          <% end %>
+          <%end%>
 
-    
+
+    </div>
+
+  </div>
+<% end %>
