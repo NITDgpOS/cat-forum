@@ -91,6 +91,18 @@ $(window).ready(function(){
           $container.masonry( 'appended', $newElems, true );
         });
       });
+
+$("#edit-profile-btn").click(function(){
+  $("#profile-row").fadeOut();
+  $("#edit-profile-row").fadeIn();
+});
+
+$("#edit-profile-btn-close").click(function(){
+  $("#profile-row").fadeIn();
+  $("#edit-profile-row").fadeOut();
+});
+
+
 });
 
 
