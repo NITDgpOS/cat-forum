@@ -1,7 +1,7 @@
 class NewThreadFlagsController < ApplicationController
   # before_action :set_new_thread_flag, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!
-  
+
   # GET /reply_flags
   # GET /reply_flags.json
   def index
@@ -30,32 +30,40 @@ class NewThreadFlagsController < ApplicationController
     @new_thread_flag = @user.add_new_thread_flag(@new_thread.id)
     respond_to do |format|
       if @new_thread_flag.save
-        format.json { render :show, status: :created, location: @new_thread_flag }
+        format.json do
+          render :show,
+                 status: :created,
+                 location: @new_thread_flag
+        end
         format.js
       else
         format.html { render :new }
-        format.json { render json: @new_thread_flag.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @new_thread_flag.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
 
-   def destroy
+  def destroy
     @new_thread = NewThread.friendly.find(params[:id])
-     NewThread.friendly.find(params[:id]).destroy
-     respond_to do |format|
-     format.html {redirect_to(:action => 'index', :controller => 'flags')}
-      format.json { render action: 'index', status: :created, location: @new_thread_flag }
-     format.js
-     end
+    NewThread.friendly.find(params[:id]).destroy
+    respond_to do |format|
+      format.html { redirect_to(action: 'index', controller: 'flags') }
+      format.json do
+        render action: 'index',
+               status: :created,
+               location: @new_thread_flag
+      end
+      format.js
+    end
   end
 
-  
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_new_thread_flag
-      @new_thread_flag = NewThreadFlag.find(params[:id])
-    end
 
-    
+  # Use callbacks to share common setup or constraints between actions.
+  def set_new_thread_flag
+    @new_thread_flag = NewThreadFlag.find(params[:id])
+  end
 end

@@ -28,26 +28,39 @@ class LikeCountsController < ApplicationController
     @user = User.find(current_user.id)
     @new_thread = NewThread.friendly.find(params[:new_thread_id])
     @like_count = @user.add_new_thread(@new_thread.id)
-    @thread_user = @new_thread.user 
-      respond_to do |format|
+    @thread_user = @new_thread.user
+    respond_to do |format|
       if @like_count.save
-        @like_count.create_activity :create, owner: current_user, recipient: @new_thread.user
+        @like_count.create_activity :create,
+                                    owner: current_user,
+                                    recipient: @new_thread.user
         if current_user != @thread_user
-        @thread_user.update_attributes(points: @thread_user.points+=15)
-        @badge = @thread_user.update_badge(@thread_user.id)
-        @thread_user.update_attributes(badge: @badge)
+          @thread_user.update_attributes(points: @thread_user.points += 15)
+          @badge = @thread_user.update_badge(@thread_user.id)
+          @thread_user.update_attributes(badge: @badge)
         end
-        # format.html { redirect_to(@like_count.user, :notice => 'Line item was successfully created.' ) }
-        format.html { redirect_to(:action => 'index', :controller => 'new_threads')}
+        # format.html do
+        #   redirect_to(
+        #     @like_count.user,
+        #     :notice => 'Line item was successfully created.'
+        #   )
+        # end
+        format.html { redirect_to(action: 'index', controller: 'new_threads') }
         format.js
         format.json { render :show, status: :created, location: @like_count }
-        # redirect_to(:action => 'show', :controller => 'user', :user_id => @user.user_id)
+        # redirect_to(
+        #   :action => 'show',
+        #   :controller => 'user',
+        #    :user_id => @user.user_id
+        # )
       else
         format.html { render :new }
-        format.json { render json: @like_count.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @like_count.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
-
   end
 
   # PATCH/PUT /like_counts/1
@@ -57,10 +70,12 @@ class LikeCountsController < ApplicationController
   # DELETE /like_counts/1.json
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def like_count_params
-      params.require(:like_count).permit(:new_thread_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def like_count_params
+    params.require(:like_count).permit(:new_thread_id, :user_id)
+  end
 end

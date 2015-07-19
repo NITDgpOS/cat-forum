@@ -33,7 +33,10 @@ class ReplyFlagsController < ApplicationController
         format.js
       else
         format.html { render :new }
-        format.json { render json: @reply_flag.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @reply_flag.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -43,11 +46,17 @@ class ReplyFlagsController < ApplicationController
   def update
     respond_to do |format|
       if @reply_flag.update(reply_flag_params)
-        format.html { redirect_to @reply_flag, notice: 'Reply flag was successfully updated.' }
+        format.html do
+          redirect_to @reply_flag,
+                      notice: 'Reply flag was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @reply_flag }
       else
         format.html { render :edit }
-        format.json { render json: @reply_flag.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @reply_flag.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -55,26 +64,30 @@ class ReplyFlagsController < ApplicationController
   # DELETE /reply_flags/1
   # DELETE /reply_flags/1.json
 
-  
-
   def destroy
     @reply = Reply.find(params[:id])
-     Reply.find(params[:id]).destroy
-     respond_to do |format|
-     format.html {redirect_to(:action => 'index', :controller => 'flags')}
-     format.json { render action: 'index', status: :created, location: @reply_flag }
-     format.js
-     end
+    Reply.find(params[:id]).destroy
+    respond_to do |format|
+      format.html { redirect_to(action: 'index', controller: 'flags') }
+      format.json do
+        render action: 'index',
+               status: :created,
+               location: @reply_flag
+      end
+      format.js
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reply_flag
-      @reply_flag = ReplyFlag.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def reply_flag_params
-      params.require(:reply_flag).permit(:reply_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reply_flag
+    @reply_flag = ReplyFlag.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def reply_flag_params
+    params.require(:reply_flag).permit(:reply_id, :user_id)
+  end
 end
