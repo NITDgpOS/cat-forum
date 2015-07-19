@@ -23,7 +23,6 @@ describe NewThreadsController do
   end
 
   context 'user is signed in' do
-
     describe 'allows new, create and show actions' do
       let(:user) { create(:user) }
       before { sign_in(user) }
