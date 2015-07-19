@@ -1,31 +1,28 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-   include Cloudinary::CarrierWave
+  include Cloudinary::CarrierWave
 
+  process convert: 'png'
+  process tags: ['post_picture']
 
-
-  process :convert => 'png'
-  process :tags => ['post_picture']
-  
   version :standard do
-    process :resize_to_fill => [100, 150, :north]
+    process resize_to_fill: [100, 150, :north]
   end
-  
+
   version :thumb do
     resize_to_fit(100, 100)
   end
 
   def default_url
-    "small/user.jpg"
+    'small/user.jpg'
   end
 
   # Choose what kind of storage to use for this uploader:
-  #storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -37,7 +34,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #   # ActionController::Base.helpers
+  #       .asset_path("fallback/" + [version_name, "default.png"]
+  #       .compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
@@ -52,7 +51,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :scale => [50, 50]
   # end
-    
+
   # def scale(width, height)
   #   # do something
   # end
@@ -69,9 +68,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
+  # Avoid using model.id or version_name here,
+  # see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
