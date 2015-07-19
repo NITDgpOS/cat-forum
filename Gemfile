@@ -61,6 +61,8 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'rubocop', require: false
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'letter_opener'
