@@ -33,13 +33,13 @@ module Merit
       # If it has 5 votes, grant relevant-commenter badge
       # grant_on 'comments#vote', badge: 'relevant-commenter',
       #   to: :user do |comment|
-      
+
       #   comment.votes.count == 5
       # end
 
       #  grant_on 'replies#create', badge: 'just-registered',
       #   to: :user do |reply|
-      
+
       #   reply.like_count_replies.size == 1
       # end
 
@@ -49,9 +49,12 @@ module Merit
       #
       #   user.name.length > 4
       # end
-       grant_on 'registrations#update', badge: 'just-registered', temporary: true, model_name: 'User' do |user|
-        user.email.length > 4
-      end
+      grant_on 'registrations#update',
+               badge: 'just-registered',
+               temporary: true,
+               model_name: 'User' do |user|
+                 user.email.length > 4
+               end
     end
   end
 end
