@@ -51,7 +51,7 @@
     <div class="collapse navbar-collapse" id="collapsable">
       <%= render :partial => 'new_threads/search' %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Threads", new_threads_list_path %></li>
+        <li><%= link_to "Threads", root_path %></li>
         <% if user_signed_in? %>
         <li><%= link_to 'Profile', edit_user_registration_path%></li>
         <li><%= link_to "Activities", activities_path %></li>
