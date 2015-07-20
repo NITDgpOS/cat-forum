@@ -36,12 +36,6 @@ class DislikeCountRepliesController < ApplicationController
           @badge = @reply_user.update_badge(@reply_user.id)
           @reply_user.update_attributes(badge: @badge)
         end
-        # format.html do
-        #   redirect_to(
-        #     @like_count.user,
-        #     :notice => 'Line item was successfully created.'
-        #   )
-        # end
         format.html { redirect_to(action: 'index', controller: 'reply') }
         format.js
         format.json do
@@ -49,11 +43,6 @@ class DislikeCountRepliesController < ApplicationController
                  status: :created,
                  location: @dislike_count_reply
         end
-        # redirect_to(
-        #   :action => 'show',
-        #   :controller => 'user',
-        #   :user_id => @user.user_id
-        # )
       else
         format.html { render :new }
         format.json do

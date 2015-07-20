@@ -1,6 +1,4 @@
 class ReplyFlagsController < ApplicationController
-  # before_action :set_reply_flag, only: [:show, :edit, :update, :destroy]
-
   # GET /reply_flags
   # GET /reply_flags.json
   def index

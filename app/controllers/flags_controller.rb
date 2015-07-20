@@ -56,21 +56,6 @@ class FlagsController < ApplicationController
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
     redirect_to(action: 'index')
-    # respond_to do |format|
-    #   if @flag.update(flag_params)
-    #     format.html do
-    #       redirect_to @flag,
-    #                   notice: 'Flag was successfully updated.'
-    #     end
-    #     format.json { render :show, status: :ok, location: @flag }
-    #   else
-    #     format.html { render :edit }
-    #     format.json do
-    #       render json: @flag.errors,
-    #              status: :unprocessable_entity
-    #     end
-    #   end
-    # end
   end
 
   # DELETE /flags/1

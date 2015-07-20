@@ -1,5 +1,4 @@
 class RepliesController < ApplicationController
-  # before_filter :confirm_logged_in
   before_filter :find_new_thread
   before_action :authenticate_user!, except: [:index, :list, :show]
   load_and_authorize_resource :reply, through: :new_thread
@@ -58,9 +57,6 @@ class RepliesController < ApplicationController
   def update
     respond_to do |format|
       if @reply.update(reply_params)
-        # @reply.create_activity :update,
-        #                        owner: current_user,
-        #                        recipient: @new_thread.user
         format.html do
           redirect_to @new_thread,
                       notice: 'Reply was successfully updated.'

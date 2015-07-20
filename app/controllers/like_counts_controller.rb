@@ -39,20 +39,9 @@ class LikeCountsController < ApplicationController
           @badge = @thread_user.update_badge(@thread_user.id)
           @thread_user.update_attributes(badge: @badge)
         end
-        # format.html do
-        #   redirect_to(
-        #     @like_count.user,
-        #     :notice => 'Line item was successfully created.'
-        #   )
-        # end
         format.html { redirect_to(action: 'index', controller: 'new_threads') }
         format.js
         format.json { render :show, status: :created, location: @like_count }
-        # redirect_to(
-        #   :action => 'show',
-        #   :controller => 'user',
-        #    :user_id => @user.user_id
-        # )
       else
         format.html { render :new }
         format.json do

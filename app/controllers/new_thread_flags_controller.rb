@@ -1,7 +1,4 @@
 class NewThreadFlagsController < ApplicationController
-  # before_action :set_new_thread_flag, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
-
   # GET /reply_flags
   # GET /reply_flags.json
   def index
