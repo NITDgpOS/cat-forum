@@ -5,9 +5,7 @@ class BlockedsController < ApplicationController
   # GET /blockeds
   # GET /blockeds.json
   def index
-    
   end
-
 
   def list
     @blockeds = Blocked.all
@@ -15,7 +13,6 @@ class BlockedsController < ApplicationController
   # GET /blockeds/1
   # GET /blockeds/1.json
   def show
-
   end
 
   # GET /blockeds/new
@@ -34,11 +31,17 @@ class BlockedsController < ApplicationController
 
     respond_to do |format|
       if @blocked.save
-        format.html { redirect_to @blocked, notice: 'Blocked was successfully created.' }
+        format.html do
+          redirect_to @blocked,
+                      notice: 'Blocked was successfully created.'
+        end
         format.json { render :show, status: :created, location: @blocked }
       else
         format.html { render :new }
-        format.json { render json: @blocked.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @blocked.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -48,11 +51,17 @@ class BlockedsController < ApplicationController
   def update
     respond_to do |format|
       if @blocked.update(blocked_params)
-        format.html { redirect_to @blocked, notice: 'Blocked was successfully updated.' }
+        format.html do
+          redirect_to @blocked,
+                      notice: 'Blocked was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @blocked }
       else
         format.html { render :edit }
-        format.json { render json: @blocked.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @blocked.errors,
+                 status: :unprocessable_entity
+        end
       end
     end
   end
@@ -62,19 +71,24 @@ class BlockedsController < ApplicationController
   def destroy
     @blocked.destroy
     respond_to do |format|
-      format.html { redirect_to blockeds_url, notice: 'Blocked was successfully destroyed.' }
+      format.html do
+        redirect_to blockeds_url,
+                    notice: 'Blocked was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blocked
-      @blocked = Blocked.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blocked_params
-      params.require(:blocked).permit(:status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blocked
+    @blocked = Blocked.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def blocked_params
+    params.require(:blocked).permit(:status)
+  end
 end
