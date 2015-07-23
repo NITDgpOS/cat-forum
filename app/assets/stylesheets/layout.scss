@@ -75,6 +75,7 @@ body{
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	margin-bottom: 1.2em;
 	transition: all 0.5s ease;
+	width: 100%;
 	&:hover{
 		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 12px rgba(0,0,0,0.40);
 	}
