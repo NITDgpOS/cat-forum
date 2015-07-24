@@ -2,6 +2,14 @@ class NewThread < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
 
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
+  end
+
+  def normalize_friendly_id(string)
+    super[0..50]
+  end
+
   has_many :replies, dependent: :destroy
   belongs_to :user
   has_many :like_counts, dependent: :destroy
