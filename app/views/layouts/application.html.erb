@@ -4,7 +4,7 @@
   <meta name="google-site-verification" content="qpW_IUs4mTBLcCo-rYSGLbOK29IWUR4WQ9Uf70bETqg" />
   <title><%= @pageTitle || "CAT Forum: Ask all your doubts related to CAT Exam"%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -85,32 +85,38 @@
  <%end%>
 </div>
 
-   <div id='cssmenu' class="all-foot">
-   <ul class="u-list"> 
-    
-   
-   
-    <% if admin_signed_in? %>
-    <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %><li>
-    <li><%= link_to "Flags", flags_path%><li>
-    <% else %>
-    <li><%= link_to "Admin Login", new_admin_session_path%></li>
-    <% end %> 
-     <% if user_signed_in? %>
-     <li class="footer-links">
-      <%= link_to "How to ask question", pages_question_path %>
-    </li>
-     <li class="footer-links">
-      <%= link_to "Learn more about Badges", pages_badge_path %>
-    </li>
-    <% end %>
-    <li class="footer-links">
-      <%= link_to("Back to MNTC", "http://www.mntc.in")%>
-    </li>
-   </ul>
+</div>
+
+
+  <div class="container-fluid" id="footer-outer-container">
+    <div class="container" id="footer-inner-container">
+    <div class="row" id="footer-row">
+       <ul class="u-list">
+        <div id="admin-login-footer">
+        <% if admin_signed_in? %>
+        <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+        <li><%= link_to "Flags", flags_path%></li>
+        <% else %>
+        <li><%= link_to "Admin Login", new_admin_session_path%></li>
+        </div>
+        <% end %> 
+         <% if user_signed_in? %>
+         <li class="footer-links">
+          <%= link_to "How to ask question", pages_question_path %>
+        </li>
+         <li class="footer-links">
+          <%= link_to "Learn more about Badges", pages_badge_path %>
+        </li>
+        <% end %>
+        <li class="footer-links">
+          <%= link_to("Back to MNTC", "http://www.mntc.in")%>
+        </li>
+       </ul>
+    </div>
+    </div>
   </div>
 
-</div>
+
    
     
 </body>

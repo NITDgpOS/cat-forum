@@ -84,3 +84,30 @@ body{
 		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 12px rgba(0,0,0,0.40);
 	}
 }
+
+#footer-outer-container{
+	background:#303b43;
+}
+
+#footer-inner-container{
+	font-size: 1.1em;
+	color: #fff;
+	a{
+		color: #fff;
+		text-decoration: none;
+		&:hover{
+			color: #b7b7b7;
+		}
+	}
+	ul {
+		list-style: none;
+		li{
+			float: left;
+			margin: .6em;
+		}
+	}
+}
+
+#admin-login-footer{
+	float: right;
+}
