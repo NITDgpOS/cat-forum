@@ -3,18 +3,18 @@
   <%= devise_error_messages! %>
 
   <%= f.label :email %>
-  <p><%= f.email_field :email, autofocus: true %></p>
+  <p><%= f.email_field :email, autofocus: true, :class => 'form-control', :type => "email" %></p>
 
   <%= f.label :password %>
-  <p><%= f.password_field :password, autocomplete: "off" %></p>
+  <p><%= f.password_field :password, autocomplete: "off", :class => 'form-control', :type => "password" %></p>
 
   <%= f.label :password_confirmation %>
-  <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+  <p><%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control', :type => "password" %></p>
 
   
   
-  <%= f.label(:username) %>
-   <p><%= f.text_field(:username, class: "username-text") %></p>
+  <%= f.label(:username, 'Your Name') %>
+   <p><%= f.text_field(:username, class: "username-text form-control") %></p>
    
      <%= f.label :image, "Image" %>
       <p>
@@ -24,8 +24,6 @@
   
 
    <p class="submit">
-    <%= f.submit "Sign up", :class => 'sign-up' %>
+    <%= f.submit "Sign up", :class => "sign-up btn btn-primary pull-right" %>
    </p>
 <% end %>
-</div>
-</div>

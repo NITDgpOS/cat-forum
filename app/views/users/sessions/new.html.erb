@@ -1,34 +1,39 @@
 <% @pageTitle = "Login | CAT Forum" %>
 <% @PageDescription = "Log in to CAT Forum to explore more." %>
-<div class="first-page">
-  <p class="intro-sign">
-  Not a <bold>Memeber</bold> yet? Go ahead and sign up! <br>
-  It only takes a few seconds... 
-  </p>
-  <div class="login-page">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.label :email %>
-  <p><%= f.email_field :email, autofocus: true %></p>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 profile-col">
+      <div class="thread-card">
+      <h1>Login</h1>
 
-  <%= f.label :password %><br />
-  <p><%= f.password_field :password, autocomplete: "off" %></p>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-group'}) do |f| %>
+      <%= f.label :email %>
+      <p><%= f.email_field :email, autofocus: true, :class => 'form-control', :type => "email" %></p>
 
-  <% if devise_mapping.rememberable? -%>
-   <p class="remember_me">
-    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-  <% end -%>
-   </p>
-   <p class="submit">
-  <%= f.submit "Sign in", :class => "sign-in-but" %>
-   </p>
-<% end %>
- <h1 class="or-sign"> "or" </h1>
+      <%= f.label :password %>
+      <p><%= f.password_field :password, autocomplete: "off", :class => 'form-control', :type => "password" %></p>
 
-<p class="links">
-<%= render "devise/shared/links" %>
-</p>
-</div>
-<div class="sign-up-form">
-   <%= render :partial => "users/registrations/new"%>
-</div>
+      <% if devise_mapping.rememberable? -%>
+       <p class="remember_me">
+        <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+       </p>
+      <% end %>
+      <p class="submit">
+        <%= f.submit "Sign in", :class => "sign-in-but btn btn-primary pull-right", :type => "submit", :id => "loginButton" %>
+      </p>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 profile-col">
+      <div class="thread-card">
+        <h1>Sign Up</h1>
+        <%= render :partial => "users/registrations/new"%>
+      </div>
+    </div>
+  </div>
 </div>

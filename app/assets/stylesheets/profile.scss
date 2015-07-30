@@ -1,0 +1,96 @@
+#profile-img{
+	margin: 0 auto;
+	display: table;
+}
+
+#profile-thumb{
+	margin: 0 auto;
+}
+
+#profile-name{
+	text-align: center;
+}
+
+#profile-name {
+	font-size: 2.4em;
+	margin: 0.4em;
+	text-align: center;
+}
+
+.profile-info{
+	text-align: center;
+}
+
+hr { border: 0; height: 1.2px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0)); }
+
+.profile-info-table{
+	padding:1em;
+	font-size: 1.2em;
+	margin: 0 auto;
+	text-align: right;
+	td{
+		padding: .2em;
+		padding-left: .4em;
+	}
+}
+
+.profile-history{
+	a{
+		text-decoration: none;
+	}
+	padding: 1em;
+	td{
+		padding: .2em;
+	}
+	.glyphicon{
+		padding-right:.6em;
+		
+	}
+	.glyphicon-thumbs-up{
+			color: #4DA64D;
+		}
+		.glyphicon-thumbs-down{
+			color: #FF6666;
+		}
+}
+
+
+
+#edit-profile-btn {
+	float: right;
+	transition: all .5s ease;
+	a{
+		transition: all .5s ease;
+	}
+    border: 2px solid #666;
+    border-radius: 100%;
+    height: 40px;
+    padding-top: 8px;
+    width: 40px;
+    &:hover{
+    	border: 2px solid #333;
+    }
+}
+
+#edit-profile-btn-close {
+	float: right;
+    border: 2px solid #666;
+    border-radius: 100%;
+    height: 40px;
+    padding-left: 12px;
+    padding-top: 10px;
+    transition: all 0.5s ease 0s;
+    width: 40px;
+
+    transition: all .5s ease;
+	a{
+		transition: all .5s ease;
+	}
+	&:hover{
+    	border: 2px solid #333;
+    }
+}
+
+#edit-profile-row{
+	display: none;
+}

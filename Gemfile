@@ -68,6 +68,16 @@ group :development, :test do
   gem 'letter_opener'
   gem 'factory_girl_rails'
 end
+
+# bootstrap
+gem 'bootstrap-sass', '~> 3.3.4'
+
+#jQuery-turbolinks
+gem 'jquery-turbolinks'
+
+#ajax progress bar
+gem 'nprogress-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
