@@ -13,7 +13,7 @@ FactoryGirl.define do
     password 'secret12345'
 
     after(:create) do |user|
-      user.confirm!
+      user.confirm
     end
   end
 end

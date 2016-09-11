@@ -10,6 +10,7 @@ class BlockedsController < ApplicationController
   def list
     @blockeds = Blocked.all
   end
+
   # GET /blockeds/1
   # GET /blockeds/1.json
   def show
