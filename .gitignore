@@ -1,6 +1,5 @@
 config/secrets.yml
-config/cloudinary.yml
-config/environments/production.rb
+config/database.yml
 tmp/
 public/uploads/tmp
 public/system/users/images
@@ -9,4 +8,3 @@ public/assets
 !public/assets/images/
 !public/assets/small/
 log/
-

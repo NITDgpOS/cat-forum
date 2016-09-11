@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.username = auth.info.name   # assuming the user model has a name
+      user.username = auth.info.name # assuming the user model has a name
       # assuming the user model has an image
       user.remote_image_url = auth.info.image.gsub('http://', 'https://')
     end
@@ -60,10 +60,12 @@ class User < ActiveRecord::Base
     p[:password_confirmation] = params[:password_confirmation]
     update_attributes(p)
   end
+
   # new function to return whether a password has been set
   def has_no_password?
     encrypted_password.blank?
   end
+
   # new function to provide access to protected method unless_confirmed
   def only_if_unconfirmed
     pending_any_confirmation { yield }
