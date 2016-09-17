@@ -1,19 +1,23 @@
 .show-thread-title{
-	transition: all 0.5s ease;
-	font-size: 2em;
-	text-decoration: none;
-	}
+  transition: all 0.5s ease;
+  font-size: 2em;
+  a{
+      text-decoration: none;
+  }
+}
+
 .time{
- 	float: right;
- }
+  float: right;
+}
+
  #post-username{
- 	font-size: 1.2em;
- }
+  font-size: 1.2em;
+}
 
 .description{
-	clear: both;
-	display: block;
-	padding-top: .4em;
+  clear: both;
+  display: block;
+  padding-top: .4em;
 }
 
 .show-thread-foot{
@@ -22,14 +26,14 @@
 }
 
 #reply-btn{
-	margin-top: .6em;
-	float: right;
+  margin-top: .6em;
+  float: right;
 }
 
 .edit-post{
-	margin: .2em;
-	text-decoration: none;
-	&:hover{
-		text-decoration: none;
-	}
+  margin: .2em;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
 }

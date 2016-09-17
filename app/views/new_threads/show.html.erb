@@ -1,78 +1,87 @@
 <% @pageTitle = @new_thread.title + " | CAT Forum" %>
 <% @PageDescription = @new_thread.description %>
 <div class="container thread-show">
-	<div class="row thread-posts-row">
-		<div class="thread-post">
-			<div class="col-xs-12 col-md-12 col-lg-12 thread-col">
-				<div class="thread-card" itemscope itemtype="http://schema.org/Question">
-					<%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
-					<div class="show-thread-title" itemprop="name">
-					<%=best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title"%>
-					</div>
+  <div class="row thread-posts-row">
+    <div class="thread-post">
+      <div class="col-xs-12 col-md-12 col-lg-12 thread-col">
+        <div class="thread-card" itemscope itemtype="http://schema.org/Question">
+          <div class="show-thread-title" itemprop="name">
+            <%= link_to @new_thread do %>
+              <%= best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title" %>
+            <% end %>
+          </div>
 
-			        <div class="time">
-			        	asked <time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= @new_thread.user.username %></span></span>
-			       	</div>
+          <div class="thread-info">
+            <%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
+            <div class="pull-right">
+              asked by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= @new_thread.user.username %></span></span><br />
+              <span class="glyphicon glyphicon-time"></span><time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago
+            </div>
+          </div>
         
-        			<div class="description" itemprop="text">
-        				<%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %>
-        			</div>
+          <div class="description" itemprop="text">
+            <%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %>
+          </div>
 
-					<div class="show-thread-foot">
+          <div class="thread-foot">
+
+            <% if user_signed_in? %>
+              <% if @new_thread.user.id == current_user.id %>
+                <%= link_to 'Delete', @new_thread, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'thread-link edit-post'%>
+                <a href="#" class="activator thread-link edit-post">Description</a>
+                <a href="#" class="activator-title thread-link edit-post">Title</a>
+              <%end%>
+            <% end %>
+
+            <div class="thread-icons">
+              <%= button_to(like_counts_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu") do %>
+                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
+              <% end %>
+            </div>
+            <div class="thread-icons">
+              <%= button_to(dislike_counts_path(:new_thread_id => @new_thread), remote: true, :class=> "like-bu dis") do %>
+                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
+              <% end %>
+            </div>
+            <div class="thread-icons">
+              <%= button_to(new_thread_flags_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu flag-icon") do %>
+                <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
+              <% end %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="thread-header col-xs-12">
+        <% if @new_thread.replies.size == 0 %>
+          <h4 class="no-reply">No one has replied to this question. Be the first to reply!</h4>
+        <% else %>
+          <h2><%= @new_thread.replies.size %> Replies:</h2>
+        <%end%>
+      </div>
+      
+      <div id="replies">
+        <%= render :partial => @new_thread.replies%>
+      </div>
 
 
-					<% if user_signed_in? %>
-        			<% if @new_thread.user.id == current_user.id %>
-        			<%= link_to 'Delete', @new_thread, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'thread-link edit-post'%>
-         			<a href="#" class="activator thread-link edit-post">Description</a>
-          			<a href="#" class="activator-title thread-link edit-post">Title</a>
-        
-       				<%end%>
-        			<% end %>
+      <div class="col-xs-12 col-md-12 col-lg-12 thread-col">
+        <div class="thread-card">
+          <%= form_for([@new_thread, Reply.new], :html => {:class => 'reply-form'}, remote: true)  do |f| %>
+            <%= f.text_area :content, :class => 'form-control', :rows=>'3' %>
+            <% if user_signed_in? %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%end%>
+            <div id="reply-btn"><%= f.submit "Add Reply", :class => "reply-but btn btn-primary"%></div>
+          <% end %>
+        </div>
+      </div>
 
-
-
-		              <div class="thread-icons">
-		                  <%= button_to(like_counts_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu") do %>
-		                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-		                    <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
-		                  <% end %>
-		              </div>
-		              <div class="thread-icons">
-		                <%= button_to(dislike_counts_path(:new_thread_id => @new_thread), remote: true, :class=> "like-bu dis") do %>
-		                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-		                <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
-		                <% end %>
-		              </div>
-            		</div>
-
-				</div>
-			</div>
-
-
-
-			<h2 class="thread-header">Replies:</h2>
-				<% if @new_thread.replies.size == 0 %>
-				  <p class="no-reply">No one has replied to this question. Be the first to reply!</p>
-				<%end%>
-				<div id="replies">
-				  <%= render :partial => @new_thread.replies%>
-				</div>
-
-
-				<div class="col-xs-12 col-md-12 col-lg-12 thread-col">
-				<div class="thread-card">
-
-				<%= form_for([@new_thread, Reply.new], :html => {:class => 'reply-form'}, remote: true)  do |f| %>
-	<%= f.text_area :content, :class => 'form-control', :rows=>'3' %>
-  <% if user_signed_in? %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%end%>
- <div id="reply-btn"><%= f.submit "Add Reply", :class => "reply-but btn btn-primary"%></div>
- <% end %>
- 					</div>
- 					</div>
-
-		</div>
-	</div>
+    </div>
+  </div>
 </div>

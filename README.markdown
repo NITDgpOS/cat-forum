@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/sonalkr132/cat-forum.svg?branch=github_master)](https://travis-ci.org/sonalkr132/cat-forum)
 
 # CAT FORUM
-CAT forum is the content management system for MNTC's CAT Forum, a web forum for CAT preparations. We use  heroku for deployment.
+CAT forum is the content management system of MNTC's CAT Forum, a web forum for CAT preparations. We use  heroku for deployment.
 
-It is written in Ruby on Rails and uses Bootstrap for UI design. We use `haml` as out HTML templating engine. Some legacy templates are written in simple HTML(PR please!). Please use HAML while writing template code. You can learn HAML from the [HAML Tutorial](http://haml.info/tutorial.html) or [HAML documentation](http://haml.info/docs/yardoc/file.REFERENCE.html). Some key features of CAT-Forum include:
+It is written in Ruby on Rails and uses Bootstrap for UI design. We use `haml` as our HTML templating engine. Some legacy templates are written in simple HTML (PR please!). Please use HAML while writing template code. You can learn HAML from the [HAML Tutorial](http://haml.info/tutorial.html) or [HAML documentation](http://haml.info/docs/yardoc/file.REFERENCE.html). Some key features of CAT-Forum include:
 
 * Posting and editing threads. We are using in place editing using the `best_in_place` gem
 * An upvoting and commenting system
@@ -47,7 +47,7 @@ $ cd cat-forum
 # install gems
 $ bundle install
 # setup the database
-$ rake db:setu
+$ rake db:setup
 # start rails server
 $ rails s
 ```

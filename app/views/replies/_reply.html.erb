@@ -1,45 +1,47 @@
 <%= div_for(reply, class: "reply-whole col-xs-12 col-md-12 col-lg-12 thread-col", :itemprop=>"suggestedAnswer",:itemscope=>true, :itemtype=>"http://schema.org/Answer") do %>
   <% @reply = reply %>
   <div class="thread-card">
-    <%= image_tag reply.user.image.url(:thumb), :class => "img-circle thread-user-image"%>
-    <div class="thread-title">
-      <span class="reply-user" itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <span itemprop="name">
-        <%= reply.user.username %>
-      </span>
-      </span>
+
+    <div class="thread-info">
+      <%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
+      <div class="pull-right">
+        replied by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= reply.user.username %></span></span><br />
+        <span class="glyphicon glyphicon-time"></span><time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago
+      </div>
     </div>
-    <div class="time">
-      replied <time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago
-    </div>
+
     <div class="description" itemprop="text">
       <%=best_in_place_if user_signed_in? && current_user.id == reply.user.id,  @reply, :content, :activator => ".activator-reply", type: :textarea, :html_attrs => {:id => 'reply_content'} %>
     </div>
 
-    <div class="show-thread-foot">
-                  <div class="thread-icons">
-                      <%= button_to(like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu") do %>
-                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                        <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => @reply.id} %>
-                      <% end %>
-                  </div>
-                  <div class="thread-icons">
-                    <%= button_to(dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis") do %>
-                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                    <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => @reply.id} %>
-                    <% end %>
-                  </div>
+    <div class="thread-foot">
+      <div class="thread-icons">
+        <%= button_to(like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu") do %>
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => @reply.id} %>
+        <% end %>
+      </div>
 
+      <div class="thread-icons">
+        <%= button_to(dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis") do %>
+          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+          <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => @reply.id} %>
+        <% end %>
+      </div>
 
-                  <% if user_signed_in? %>
-            <% if reply.user.id == current_user.id %>
-            <!-- <a href="#" class="activator-reply reply-link des">Content</a> -->
-            <%= link_to "Delete", {:action => 'destroy', :controller => "replies", :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link edit-post'%>
-          <% end %>
-          <%end%>
+      <div class="thread-icons">
+        <%= button_to(reply_flags_path(:reply_id => reply), remote: true, :class => "like-bu flag-icon") do %>
+          <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+          <%= render :partial => "reply_flags/reply_flag", :locals => {:reply_id => @reply.id} %>
+        <% end %>
+      </div>
 
+      <% if user_signed_in? %>
+        <% if reply.user.id == current_user.id %>
+          <%= link_to "Delete", {:action => 'destroy', :controller => "replies", :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link edit-post'%>
+        <% end %>
+      <%end%>
 
     </div>
-
   </div>
 <% end %>

@@ -1,26 +1,31 @@
 #new_user {
-	margin-bottom: 0;
-}
-
-#loginButton {
-	float: right;
+  margin-bottom: 0;
 }
 
 .sign-in-but {
-	font-size: 1.2em;
-	padding-left: 1em;
-	padding-right: 1em;
-	display: block;
+  font-size: 1.2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: block;
 }
 
 .sign-up{
-	font-size: 1.2em;
-	padding-left: 1em;
-	padding-right: 1em;
+  font-size: 1.2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 2em;
 }
 
 #fbLogin {
-	display: block;
-	width: 13em;
+  display: block;
+  margin-top: 3.5em;
 }
 
+.facebook-logo{
+  margin: 0em 1em;
+  height: 1.5em;
+}
+
+.facebook{
+  font-weight: bold;
+}
