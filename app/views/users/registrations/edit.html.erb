@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                   <td>Badge:</td>
-                  <td><%= current_user.badge %></td>
+                  <td><div class="tag"><%= current_user.badge %></div><%= image_tag "tag.png", size: "25x35", class: 'tag-img' %></td>
                 </tr>
             
               </table>
@@ -46,7 +46,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 profile-col">
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 profile-col">
-                  <h2>Questions:</h2>
+                  <h3>Questions</h3>
                   <table class="profile-history table table-condensed table-hover">
                     <% threads = current_user.new_threads %>
                     <% threads.each do |thread| %>
@@ -65,7 +65,7 @@
                 </div>
           
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 profile-col">
-                  <h2>Replies:</h2>
+                  <h3>Replies</h3>
                   <table class="profile-history table table-condensed table-hover">
                     <% replies = current_user.replies %>
                     <% replies.each do |reply| %>
@@ -103,7 +103,7 @@
                   <%= devise_error_messages! %>
 
                   <%= f.label :email %>
-                  <p><%= f.email_field :email, autofocus: true %></p>
+                  <p><%= f.email_field :email, autofocus: true, class: 'form-control' %></p>
 
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -112,13 +112,13 @@
                   <% if current_user.provider != "facebook" %>
 
                     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-                    <p><%= f.password_field :password, autocomplete: "off" %></p>
+                    <p><%= f.password_field :password, autocomplete: "off", class: 'form-control' %></p>
 
                     <%= f.label :password_confirmation %>
-                    <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+                    <p><%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %></p>
 
                     <%= f.label :current_password %> <i>(we will need your current password if you want to change your email or password)</i>
-                    <p><%= f.password_field :current_password, autocomplete: "off" %></p>
+                    <p><%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %></p>
 
                   <% end %>
               
@@ -128,7 +128,7 @@
                     <%= f.file_field(:image) %>
                   </p>
            
-                  <p class="submit"><%= f.submit "Update", :class => 'sign-up'%></p>
+                  <p class="submit"><%= f.submit "Update", :class => 'sign-up', class: 'btn btn-primary btn-lg'%></p>
                 <% end %>
 
               </div>
@@ -141,3 +141,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag 'profile' %>

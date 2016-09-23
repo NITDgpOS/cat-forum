@@ -3,7 +3,7 @@
   <div class="thread-card">
 
     <div class="thread-info">
-      <%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
+      <%= image_tag(reply.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
       <div class="pull-right">
         replied by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= reply.user.username %></span></span><br />
         <span class="glyphicon glyphicon-time"></span><time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago
