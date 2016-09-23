@@ -14,8 +14,9 @@
           <div class="thread-info">
             <%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
             <div class="pull-right">
-              asked by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= @new_thread.user.username %></span></span><br />
-              <span class="glyphicon glyphicon-time"></span><time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago
+              <span class="glyphicon glyphicon-time"></span>asked <time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago<br />
+              by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= @new_thread.user.username %></span></span><br />
+              <div class="tag"><%= @new_thread.user.badge %></div><%= image_tag "tag.png", size: "25x35", class: 'tag-img' %>
             </div>
           </div>
         

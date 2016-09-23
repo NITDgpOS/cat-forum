@@ -5,8 +5,9 @@
     <div class="thread-info">
       <%= image_tag(reply.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
       <div class="pull-right">
-        replied by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= reply.user.username %></span></span><br />
-        <span class="glyphicon glyphicon-time"></span><time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago
+        <span class="glyphicon glyphicon-time"></span>replied <time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago<br />
+        by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= reply.user.username %></span></span><br />
+        <div class="tag"><%= reply.user.badge %></div><%= image_tag "tag.png", size: "25x35", class: 'tag-img' %>
       </div>
     </div>
 

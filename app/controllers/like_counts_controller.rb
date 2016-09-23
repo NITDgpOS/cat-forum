@@ -33,7 +33,8 @@ class LikeCountsController < ApplicationController
       if @like_count.save
         @like_count.create_activity :create,
                                     owner: current_user,
-                                    recipient: @new_thread.user
+                                    recipient: @new_thread.user,
+                                    params: { summary: @new_thread.description }
         if current_user != @thread_user
           @thread_user.update_attributes(points: @thread_user.points += 15)
           @badge = @thread_user.update_badge(@thread_user.id)

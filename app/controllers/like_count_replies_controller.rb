@@ -32,7 +32,8 @@ class LikeCountRepliesController < ApplicationController
       if @like_count_reply.save
         @like_count_reply.create_activity :create,
                                           owner: current_user,
-                                          recipient: @reply.user
+                                          recipient: @reply.user,
+                                          params: { summary: @reply.content }
         if current_user != @reply_user
           @reply_user.update_attributes(points: @reply_user.points += 25)
           @badge = @reply_user.update_badge(@reply_user.id)

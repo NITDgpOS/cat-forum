@@ -1,1 +1,4 @@
-delete a post
+<div class="icon-block"><span class="glyphicon glyphicon-trash"></span></div>
+<div class="notify-block"><%= activity.owner.username %> deleted a post</div>
+<div class="pull-left img-block"><%= image_tag activity.owner.image.url(:width => 50, :height => 50, :crop => :fill), :class=> "img-responsive" %></div>
+<div class="pull-left content-block"><%= params[:summary].truncate(50) %></div>

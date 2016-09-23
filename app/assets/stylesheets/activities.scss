@@ -1,0 +1,33 @@
+.activity-grid {
+  padding-left: 3em;
+  padding-bottom: 1em;
+}
+
+.icon-block {
+  position: absolute;
+  top: 0.1em;
+  left: 0;
+  font-size: 2em;
+  color: #aaa;
+}
+
+.time-block {
+  color: #bbb;
+}
+
+.notify-block {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.img-block {
+  padding-right: 1em;
+  img {
+    height: 2.5em;
+    width: 2.5em;
+  }
+}
+
+.content-block {
+  color: #777;
+}
