@@ -69,7 +69,6 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
-# gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'
 

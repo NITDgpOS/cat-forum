@@ -1,9 +1,7 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+
   include Cloudinary::CarrierWave
 
   process convert: 'png'
@@ -18,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    'small/user.jpg'
+    'small/user.png'
   end
 
   # Choose what kind of storage to use for this uploader:
