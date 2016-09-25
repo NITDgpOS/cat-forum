@@ -146,7 +146,20 @@ body{
 
   .footer-icons{
     padding-right: 0.5em;
+    font-size: 2em;
   }
+
+  .fa-envelope {
+    font-size: 1.5em;
+  }
+}
+
+.fa-google-plus-square {
+  color: #e82121;
+}
+
+.fa-twitter-square {
+  color: #20baec;  
 }
 
 .footer-brand{
@@ -158,6 +171,44 @@ body{
   }
 }
 
-.glyphicon-envelope{
-  padding-right: 0.4em; 
+.fa-rotate-45 {
+  -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.badge-icon {
+  display: inline-block;
+  margin-left: 1em;
+  i {
+    font-size: 3.6em;
+  }
+}
+
+.author-text {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 1em;
+}
+
+.tag-right{
+  color: #fff;
+  background-color: #333;
+  position: absolute;
+  margin-top: -2.74em;
+  margin-left: 1em;
+  z-index: 3;
+  padding: 0.24em 0.5em;
+  display: inline-block;
+  border-radius: 0 0.2em 0.2em 0;
+}
+
+.vertical-center {
+  margin-top: 1.2em;
+}
+
+.profile-tag {
+  margin-left: -2.5em;
 }

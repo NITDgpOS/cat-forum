@@ -14,9 +14,12 @@
           <div class="thread-info">
             <%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
             <div class="pull-right">
-              <span class="glyphicon glyphicon-time"></span>asked <time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago<br />
-              by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= @new_thread.user.username %></span></span><br />
-              <div class="tag"><%= @new_thread.user.badge %></div><%= image_tag "tag.png", size: "25x35", class: 'tag-img' %>
+              <div><i class="fa fa-clock-o"></i>asked <time itemprop="dateCreated" datetime=<%= @new_thread.created_at %>><%= time_ago_in_words(@new_thread.created_at) %></time> ago<br /></div>
+              <div class="author-text">by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= @new_thread.user.username %></span></span></div>
+              <div class="badge-icon"> 
+                <div><i class="fa fa-tag fa-rotate-45"></i></div>
+                <div class="tag-right"><%= @new_thread.user.badge %></div>
+              </div>
             </div>
           </div>
         
@@ -36,19 +39,19 @@
 
             <div class="thread-icons">
               <%= button_to(like_counts_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu") do %>
-                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                 <%= render :partial => "like_counts/new_thread", :locals => {:new_thread_id => @new_thread.id} %>
               <% end %>
             </div>
             <div class="thread-icons">
               <%= button_to(dislike_counts_path(:new_thread_id => @new_thread), remote: true, :class=> "like-bu dis") do %>
-                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
                 <%= render :partial => "dislike_counts/new_thread_dislike", :locals => {:new_thread_id => @new_thread.id} %>
               <% end %>
             </div>
             <div class="thread-icons">
               <%= button_to(new_thread_flags_path(:new_thread_id => @new_thread), remote: true, :class => "like-bu flag-icon") do %>
-                <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                <i class="fa fa-flag" aria-hidden="true"></i>
                 <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
               <% end %>
             </div>

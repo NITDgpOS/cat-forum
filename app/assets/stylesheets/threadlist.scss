@@ -34,150 +34,146 @@
 }
 
 .thread-card{
-    background: #fff;
-    //border: 2px solid black;
-    padding: 2em;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    margin-bottom: 1.2em;
-    transition: all 0.5s ease;
-    &:hover{
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 12px rgba(0,0,0,0.40);
-    }
+  background: #fff;
+  //border: 2px solid black;
+  padding: 2em;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin-bottom: 1.2em;
+  transition: all 0.5s ease;
+  &:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 12px rgba(0,0,0,0.40);
+  }
 }
 
 .thread-user-image{
-    width: 4em;
-    height: 4em;
-    float: left;
-    margin-right: 1em;
+  width: 4em;
+  height: 4em;
+  float: left;
+  margin-right: 1em;
 }
 
 .thread-title{
+  font-size: 1.4em;
+  a {
+    transition: all 0.5s ease;
     font-size: 1.4em;
-    a {
-        transition: all 0.5s ease;
-        font-size: 1.4em;
-        text-decoration: none;
-    }
+    text-decoration: none;
+  }
 }
 
 .thread-description{
-    text-align: justify;
+  text-align: justify;
 }
 
 .thread-foot {
-    box-shadow: 0 -4px 3px -5px black;
-    display: block;
-    margin-top: 1em;
-    overflow: auto;
-    padding-top: 1em;
+  box-shadow: 0 -4px 3px -5px black;
+  display: block;
+  margin-top: 1em;
+  overflow: auto;
+  padding-top: 1em;
 }
 
 .thread-icons{
+  transition: all 0.5s ease;
+  *{
     transition: all 0.5s ease;
-    *{
-        transition: all 0.5s ease;
-    }
+  }
 
+  float: right;
+  font-size: 1.2em;
+  border: 1px solid #B6B6B6;
+  margin: .1em;
+  padding: .1em;
+  border-radius: .14em;
+
+  a{  
+    text-decoration: none;
+    :hover{
+      text-decoration: none;
+    }
+  }
+
+  button{
+    background: transparent;
+    border: none;
+    margin: none;
+    padding: none;
+    float: left;
+  }
+
+  form{
+    float: left;
+  }
+
+  .fa-thumbs-o-up {
+    color: #4DA64D;
+  }
+
+  .fa-thumbs-o-down {
+    color: #FF6666;
+  }
+
+  .fa-flag {
+    color: #0000FF;
+  }
+
+  .like-count {
     float: right;
-    font-size: 1.2em;
-    border: 1px solid #B6B6B6;
-    margin: .1em;
-    padding: .1em;
-    border-radius: .14em;
+    font-size: 1em;
+    margin: 0 0.2em 0 0;
+    padding: 0;
+    margin-left: .4em;
+  }
 
-    a{  
-        text-decoration: none;
-        :hover{
-            text-decoration: none;
-        }
+  &:hover{
+    box-shadow: 0 0 5px -3px blue inset;
+    //background: darken(#fff, 6%);
+    border: 1px solid #6D6D6D;
+
+    .fa-thumbs-o-up{
+      color: darken(#4DA64D, 20%);
     }
 
-    button{
-        background: transparent;
-        border: none;
-        margin: none;
-        padding: none;
-        float: left;
+    .fa-thumbs-o-down{
+      color: desaturate(darken(#FF6666, 20%), 20%);
     }
-
-    form{
-        float: left;
-    }
-
-    .glyphicon{
-        margin-top: .2em;
-    }
-
-    .glyphicon-thumbs-up{
-        color: #4DA64D;
-    }
-
-    .glyphicon-thumbs-down{
-        color: #FF6666;
-    }
-
-    .glyphicon-flag{
-        color: #0000FF;
-    }
-
-    .like-count {
-        float: right;
-        font-size: 1em;
-        margin: 0 0.2em 0 0;
-        padding: 0;
-        margin-left: .4em;
-    }
-
-    &:hover{
-        box-shadow: 0 0 5px -3px blue inset;
-        //background: darken(#fff, 6%);
-        border: 1px solid #6D6D6D;
-
-        .glyphicon-thumbs-up{
-        color: darken(#4DA64D, 20%);
-        }
-
-        .glyphicon-thumbs-down{
-        color: desaturate(darken(#FF6666, 20%), 20%);
-        }
-    }
+  }
 }
 
 
 #new-thread-button {
+  transition: all 0.3s ease;
+  * {
     transition: all 0.3s ease;
-    * {
-        transition: all 0.3s ease;
-    }
+  }
 
-    position: fixed;
-    top: 4.4em;
-    right: 1em;
-    z-index: 100;
+  position: fixed;
+  top: 4.4em;
+  right: 1em;
+  z-index: 100;
 
-    a{
-        color: #fff;
-        text-decoration: none;
-    }
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 #infscr-loading{
-    * {
-        display: none;
-    }
-
+  * {
     display: none;
+  }
+
+  display: none;
 }
 
 .pagination{
-    /*display: none;*/
+  /*display: none;*/
 }
 
 .thread-info{
-    display: inline-block;
+  display: inline-block;
 }
 
-.glyphicon-time{
-    padding-right: 0.3em;
+.fa-clock-o {
+  padding-right: 0.3em;
 }

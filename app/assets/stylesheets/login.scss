@@ -19,11 +19,10 @@
 #fbLogin {
   display: block;
   margin-top: 3.5em;
-}
-
-.facebook-logo{
-  margin: 0em 1em;
-  height: 1.5em;
+  .fa-facebook {
+    font-size: 1.5em;
+    padding-right: 0.2em;
+  }
 }
 
 .facebook{

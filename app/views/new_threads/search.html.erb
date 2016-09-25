@@ -3,7 +3,7 @@
 <div class="search-threads">
   <div class="thread-list-wrapper">
     <div class="container thread-list">
-      <%= link_to("<span class='glyphicon glyphicon-menu-left'></span> Back to all Threads".html_safe, {:controller => "new_threads", :action => 'index'}, :class => 'back-link btn btn-default') %>
+      <%= link_to("<i class='fa fa-arrow-left'></i> Back to all Threads".html_safe, {:controller => "new_threads", :action => 'index'}, :class => 'back-link btn btn-default') %>
       <div class="row thread-row">
         <% @new_threads.each do |new_thread| %>
           <div class="col-xs-12 col-md-6 col-lg-4 thread-col">
