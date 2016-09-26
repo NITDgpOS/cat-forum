@@ -33,7 +33,8 @@ class RepliesController < ApplicationController
         end
         @reply.create_activity :create,
                                owner: current_user,
-                               recipient: @new_thread.user
+                               recipient: @new_thread.user,
+                               params: { summary: @reply.content }
         format.html do
           redirect_to @new_thread,
                       notice: 'Reply was successfully created.'
@@ -77,7 +78,11 @@ class RepliesController < ApplicationController
 
   def destroy
     @reply_user = @reply.user
-    if @reply.user.id = current_user.id
+    if @reply.user.id == current_user.id
+      @reply.create_activity :destroy,
+                             owner: current_user,
+                             recipient: @new_thread.user,
+                             params: { summary: @reply.content }
       Reply.find(params[:id]).destroy
       @reply_user.update_attributes(points: @reply_user.points -= 20)
       @badge = @reply_user.update_badge(@reply_user.id)

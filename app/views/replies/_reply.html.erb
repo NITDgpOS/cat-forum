@@ -3,10 +3,14 @@
   <div class="thread-card">
 
     <div class="thread-info">
-      <%= image_tag(@new_thread.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
+      <%= image_tag(reply.user.image.url(:thumb), :class => "img-circle thread-user-image") %>
       <div class="pull-right">
-        replied by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= reply.user.username %></span></span><br />
-        <span class="glyphicon glyphicon-time"></span><time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago
+        <div><i class="fa fa-clock-o"></i>replied <time itemprop="dateCreated" datetime=<%= reply.created_at %>><%= time_ago_in_words(reply.created_at) %></time> ago<br /></div>
+        <div class="author-text">by <span class="user-thread" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" id="post-username"><%= reply.user.username %></span></span><br /></div>
+        <div class="badge-icon"> 
+          <div><i class="fa fa-tag fa-rotate-45"></i></div>
+          <div class="tag-right"><%= reply.user.badge %></div>
+        </div>
       </div>
     </div>
 
@@ -17,21 +21,21 @@
     <div class="thread-foot">
       <div class="thread-icons">
         <%= button_to(like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu") do %>
-          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
           <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => @reply.id} %>
         <% end %>
       </div>
 
       <div class="thread-icons">
         <%= button_to(dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis") do %>
-          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+          <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
           <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => @reply.id} %>
         <% end %>
       </div>
 
       <div class="thread-icons">
         <%= button_to(reply_flags_path(:reply_id => reply), remote: true, :class => "like-bu flag-icon") do %>
-          <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+          <i class="fa fa-flag" aria-hidden="true"></i>
           <%= render :partial => "reply_flags/reply_flag", :locals => {:reply_id => @reply.id} %>
         <% end %>
       </div>

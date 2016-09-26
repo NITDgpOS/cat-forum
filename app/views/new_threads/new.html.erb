@@ -1,10 +1,12 @@
 <% @pageTitle = "Start New Thread | CAT Forum" %>
 <% @PageDescription= "Having doubts about CAT exam? Feel free to Start a New Thread and get your answers in CAT Forum." %>
-<div class="post-thread">
-	<p class="post-thread">
-	Make sure you have read our <%= link_to "How to ask question", pages_question_path %> page before you ask questions.
-    </p>
-<h1 class="thread-header">New Thread :</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+      <h4>Make sure you have read our <%= link_to "How to ask question", pages_question_path %> page before you ask questions.</h4>
+      <h2>Start a New Thread</h2>
 
-<%= render 'form2' %>
+      <%= render 'form2' %>
+    </div>
+  </div>
 </div>

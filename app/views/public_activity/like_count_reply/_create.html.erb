@@ -1,6 +1,9 @@
-likes your reply in thread
+<div class="icon-block"><i class="fa fa-thumbs-o-up"></i></div>
+<div class="notify-block"><%= activity.owner.username %> likes your reply in thread
 <% if activity.trackable %>
-<%= link_to activity.trackable.reply.new_thread.title, activity.trackable.reply.new_thread %>&nbsp;&nbsp;<span class="count-cell"> +25 </span>
+  <%= link_to activity.trackable.reply.new_thread.title, activity.trackable.reply.new_thread %>
 <% else %>
   which has since been removed 
-<% end %>
+<% end %></div>
+<div class="pull-left img-block"><%= image_tag activity.owner.image.url(:width => 50, :height => 50, :crop => :fill), :class=> "img-responsive" %></div>
+<div class="pull-left content-block"><%= params[:summary].truncate(50) %></div>

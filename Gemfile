@@ -51,6 +51,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use bootstrap powered by Sass
 gem 'bootstrap-sass', '~> 3.3.6'
+# Use font-awesome for glyphicons
+gem 'font-awesome-sass'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -69,7 +71,6 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
-# gem 'rmagick'
 gem 'carrierwave'
 gem 'cloudinary'
 
