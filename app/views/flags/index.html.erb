@@ -1,60 +1,58 @@
 <% @pageTitle = "Admin | CAT Forum" %>
 <% @PageDescription = "This is the Admin page of CAT Forum.Delete or block user activities." %>
-<div class="flags-wrapper">
-<h1 class="how-to">Listing Reply Flags</h1>
 
-   <table class="table-flags">
-     <tr class="flag-header">
-      <td>Content</td>
-      <td>Thread</td>
-      <td>Flags</td>
-      <td></td>
-    </tr>
-  <div class="reply_flag">
-   <%= render :partial => "reply_flags/reply_flags"%>
-  
+<div class="container">
+  <h2>Listing Reply Flags</h2>
 
-<br>
-
-<h1 class="how-to">Listing Thread Flags</h1>
-  <table class="table-flags">
-     <tr class="flag-header">
-      <td>Description</td>
-      <td>Thread</td>
-      <td>Flags</td>
-      <td></td>
+  <table class="table table-striped">
+    <tr class="flag-header">
+      <th>Content</th>
+      <th>Thread</th>
+      <th>Flags</th>
+      <th>Action</th>
     </tr>
 
-   
-  <div class="new_thread_flag">
-    <%= render :partial => "new_thread_flags/new_thread_flags"%>
-  </div>
- 
-<br>
-<h1 class="how-to">Listing Blocked Users</h1>
+    <div class="reply_flag">
+      <%= render :partial => "reply_flags/reply_flags"%>
+    </div>
+  </table>
 
-<table>
-   <tr class="flag-header">
-      <td>User</td>
-      <td>Blocked</td>
-      <td> action </td>
+  <h2>Listing Thread Flags</h2>
+  <table class="table table-striped">
+    <tr class="flag-header">
+      <th>Description</th>
+      <th>Thread</th>
+      <th>Flags</th>
+      <th>Action</th>
+    </tr>
+
+    <div class="new_thread_flag">
+      <%= render :partial => "new_thread_flags/new_thread_flags"%>
+    </div>
+  </table>
+
+  <h2>Listing Blocked Users</h2>
+
+  <table class="table table-striped">
+    <tr class="flag-header">
+      <th>User</th>
+      <th>Blocked</th>
+      <th>Action</th>
     </tr>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
         <td><%= user.blocked %></td>
-        <td><%= link_to("Edit", {:action => 'edit', :controller => 'flags', :id => user.id}, :class => 'action edit') %></td>
+        <td><%= link_to "Edit", {:action => 'edit', :controller => 'flags', :id => user.id}, :class => 'btn btn-info' %></td>
       </tr>
     <% end %>
-</table>
-<br>
-<h1 class="how-to">Block a new user<h1>
-<br>
-<%= form_tag("flags/search", method: "get") do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-</div>
+  </table>
+
+  <h2>Block a New User</h2>
+  <%= form_tag("flags/search", method: "get", class: 'form-inline') do %>
+    <p>
+      <%= text_field_tag :search, params[:search], class: 'form-control' %>
+      <%= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
+    </p>
+  <% end %>
 </div>
