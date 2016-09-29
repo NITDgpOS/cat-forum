@@ -1,27 +1,28 @@
 <% @pageTitle = "Admin | CAT Forum" %>
 <% @PageDescription = "This is the Admin page of CAT Forum.Delete or block user activities." %>
-<div class="search-wrapper">
-<% @users.each do |user| %>
- <%= image_tag user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
-     <table class="userswords">
-      <tr>
-      <td>Username:</td><td><%= user.username %></td>
-      </tr>
-      <tr>
-       <td>Email:</td><td><%= user.email %> </td>
-      </tr>
-      <tr>
-       <td>Member for:</td><td><%= time_ago_in_words(user.created_at) %></td>
-      </tr>
-      <tr>
-       <td> Points:</td><td><%= user.points %></td>
-      </tr>
-      <tr>
-       <td> Badge:</td><td> <%= user.badge %></td>
-     </tr>
-     <tr>
-      <td><%= link_to("Block", {:action => 'edit', :controller => 'flags', :id => user.id}, :class => 'action edit') %></td>
-      </td>
-    </table>
- <% end %>
+<div class="container">
+  <% @users.each do |user| %>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="thumbnail">
+          <%= image_tag user.image.url(:thumb), size: "200x200", :class=> "img-responsive img-rounded" %>
+          <div class="caption">
+            <p class="text-center" style="font-weight: 900;"><%= link_to "<i class='fa fa-ban'></i>Block User".html_safe, {:action => 'edit', :controller => 'flags', :id => user.id}, :class => 'btn btn-block btn-default' %></p>
+          </div> 
+        </div>
+      </div>
+
+      <div class="col-md-10" style="vertical-align: middle;">
+        <h4>Username: <%= user.username %></h4>
+        <h4>Email: <%= user.email %></h4>
+        <h4>Member for: <%= time_ago_in_words(user.created_at) %></h4>
+        <h4>Points: <%= user.points %></h4>
+        <h4 class="author-text">Badge:</h4>
+        <div class="badge-icon"> 
+          <div><i class="fa fa-tag fa-rotate-45"></i></div>
+          <div class="tag-right"><%= user.badge %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

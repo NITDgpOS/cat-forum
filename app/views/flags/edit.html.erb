@@ -1,42 +1,55 @@
 <% @pageTitle = "Admin | CAT Forum" %>
 <% @PageDescription = "This is the Admin page of CAT Forum.Delete or block user activities." %>
-<div class="blocked-wrapper">
-
-  <%= form_for(:user, :url => {:action => 'update', :id => @user.id}, :method => "patch") do |f| %>
-   <%= image_tag @user.image.url(:thumb), size: "100x100", :class=> "user-image" %><br>
-  <table class="userswords">
-      <tr>
-      <td>Username:</td><td><%= @user.username %></td>
-      </tr>
-      <tr>
-       <td>Email:</td><td><%= @user.email %> </td>
-      </tr>
-      <tr>
-       <td>Member for:</td><td><%= time_ago_in_words(@user.created_at) %></td>
-      </tr>
-      <tr>
-       <td> Points:</td><td><%= @user.points %></td>
-      </tr>
-      <tr>
-       <td> Badge:</td><td> <%= @user.badge %></td>
-     </tr>
-     <tr>
-       <td> Last Blocked:</td><td><% if @user.created_at != @user.updated_at %> 
-       <%=time_ago_in_words(@user.updated_at)%> ago
-       <%end%>
-       </td>
-     </tr>
-     <tr>
-    <td><%= f.label(:blocked_status) %></td>
-    <td><%= f.check_box(:blocked) %></td>
-    </tr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-offset-3 col-md-6">
+      <%= form_for(:user, :url => {:action => 'update', :id => @user.id}, :method => "patch") do |f| %>
+        <div class="text-center">
+          <div class="thumbnail">
+            <%= image_tag @user.image.url(:thumb), size: "200x200", class: 'img-rounded img-responsive' %></div>
+          </div>
+        <table class="table table-striped">
+          <tr>
+            <td>Username:</td><td><%= @user.username %></td>
+          </tr>
+          <tr>
+            <td>Email:</td><td><%= @user.email %> </td>
+          </tr>
+          <tr>
+            <td>Member for:</td><td><%= time_ago_in_words(@user.created_at) %></td>
+          </tr>
+          <tr>
+            <td> Points:</td><td><%= @user.points %></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: middle;"> Badge:</td>
+            <td>
+              <div class="badge-icon"> 
+                <div><i class="fa fa-tag fa-rotate-45"></i></div>
+                <div class="tag-right"><%= @user.badge %></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td> Last Blocked:</td>
+            <td>
+              <% if @user.created_at != @user.updated_at %> 
+                <%=time_ago_in_words(@user.updated_at)%> ago
+              <%end%>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.label(:blocked_status) %></td>
+            <td><%= f.check_box(:blocked) %></td>
+          </tr>
   
-</table>
+        </table>
     
-    <div class="form-buttons">
-      <%= submit_tag("Update") %>
+        <div class="form-buttons">
+          <%= submit_tag "Update", class: 'btn btn-primary btn-block' %>
+        </div>
+    
+      <% end %>
     </div>
-    
-  <% end %>
-</div>
+  </div>
 </div>

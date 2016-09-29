@@ -1,15 +1,10 @@
-
-
-    <% @replies.each do |reply| %>
-      <%if @flag = reply.reply_flags.first %>
-      <tr class="destroy_flag" id="reply_<%=reply.id%>">
-        <td class="destroy_flag"><%= @flag.reply.content.split[0..10].join(" ") %></td>
-        <td><%=link_to reply.new_thread.title.split[0..3].join(" "), reply.new_thread %></td>
-        <td><%= reply.reply_flags.size %></td>
-        <td><%= link_to "Delete", :action => "destroy", :controller => "reply_flags", :id => reply.id, :remote => true %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </table>
-
-
+<% @replies.each do |reply| %>
+  <%if @flag = reply.reply_flags.first %>
+    <tr class="destroy_flag" id="reply_<%=reply.id%>">
+      <td class="destroy_flag"><%= @flag.reply.content.truncate(100) %></td>
+      <td><%=link_to reply.new_thread.title.split[0..3].join(" "), reply.new_thread %></td>
+      <td><%= reply.reply_flags.size %></td>
+      <td><%= link_to "Delete", { action: "destroy", controller: "reply_flags", id: reply.id } , remote: true, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+<% end %>
