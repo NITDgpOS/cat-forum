@@ -1,1 +1,1 @@
-$(".reply.foo#reply_<%= @reply.id %>").html('<%= escape_javascript(render :partial => "reply_like", :locals => {:reply_id => @reply.id}) %>');
+$(".reply.like-count#reply_<%= @reply.id %> span").html('<%= @reply.like_count_replies.size %>');

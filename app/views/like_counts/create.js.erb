@@ -1,1 +1,1 @@
-$("#new_thread_<%= @new_thread.id %>").html('<%= escape_javascript(render :partial => "new_thread", :locals => {:new_thread_id => @new_thread.id}) %>');
+$(".new_thread.like-count#new_thread_<%= @new_thread.id %> span").html('<%= @new_thread.like_counts.size %>');

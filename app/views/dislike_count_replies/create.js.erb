@@ -1,1 +1,1 @@
-$(".reply.boo#reply_<%= @reply.id %>").html('<%= escape_javascript(render :partial => "reply_dislike", :locals => {:reply_id => @reply.id}) %>');
+$(".reply.dislike-count#reply_<%= @reply.id %> span").html('<%= @reply.dislike_count_replies.size %>');

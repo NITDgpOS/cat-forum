@@ -1,4 +1,4 @@
 <% new_thread = NewThread.find(new_thread_id) %>
-<%= div_for(@new_thread, class: "like-count") do %>
+<%= div_for(@new_thread, class: "flag-count") do %>
   <span itemprop="flagCount"><%= new_thread.new_thread_flags.size %></span>
 <% end %>
