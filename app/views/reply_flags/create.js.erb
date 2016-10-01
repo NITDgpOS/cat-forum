@@ -1,1 +1,1 @@
-$(".reply.flag#reply_<%= @reply.id %>").html('<%= escape_javascript(render :partial => "reply_flag", :locals => {:reply_id => @reply.id}) %>');
+$(".reply.flag-count#reply_<%= @reply.id %> span").html('<%= @reply.reply_flags.size %>');

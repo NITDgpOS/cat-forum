@@ -1,4 +1,4 @@
 <% new_thread_dislike = NewThread.find(new_thread_id) %>
-<%= div_for(@new_thread, class: "like-count", :itemprop=>"downvoteCount") do %>
+<%= div_for(@new_thread, class: "dislike-count") do %>
   <span itemprop="downvoteCount"><%= new_thread_dislike.dislike_counts.size %></span>
 <% end %>
