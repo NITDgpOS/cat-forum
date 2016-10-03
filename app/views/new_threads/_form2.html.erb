@@ -23,6 +23,6 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
   
   <div class='form-group'>
-    <div class='col-xs-3'><%= f.submit 'Post', class: 'btn btn-primary btn-lg' %></div>
+    <div class='col-xs-3'><%= f.submit (action_name == 'new' ? 'Post' : 'Update'), class: 'btn btn-primary btn-lg' %></div>
   </div>
 <% end %>

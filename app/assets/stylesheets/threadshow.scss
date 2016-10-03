@@ -25,7 +25,7 @@
     overflow: auto;
 }
 
-#reply-btn{
+.reply-btn{
   margin-top: .6em;
   float: right;
 }
@@ -36,4 +36,12 @@
   &:hover{
     text-decoration: none;
   }
+}
+
+.edit-reply-btn {
+  margin-top: .6em;
+}
+
+.edit-form {
+  display: none;
 }

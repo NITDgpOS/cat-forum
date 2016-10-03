@@ -29,9 +29,6 @@ gem 'will_paginate', '~> 3.0.5'
 # Activity tracking for models
 gem 'public_activity'
 
-# jQuery Inplace-Editor
-gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
-
 # Reputation behavior for Rails
 gem 'merit'
 

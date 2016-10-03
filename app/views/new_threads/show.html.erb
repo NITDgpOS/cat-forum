@@ -6,9 +6,7 @@
       <div class="col-xs-12 col-md-12 col-lg-12 thread-col">
         <div class="thread-card" itemscope itemtype="http://schema.org/Question">
           <div class="show-thread-title" itemprop="name">
-            <%= link_to @new_thread do %>
-              <%= best_in_place_if user_signed_in? && current_user.id == @new_thread.user.id,  @new_thread, :title, :html_attrs => {:id => 'new_thread_title'},:activator => ".activator-title" %>
-            <% end %>
+            <%= link_to @new_thread.title, @new_thread %>
           </div>
 
           <div class="thread-info">
@@ -24,16 +22,15 @@
           </div>
         
           <div class="description" itemprop="text">
-            <%= best_in_place_if user_signed_in? && current_user.id==@new_thread.user.id, @new_thread, :description, type: :textarea, :html_attrs => {:id => 'new_thread_description'}, :activator => ".activator" %>
+            <%= @new_thread.description %>
           </div>
 
           <div class="thread-foot">
 
             <% if user_signed_in? %>
               <% if @new_thread.user.id == current_user.id %>
-                <%= link_to 'Delete', @new_thread, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'thread-link edit-post'%>
-                <a href="#" class="activator thread-link edit-post">Description</a>
-                <a href="#" class="activator-title thread-link edit-post">Title</a>
+                <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_new_thread_path, :class => 'thread-link edit-post btn btn-default'%>
+                <%= link_to "<i class='fa fa-trash'></i>".html_safe, @new_thread, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'thread-link edit-post btn btn-default'%>
               <%end%>
             <% end %>
 
@@ -81,7 +78,7 @@
             <% if user_signed_in? %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
             <%end%>
-            <div id="reply-btn"><%= f.submit "Add Reply", :class => "reply-but btn btn-primary"%></div>
+            <div class="reply-btn"><%= f.submit "Add Reply", :class => "reply-but btn btn-primary"%></div>
           <% end %>
         </div>
       </div>

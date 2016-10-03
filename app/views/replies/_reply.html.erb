@@ -1,5 +1,4 @@
 <%= div_for(reply, class: "reply-whole col-xs-12 col-md-12 col-lg-12 thread-col", :itemprop=>"suggestedAnswer",:itemscope=>true, :itemtype=>"http://schema.org/Answer") do %>
-  <% @reply = reply %>
   <div class="thread-card">
 
     <div class="thread-info">
@@ -14,37 +13,49 @@
       </div>
     </div>
 
-    <div class="description" itemprop="text">
-      <%=best_in_place_if user_signed_in? && current_user.id == reply.user.id,  @reply, :content, :activator => ".activator-reply", type: :textarea, :html_attrs => {:id => 'reply_content'} %>
+    <div class="description" itemprop="text" id="reply-content-<%= reply.id %>">
+      <%= reply.content %>
+    </div>
+
+    <div class="edit-form" id="edit-reply-<%= reply.id %>">
+      <%= form_for([@new_thread, reply], :html => {:class => 'reply-form'}, remote: true)  do |f| %>
+        <%= f.text_area :content, :class => 'form-control', :rows=>'3' %>
+        <% if user_signed_in? %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%end%>
+        <p class="edit-reply-btn"><%= f.submit "Update", :class => "reply-but btn btn-primary"%></p>
+      <% end %>
     </div>
 
     <div class="thread-foot">
       <div class="thread-icons">
         <%= button_to(like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu") do %>
           <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-          <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => @reply.id} %>
+          <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => reply.id} %>
         <% end %>
       </div>
 
       <div class="thread-icons">
         <%= button_to(dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis") do %>
           <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
-          <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => @reply.id} %>
+          <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => reply.id} %>
         <% end %>
       </div>
 
       <div class="thread-icons">
         <%= button_to(reply_flags_path(:reply_id => reply), remote: true, :class => "like-bu flag-icon") do %>
           <i class="fa fa-flag" aria-hidden="true"></i>
-          <%= render :partial => "reply_flags/reply_flag", :locals => {:reply_id => @reply.id} %>
+          <%= render :partial => "reply_flags/reply_flag", :locals => {:reply_id => reply.id} %>
         <% end %>
       </div>
 
       <% if user_signed_in? %>
         <% if reply.user.id == current_user.id %>
-          <%= link_to "Delete", {:action => 'destroy', :controller => "replies", :id => @reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link edit-post'%>
+          <a id="edit-reply-btn-<%= reply.id %>" class="btn btn-default" reply-id="<%= reply.id %>"><i class="fa fa-pencil"></i></a>
+          <%= link_to "<i class='fa fa-trash'></i>".html_safe, {:action => 'destroy', :controller => "replies", :id => reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link edit-post btn btn-default'%>
         <% end %>
       <%end%>
+      <%= link_to "<i class='fa fa-share-alt'></i>".html_safe, new_thread_path + "#reply_" + reply.id.to_s, class: 'btn btn-default' %>
 
     </div>
   </div>

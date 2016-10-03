@@ -1,6 +1,12 @@
-<h1>Editing new_thread</h1>
+<% @pageTitle = "Edit" + @new_thread.title + " | CAT Forum" %>
+<% @PageDescription= @new_thread.description %>
 
-<%= render 'form' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+      <h2>Editing Thread</h2>
 
-<%= link_to 'Show', @new_thread %> |
-<%= link_to 'Back', new_threads_path %>
+      <%= render 'form2' %>
+    </div>
+  </div>
+</div>

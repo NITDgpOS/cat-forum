@@ -5,8 +5,9 @@ CAT forum is the content management system of MNTC's CAT Forum, a web forum for 
 
 It is written in Ruby on Rails and uses Bootstrap for UI design. We use `haml` as our HTML templating engine. Some legacy templates are written in simple HTML (PR please!). Please use HAML while writing template code. You can learn HAML from the [HAML Tutorial](http://haml.info/tutorial.html) or [HAML documentation](http://haml.info/docs/yardoc/file.REFERENCE.html). Some key features of CAT-Forum include:
 
-* Posting and editing threads. We are using in place editing using the `best_in_place` gem
-* An upvoting and commenting system
+* Posting and editing threads
+* Replying to threads
+* An upvoting and flagging system
 * User reputation system
 * User profile and activity tracking using `public_activity` gem
 * User login and authentication using `devise` gem and facebook login using `omniauth-facebook`
