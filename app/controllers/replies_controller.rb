@@ -62,7 +62,7 @@ class RepliesController < ApplicationController
           redirect_to @new_thread,
                       notice: 'Reply was successfully updated.'
         end
-        format.json { respond_with_bip(@reply) }
+        format.js
       else
         format.html { render action: 'edit' }
         format.json do

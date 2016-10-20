@@ -14,15 +14,11 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require blockeds
-//= require flags
 //= require home
+//= require reply
 //= require imagesloaded.pkgd.min
 //= require jquery.infinitescroll.min
 //= require masonry.pkgd.min
-//= require new_threads
-//= require replies
-//= require best_in_place
 //= require bootstrap-sprockets
 //= require nprogress
 //= require nprogress-turbolinks

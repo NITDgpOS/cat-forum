@@ -73,7 +73,7 @@ class NewThreadsController < ApplicationController
       if @new_thread.update(new_thread_params)
         format.html do
           redirect_to @new_thread,
-                      notice: 'New thread was successfully updated.'
+                      notice: 'Thread was successfully updated.'
         end
         format.json { head :no_content }
       else
