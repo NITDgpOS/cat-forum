@@ -1,4 +1,5 @@
 <%= div_for(reply, class: "reply-whole col-xs-12 col-md-12 col-lg-12 thread-col", :itemprop=>"suggestedAnswer",:itemscope=>true, :itemtype=>"http://schema.org/Answer") do %>
+
   <div class="thread-card">
 
     <div class="thread-info">
@@ -31,21 +32,21 @@
       <div class="thread-icons">
         <%= button_to(like_count_replies_path(:reply_id => reply), remote: true, :class => "like-bu") do %>
           <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-          <%= render :partial => "like_count_replies/reply_like", :locals => {:reply_id => reply.id} %>
+          <%= render :partial => "like_count_replies/reply_like", :locals => {reply: reply} %>
         <% end %>
       </div>
 
       <div class="thread-icons">
         <%= button_to(dislike_count_replies_path(:reply_id => reply), remote: true, :class=> "like-bu dis") do %>
           <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
-          <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {:reply_id => reply.id} %>
+          <%= render :partial => "dislike_count_replies/reply_dislike", :locals => {reply: reply} %>
         <% end %>
       </div>
 
       <div class="thread-icons">
         <%= button_to(reply_flags_path(:reply_id => reply), remote: true, :class => "like-bu flag-icon") do %>
           <i class="fa fa-flag" aria-hidden="true"></i>
-          <%= render :partial => "reply_flags/reply_flag", :locals => {:reply_id => reply.id} %>
+          <%= render :partial => "reply_flags/reply_flag", :locals => {reply: reply} %>
         <% end %>
       </div>
 
@@ -55,7 +56,7 @@
           <%= link_to "<i class='fa fa-trash'></i>".html_safe, {:action => 'destroy', :controller => "replies", :id => reply.id, :new_thread_id => @new_thread.id}, :method => "delete", data: { confirm: 'Are you sure?' }, :class => 'reply-link edit-post btn btn-default'%>
         <% end %>
       <%end%>
-      <%= link_to "<i class='fa fa-share-alt'></i>".html_safe, new_thread_path + "#reply_" + reply.id.to_s, class: 'btn btn-default' %>
+      <%= link_to "<i class='fa fa-share-alt'></i>".html_safe, "#reply_" + reply.id.to_s, class: 'btn btn-default' %>
 
     </div>
   </div>

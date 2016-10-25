@@ -1,4 +1,4 @@
-<% reply_like = Reply.find(reply_id) %>
-<%= div_for(@reply, class: "like-count") do %>
+<% reply_like = Reply.find(reply.id) %>
+<%= div_for(reply, class: "like-count") do %>
   <span itemprop="upvoteCount"><%= reply_like.like_count_replies.size %></span>
 <% end %>
