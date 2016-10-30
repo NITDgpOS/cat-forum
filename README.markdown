@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sonalkr132/cat-forum.svg?branch=github_master)](https://travis-ci.org/sonalkr132/cat-forum)
+[![Build Status](https://travis-ci.org/NIT-dgp/cat-forum.svg?branch=github_master)](https://travis-ci.org/NIT-dgp/cat-forum)
 
 # CAT FORUM
 CAT forum is the content management system of MNTC's CAT Forum, a web forum for CAT preparations. We use  heroku for deployment.
