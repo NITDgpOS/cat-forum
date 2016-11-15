@@ -14,7 +14,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   
  # config.mailer_sender = 'aditya.prakash132@gmail.com' #gitignore
-  config.mailer_sender = 'localhost:3000'
+  config.mailer_sender = '"CAT-Forum" <no-reply@catforum.mntc.in> '
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
