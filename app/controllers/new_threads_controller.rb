@@ -14,8 +14,8 @@ class NewThreadsController < ApplicationController
   end
 
   def search
-    # @new_threads = NewThread.search ThinkingSphinx::Query
-    #                         .escape(params[:search])
+    
+    
     @new_threads = NewThread.text_search(params[:query])
                             .paginate(page: params[:page], per_page: 10)
                             .order('id DESC')
