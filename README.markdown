@@ -38,7 +38,7 @@ We use cloudinary as a cloud storage for images. Signup for a cloudinary account
 * We have all our secrets in secret.yml.example. You only need to rename it to secret.yml and fill in the secrets
 * Use `rake secret` to generate the secret key, copy the generated key and paste it for `devise_key`. Do the same for `secret_key_base`. Enter the _cloud_name_, _api_key_ and _api_secret_ that you got from cloudinary in the `cloud_name`, `cloud_api_key` and `cloud_api_secret` fields
 * If you would like to use fb login too, sign up with fb developers site, get your app key and app secret and paste it in `fb_app` and `fb_secret`
-* Rename the database.rb.example file present in the config/initializers directory to database.rb
+* Rename the database.yml.example file present in the config/ directory to database.yml
 * For database settings you will have to fill in the username and password of your own local pg env.
 
 ## Running your local instance
