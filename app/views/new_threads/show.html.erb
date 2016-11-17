@@ -70,9 +70,9 @@
         <%= render :partial => @new_thread.replies%>
       </div>
 
-
-      <div class="col-xs-12 col-md-12 col-lg-12 thread-col">
-        <div class="thread-card">
+	 <div class="col-xs-12 col-md-12 col-lg-12 thread-col">	
+	<%if user_signed_in? %>
+	   <div class="thread-card">
           <%= form_for([@new_thread, Reply.new], :html => {:class => 'reply-form'}, remote: true)  do |f| %>
             <%= f.text_area :content, :class => 'form-control', :rows=>'3' %>
             <% if user_signed_in? %>
@@ -81,8 +81,11 @@
             <div class="reply-btn"><%= f.submit "Add Reply", :class => "reply-but btn btn-primary"%></div>
           <% end %>
         </div>
-      </div>
-
+      
+	<%else%>
+		<p><a href="/users/sign_in">Log In</a> Or <a href="/users/sign_up">Sign Up</a> to post a reply</p>
+	<%end%>
+	</div>
     </div>
   </div>
 </div>
