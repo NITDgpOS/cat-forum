@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :dislike_count_replies
   has_many :new_thread_flags
   has_many :reply_flags
+  
 
   mount_uploader :image, ImageUploader
   # has_attached_file :image, :styles => { :small => "200x200>" },
@@ -37,9 +38,10 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.username = auth.info.name # assuming the user model has a name
+      user.name = auth.info.name # assuming the user model has a name
       # assuming the user model has an image
-      user.remote_image_url = auth.info.image.gsub('http://', 'https://')
+      #user.remote_image_url = auth.info.image.gsub('http://', 'https://')
+      
     end
   end
 

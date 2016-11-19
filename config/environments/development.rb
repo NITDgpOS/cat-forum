@@ -6,6 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  ENV['FACEBOOK_APP_ID'] = "1187829091254806";
+  ENV['FACEBOOK_SECRET'] = "33c993c6ce557656d32b76c7ca53fa9e";
   # Do not eager load code on boot.
   config.eager_load = false
 
