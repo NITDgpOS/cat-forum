@@ -2,7 +2,7 @@
 <% @PageDescription= "Having doubts about CAT exam? Feel free to Start a New Thread and get your answers in CAT Forum." %>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h4>Make sure you have read our <%= link_to "How to ask question", pages_question_path %> page before you ask questions.</h4>
       <h2>Start a New Thread</h2>
 
@@ -10,3 +10,9 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $('#edit').froalaEditor()
+  });
+</script>

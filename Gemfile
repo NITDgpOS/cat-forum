@@ -80,6 +80,10 @@ gem 'cancancan', '~> 1.10'
 # Ruby static code analyzer according to https://github.com/bbatsov/ruby-style-guide 
 gem 'rubocop', require: false
 
+gem "wysiwyg-rails"
+
+gem 'truncate_html', '~> 0.9.3'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'letter_opener'

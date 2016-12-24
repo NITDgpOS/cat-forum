@@ -6,7 +6,7 @@
 </div>
 
 <div class="thread-list-wrapper">
-  <div class="container thread-list">
+  <div class="container thread-list fr-view">
     <div class="row thread-row">
       <% @new_threads.each do |new_thread| %>
         <% @new_thread = new_thread %>
@@ -19,7 +19,7 @@
             </div>
             
             <div class="thread-body" itemprop="text">
-              <p><%= new_thread.description.truncate(100) %> ....(<%= link_to "Read more", new_thread, :class => "thread-link"%>)</p>
+              <p><%= truncate_html(new_thread.description.html_safe) %> (<%= link_to "Read more", new_thread, :class => "thread-link"%>)</p>
             </div>
 
             <div class="thread-foot">
