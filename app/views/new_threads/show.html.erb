@@ -1,6 +1,6 @@
 <% @pageTitle = @new_thread.title + " | CAT Forum" %>
 <% @PageDescription = @new_thread.description %>
-<div class="container thread-show">
+<div class="container thread-show fr-view">
   <div class="row thread-posts-row">
     <div class="thread-post">
       <div class="col-xs-12 col-md-12 col-lg-12 thread-col">
@@ -22,7 +22,7 @@
           </div>
         
           <div class="description" itemprop="text">
-            <%= @new_thread.description %>
+            <%= @new_thread.description.html_safe %>
           </div>
 
           <div class="thread-foot">
