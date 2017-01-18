@@ -88,4 +88,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'letter_opener'
   gem 'factory_girl_rails'
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem 'coveralls', require: false
 end

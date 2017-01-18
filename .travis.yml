@@ -3,6 +3,9 @@ cache: bundler
 sudo: false
 rvm:
   - 2.2.0
+addons:
+  code_climate:
+    repo_token: ac51fc0a1f96a2465e1d6391c22f443fd9965f441793d9facd130e4be870ffe1
 before_script:
   - cp config/database.yml.example config/database.yml
   - cp config/secrets.yml.example config/secrets.yml
@@ -11,3 +14,5 @@ before_script:
 script:
   - RAILS_ENV=test xvfb-run bundle exec rspec
   - bundle exec rubocop --config .rubocop.yml
+after_success:
+  - bundle exec codeclimate-test-reporter
