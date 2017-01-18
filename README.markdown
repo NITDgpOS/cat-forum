@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/NIT-dgp/cat-forum.svg?branch=github_master)](https://travis-ci.org/NIT-dgp/cat-forum)
+[![Code Climate](https://codeclimate.com/github/NIT-dgp/cat-forum/badges/gpa.svg)](https://codeclimate.com/github/NIT-dgp/cat-forum)
+[![Test Coverage](https://codeclimate.com/github/NIT-dgp/cat-forum/badges/coverage.svg)](https://codeclimate.com/github/NIT-dgp/cat-forum/coverage)
+[![Coverage Status](https://coveralls.io/repos/github/NIT-dgp/cat-forum/badge.svg?branch=github_master)](https://coveralls.io/github/NIT-dgp/cat-forum?branch=github_master)
 
 # CAT FORUM
 CAT forum is the content management system of MNTC's CAT Forum, a web forum for CAT preparations. We use  heroku for deployment.
