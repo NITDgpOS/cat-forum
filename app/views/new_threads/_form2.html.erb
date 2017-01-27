@@ -19,7 +19,12 @@
   <div class='form-group'>
     <div class='col-xs-12'><%= f.text_area :description, rows: '20', class: 'form-control', id: 'edit' %></div>
   </div>
-  
+
+<div class="form-group">
+  <%= f.label :tag_list, "Tags (separated by commas)" , class: 'col-xs-2 control-label'%>
+  <div class='col-xs-11'><%= f.text_field :tag_list,class: 'form-control'%></div>
+</div>
+
   <%= f.hidden_field :user_id, :value => current_user.id %>
   
   <div class='form-group'>
