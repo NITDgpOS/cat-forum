@@ -26,6 +26,9 @@
           </div>
 
           <div class="thread-foot">
+              <span class="glyphicon glyphicon-tags"></span>
+             <%= @new_thread.tag_list.map {|t| link_to t,tag_path(t)}.join(', ') %>
+          </div>
 
             <% if user_signed_in? %>
               <% if @new_thread.user.id == current_user.id %>
@@ -52,8 +55,6 @@
                 <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
               <% end %>
             </div>
-
-          </div>
 
         </div>
       </div>

@@ -23,7 +23,8 @@
             </div>
 
             <div class="thread-foot">
-              <%=raw new_thread.tag_list.map {|t| link_to t,tag_path(t)}.join(', ') %>
+              <span class="glyphicon glyphicon-tags"></span>
+              <%=new_thread.tag_list.map {|t| link_to t,tag_path(t)}.join(', ') %>
             </div>
 
             <div class="thread-foot">

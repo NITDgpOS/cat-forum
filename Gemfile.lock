@@ -230,6 +230,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    selectize-rails (0.12.4)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -308,6 +309,7 @@ DEPENDENCIES
   rubocop
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
+  selectize-rails
   simplecov
   spring
   truncate_html (~> 0.9.3)
