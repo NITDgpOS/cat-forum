@@ -9,8 +9,12 @@ class NewThreadsController < ApplicationController
   end
 
   def list
-    @new_threads = NewThread.paginate(page: params[:page], per_page: 10)
-                            .order('id DESC')
+    if params[:tag]
+      @new_threads = NewThread.tagged_with(params[:tag])
+    else
+      @new_threads = NewThread.paginate(page: params[:page], per_page: 10)
+                              .order('id DESC')
+    end
   end
 
   def search
@@ -28,7 +32,7 @@ class NewThreadsController < ApplicationController
     # the request path will not match the new_thread_path, and we should do
     # a 301 redirect that uses the current friendly id.
     if request.path != new_thread_path(@new_thread)
-      return redirect_to @new_thread, status: :moved_permanently
+      redirect_to @new_thread, status: :moved_permanently
     end
   end
 
@@ -107,7 +111,8 @@ class NewThreadsController < ApplicationController
   # Never trust parameters from the scary internet,
   # only allow the white list through.
   def new_thread_params
-    params.require(:new_thread).permit(:title, :description, :user_id)
+    params.require(:new_thread).permit(:title, :description, :user_id,
+                                       :tag_list)
   end
 
   def friendly_url

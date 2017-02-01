@@ -7,7 +7,10 @@ gem 'jdbc-mysql',      '5.1.28',   :platform => :jruby
 # gem 'flying-sphinx',   '1.2.0'
 # Named scopes for PostgreSQL's full text search
 gem 'pg_search'
-
+#
+gem 'acts-as-taggable-on'
+# Implementing autocomplete
+gem "selectize-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 

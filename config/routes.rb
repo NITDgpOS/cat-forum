@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'sitemap.xml', :to => 'sitemap#index', :defaults => { :format => 'xml' }
  
-
+  get 'tags/:tag', to: 'new_threads#index', as: :tag
 
   resources :blockeds
 

@@ -23,6 +23,11 @@
             </div>
 
             <div class="thread-foot">
+              <span class="glyphicon glyphicon-tags"></span>
+              <%=new_thread.tag_list.map {|t| link_to t,tag_path(t)}.join(', ') %>
+            </div>
+
+            <div class="thread-foot">
               <div class="thread-info">
                 <%= image_tag new_thread.user.image_url(:thumb).to_s, :class => "img-circle thread-user-image" %>
                 <div class="pull-right"><p>asked by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><%= new_thread.user.username %></span></span><br />

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require selectize
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
