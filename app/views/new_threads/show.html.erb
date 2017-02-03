@@ -27,7 +27,9 @@
 
           <div class="thread-foot">
               <span class="glyphicon glyphicon-tags"></span>
-             <%= @new_thread.tag_list.map {|t| link_to t,tag_path(t)}.join(', ') %>
+              <% new_thread.tag_list.each do |tag| %>
+                <%= link_to "#{tag}", tag_path(tag), class: 'label label-primary' %>
+              <%end%>
           </div>
 
             <% if user_signed_in? %>
