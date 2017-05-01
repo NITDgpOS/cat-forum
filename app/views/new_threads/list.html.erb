@@ -22,12 +22,14 @@
               <p><%= truncate_html(new_thread.description.html_safe) %> (<%= link_to "Read more", new_thread, :class => "thread-link"%>)</p>
             </div>
 
-            <div class="thread-foot">
-              <span class="glyphicon glyphicon-tags"></span>
-              <% new_thread.tag_list.each do |tag| %>
-                <%= link_to "#{tag}", tag_path(tag), class: 'label label-primary' %>
-              <%end%>
-            </div>
+            <% if new_thread.tag_list.count > 0 %>
+              <div class="thread-foot">
+                <span class="glyphicon glyphicon-tags"></span>
+                <% new_thread.tag_list.each do |tag| %>
+                  <%= link_to "#{tag}", tag_path(tag), class: 'label label-primary' %>
+                <%end%>
+              </div>
+            <% end %>
 
             <div class="thread-foot">
               <div class="thread-info">

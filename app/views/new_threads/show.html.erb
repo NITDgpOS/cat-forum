@@ -25,13 +25,16 @@
             <%= @new_thread.description.html_safe %>
           </div>
 
-          <div class="thread-foot">
+          <% if @new_thread.tag_list.count > 0 %>
+            <div class="thread-foot">
               <span class="glyphicon glyphicon-tags"></span>
-              <% new_thread.tag_list.each do |tag| %>
+              <% @new_thread.tag_list.each do |tag| %>
                 <%= link_to "#{tag}", tag_path(tag), class: 'label label-primary' %>
               <%end%>
-          </div>
+            </div>
+          <% end %>
 
+          <div class="thread-foot">
             <% if user_signed_in? %>
               <% if @new_thread.user.id == current_user.id %>
                 <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_new_thread_path, :class => 'thread-link edit-post btn btn-default'%>
@@ -57,6 +60,7 @@
                 <%= render :partial => "new_thread_flags/new_thread_flag", :locals => {:new_thread_id => @new_thread.id} %>
               <% end %>
             </div>
+          </div>
 
         </div>
       </div>
