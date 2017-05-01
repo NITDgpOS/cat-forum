@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   resources :dislike_count_replies, :only => [:create]
 
-  devise_for :users, :controllers => {:registrations => "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   devise_for :admins
 
   get 'replies/:id/delete' => 'replies#delete'
