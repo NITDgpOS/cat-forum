@@ -2,6 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/NIT-dgp/cat-forum/badges/gpa.svg)](https://codeclimate.com/github/NIT-dgp/cat-forum)
 [![Test Coverage](https://codeclimate.com/github/NIT-dgp/cat-forum/badges/coverage.svg)](https://codeclimate.com/github/NIT-dgp/cat-forum/coverage)
 [![Coverage Status](https://coveralls.io/repos/github/NIT-dgp/cat-forum/badge.svg?branch=github_master)](https://coveralls.io/github/NIT-dgp/cat-forum?branch=github_master)
+[![Gitter](https://badges.gitter.im/NIT-dgp/chat.png/)](https://gitter.im/NIT-dgp/General)
 
 # CAT FORUM
 CAT forum is the content management system of MNTC's CAT Forum, a web forum for CAT preparations. We use  heroku for deployment.
@@ -68,6 +69,9 @@ We use Rubocop for code analyzing and lint-checking for Ruby. It follows the [Ru
 
 ## Contributing
 We welcome contributions, and are especially interested in welcoming first time contributors. Read more about how to contribute in our [Contribution Guidelines](https://github.com/NIT-dgp/cat-forum/blob/github_master/CONTRIBUTING.md).
+
+## Contact Us
+We talk on [Gitter](https://gitter.im/NIT-dgp/General). Or you can contact us with the e-mails on the contributor's profile.
 
 ## License
 CAT-Forum is is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
