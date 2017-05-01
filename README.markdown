@@ -16,6 +16,9 @@ It is written in Ruby on Rails and uses Bootstrap for UI design. We use `haml` a
 * User login and authentication using `devise` gem and facebook login using `omniauth-facebook`
 * A loose search interface using the `pg_search` gem.
 
+## !! Important !!
+We have recently changed our default branch to `master` which was `github_master` previously. Please update your repo to reflect the same. All stable changes will be merged to the `master` henceforth.
+
 ## Prerequisites
 
 ### Ruby
